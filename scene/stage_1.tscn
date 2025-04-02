@@ -1,0 +1,59 @@
+[gd_scene load_steps=9 format=3 uid="uid://b660raxknhu75"]
+
+[ext_resource type="PackedScene" uid="uid://dan2jb8oqxnqh" path="res://scene/planes/player_orange.tscn" id="1_7hw4d"]
+[ext_resource type="Script" path="res://scripts/stages/stage_1.gd" id="1_gjdnm"]
+[ext_resource type="Script" path="res://scripts/parallax_background.gd" id="1_pjjte"]
+[ext_resource type="Texture2D" uid="uid://bljxidyggvjbg" path="res://assets/img/bg/blue_sky.png" id="3_dcry3"]
+[ext_resource type="Texture2D" uid="uid://btly05inuv7yq" path="res://assets/img/bg/small_cloud1.png" id="4_ycye5"]
+[ext_resource type="Texture2D" uid="uid://byap2ynlq8jq6" path="res://assets/img/bg/small_cloud2.png" id="5_vk3a7"]
+[ext_resource type="Texture2D" uid="uid://b2bk5p160ey3l" path="res://assets/img/bg/big_cloud.png" id="6_1nqo5"]
+[ext_resource type="AudioStream" uid="uid://dafwb5vxohh1m" path="res://assets/music/knight_go.mp3" id="8_0hhqb"]
+
+[node name="stage1" type="Node2D"]
+script = ExtResource("1_gjdnm")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+script = ExtResource("1_pjjte")
+
+[node name="ParallaxLayer_bottom" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer_bottom"]
+position = Vector2(577, 335)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("3_dcry3")
+
+[node name="ParallaxLayer_middle" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.4, 0.4)
+motion_mirroring = Vector2(1200, 0)
+
+[node name="big_cloud" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer_middle"]
+position = Vector2(1109, 452)
+scale = Vector2(2, 2)
+texture = ExtResource("6_1nqo5")
+region_enabled = true
+region_rect = Rect2(0, 0, 1024, 496.791)
+
+[node name="ParallaxLayer_top" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.8, 0.8)
+motion_mirroring = Vector2(1200, 0)
+
+[node name="small_cloud1" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer_top"]
+position = Vector2(319, 169)
+scale = Vector2(2, 2)
+texture = ExtResource("4_ycye5")
+region_rect = Rect2(253.01, 739.071, 756.082, 179.622)
+
+[node name="small_cloud2" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer_top"]
+position = Vector2(805, 280)
+scale = Vector2(2, 2)
+texture = ExtResource("5_vk3a7")
+region_rect = Rect2(253.01, 739.071, 756.082, 179.622)
+
+[node name="Player1" parent="." instance=ExtResource("1_7hw4d")]
+position = Vector2(215, 110)
+
+[node name="bgm" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_0hhqb")
+volume_db = -5.0
+autoplay = true

@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://dan2jb8oqxnqh"]
+
+[ext_resource type="Script" path="res://scripts/planes/player_orange.gd" id="1_bs04d"]
+[ext_resource type="Texture2D" uid="uid://bi2fwijh6xkw" path="res://assets/planes/player_orange_one.png" id="1_idsrs"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_604bt"]
+size = Vector2(167, 20)
+
+[node name="PlayerOrangeOne" type="Area2D"]
+script = ExtResource("1_bs04d")
+
+[node name="PlayerOrangeOne" type="Sprite2D" parent="."]
+position = Vector2(0, 1)
+texture = ExtResource("1_idsrs")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 12)
+shape = SubResource("RectangleShape2D_604bt")

@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://dvu1org8o1th5"]
+
+[ext_resource type="PackedScene" uid="uid://bmxa75rbv52mk" path="res://scene/planes/base_enemy.tscn" id="1_tpb5f"]
+[ext_resource type="Script" path="res://scripts/planes/enemy_support.gd" id="2_2kd3a"]
+[ext_resource type="Texture2D" uid="uid://bxx0w0itbp384" path="res://assets/img/planes/enemy_support.png" id="2_3o2o4"]
+[ext_resource type="PackedScene" uid="uid://d3um0f21y2d7u" path="res://scene/items/power.tscn" id="3_hqiox"]
+
+[node name="enemy_support" instance=ExtResource("1_tpb5f")]
+script = ExtResource("2_2kd3a")
+stop_position_x = 1000
+stop_duration = 3.0
+power_item_scene = ExtResource("3_hqiox")
+hp = 18
+
+[node name="enemy_body" parent="." index="0"]
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("2_3o2o4")
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(-22, 13)

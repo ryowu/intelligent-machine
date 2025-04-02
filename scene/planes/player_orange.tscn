@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://dan2jb8oqxnqh"]
+
+[ext_resource type="Script" path="res://scripts/planes/player_orange.gd" id="1_bs04d"]
+[ext_resource type="Texture2D" uid="uid://bi2fwijh6xkw" path="res://assets/img/planes/player_orange_one.png" id="1_idsrs"]
+[ext_resource type="AudioStream" uid="uid://b8ofbk4sqmdvc" path="res://assets/sound/player_gunshot.mp3" id="3_srjh2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_604bt"]
+size = Vector2(167, 20)
+
+[node name="PlayerOrangeOne" type="Area2D" groups=["player"]]
+z_index = 10
+scale = Vector2(0.8, 0.8)
+script = ExtResource("1_bs04d")
+
+[node name="PlayerOrangeOne" type="Sprite2D" parent="."]
+position = Vector2(0, 1)
+texture = ExtResource("1_idsrs")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 12)
+shape = SubResource("RectangleShape2D_604bt")
+
+[node name="shot" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_srjh2")
+volume_db = -10.0

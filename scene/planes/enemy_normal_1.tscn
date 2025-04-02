@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://ckeajbjqoj4te"]
+
+[ext_resource type="PackedScene" uid="uid://bmxa75rbv52mk" path="res://scene/planes/base_enemy.tscn" id="1_fer35"]
+[ext_resource type="Texture2D" uid="uid://cbrmuo8fioj22" path="res://assets/img/planes/enemy_1.png" id="2_kjgck"]
+
+[node name="enemy_normal_1" instance=ExtResource("1_fer35")]
+speed = 260
+hp = 1
+
+[node name="enemy_body" parent="." index="0"]
+texture = ExtResource("2_kjgck")
