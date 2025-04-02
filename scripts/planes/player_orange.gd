@@ -74,3 +74,6 @@ func increase_power(power_increase: int):
 	# Cap the power level at 4
 	if power_level > 4:
 		power_level = 4
+		
+func die():
+	pass
