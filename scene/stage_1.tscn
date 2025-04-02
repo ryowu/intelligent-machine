@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://btly05inuv7yq" path="res://assets/img/bg/small_cloud1.png" id="4_ycye5"]
 [ext_resource type="Texture2D" uid="uid://byap2ynlq8jq6" path="res://assets/img/bg/small_cloud2.png" id="5_vk3a7"]
 [ext_resource type="Texture2D" uid="uid://b2bk5p160ey3l" path="res://assets/img/bg/big_cloud.png" id="6_1nqo5"]
-[ext_resource type="AudioStream" uid="uid://dafwb5vxohh1m" path="res://assets/music/knight_go.mp3" id="8_0hhqb"]
+[ext_resource type="AudioStream" uid="uid://dp2kvhq4fa5yh" path="res://assets/music/bgm_elec_1.mp3" id="8_6mcw6"]
 [ext_resource type="Script" path="res://scripts/sys/spawner.gd" id="9_ee41g"]
 
 [node name="stage1" type="Node2D"]
@@ -55,8 +55,7 @@ region_rect = Rect2(253.01, 739.071, 756.082, 179.622)
 position = Vector2(215, 110)
 
 [node name="bgm" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("8_0hhqb")
-volume_db = -5.0
+stream = ExtResource("8_6mcw6")
 autoplay = true
 
 [node name="spawner" type="Node2D" parent="."]
