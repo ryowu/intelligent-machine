@@ -5,8 +5,8 @@ extends Node2D
 @export var oscillation_amplitude = 20  # How far up and down the item will move
 @export var oscillation_speed = 2  # How fast the item moves up and down
 
-@onready var collision: CollisionShape2D = $CollisionShape2D
 @onready var sprite: Sprite2D = $Sprite2D  # Assuming the item has a Sprite2D node
+@onready var collision: CollisionShape2D = $item_area/CollisionShape2D
 
 var original_y_position: float
 
