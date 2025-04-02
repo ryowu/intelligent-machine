@@ -7,14 +7,18 @@ extends Node2D
 
 @onready var sprite: Sprite2D = $Sprite2D  # Assuming the item has a Sprite2D node
 @onready var collision: CollisionShape2D = $item_area/CollisionShape2D
+@onready var pick_audio: AudioStreamPlayer2D = $pick_audio
 
 var original_y_position: float
+var picked = false
 
 func _ready():
 	visible = true  # Make sure the item is initially visible
 	original_y_position = position.y  # Store the original Y position for oscillation
 
 func _process(delta: float) -> void:
+	if picked:
+		return
 	# Move the item to the left
 	position.x -= move_speed * delta
 	
@@ -26,6 +30,9 @@ func _process(delta: float) -> void:
 		queue_free()  # Free the item if it is no longer visible
 
 func _on_item_area_area_entered(area: Area2D) -> void:
-	if area.is_in_group("player"):
+	if area.is_in_group("player") and !picked:
+		visible = false
+		pick_audio.play()
 		area.increase_power(power_increase)
+		await pick_audio.finished
 		queue_free()  # Remove the item when it is picked up
