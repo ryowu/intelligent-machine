@@ -30,7 +30,7 @@ func shoot_fireball():
 	get_parent().add_child(fireball)
 
 	# Apply a velocity to the fireball to move it to the left
-	var direction = Vector2(-1, 0) # Direction to the left
+	#var direction = Vector2(-1, 0) # Direction to the left
 
 func _physics_process(delta):
 	# Ensure the enemy continues to move to the left like the base class

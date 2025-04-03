@@ -31,6 +31,7 @@ func _process(delta: float) -> void:
 
 func _on_item_area_area_entered(area: Area2D) -> void:
 	if area.is_in_group("player") and !picked:
+		picked = true
 		visible = false
 		pick_audio.play()
 		area.increase_power(power_increase)

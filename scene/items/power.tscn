@@ -3,9 +3,9 @@
 [ext_resource type="PackedScene" uid="uid://dediss8ds87e7" path="res://scene/items/base_pickable_item.tscn" id="1_1wenf"]
 [ext_resource type="Script" path="res://scripts/items/power.gd" id="2_ixigv"]
 [ext_resource type="Texture2D" uid="uid://ddmfm7pj5ciyr" path="res://assets/img/items/power_item.png" id="2_katk5"]
-[ext_resource type="AudioStream" uid="uid://d0glbqtey5vor" path="res://assets/sound/pick_item.mp3" id="4_dvmnj"]
+[ext_resource type="AudioStream" uid="uid://tppixd5o4jy3" path="res://assets/sound/power_up.mp3" id="4_67c5m"]
 
-[node name="power" instance=ExtResource("1_1wenf")]
+[node name="power" groups=["items"] instance=ExtResource("1_1wenf")]
 scale = Vector2(0.6, 0.6)
 script = ExtResource("2_ixigv")
 
@@ -19,6 +19,6 @@ collision_layer = 16
 position = Vector2(-1, 2)
 
 [node name="pick_audio" type="AudioStreamPlayer2D" parent="." index="2"]
-stream = ExtResource("4_dvmnj")
+stream = ExtResource("4_67c5m")
 
 [connection signal="area_entered" from="item_area" to="." method="_on_item_area_area_entered"]

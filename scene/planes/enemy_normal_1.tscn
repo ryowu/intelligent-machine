@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cbrmuo8fioj22" path="res://assets/img/planes/enemy_1.png" id="2_kjgck"]
 
 [node name="enemy_normal_1" instance=ExtResource("1_fer35")]
-speed = 260
+speed = 300
 hp = 1
 
 [node name="enemy_body" parent="." index="0"]
