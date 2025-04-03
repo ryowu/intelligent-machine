@@ -13,6 +13,7 @@ stop_duration = 3.0
 power_item_scene = ExtResource("3_hqiox")
 fireball_scene = ExtResource("4_6j172")
 hp = 18
+score = 300
 
 [node name="enemy_body" parent="." index="0"]
 scale = Vector2(0.6, 0.6)

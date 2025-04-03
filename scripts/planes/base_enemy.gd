@@ -2,6 +2,7 @@ extends Area2D
 
 @export var speed = 220
 @export var hp = 3
+@export var score = 100
 @onready var explosion: AnimatedSprite2D = $explosion
 @onready var collision: CollisionShape2D = $CollisionShape2D
 @onready var enemy_body: Sprite2D = $enemy_body
@@ -25,9 +26,9 @@ func _on_area_entered(area):
 		area.queue_free()  # Remove bullet
 		if hp <= 0:  # If HP reaches zero, play explosion
 			dying = true
+			GlobalManager.add_score(score)
 			play_explosion()
 
-# Function to play explosion and disable the enemy
 func play_explosion():
 	explosion.visible = true
 	explode_audio.play()

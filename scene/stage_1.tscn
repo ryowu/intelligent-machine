@@ -12,8 +12,6 @@
 
 [node name="stage1" type="Node2D"]
 script = ExtResource("1_gjdnm")
-spawn_rate = null
-spawn_y_range = null
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 script = ExtResource("1_pjjte")
@@ -62,3 +60,24 @@ autoplay = true
 
 [node name="spawner" type="Node2D" parent="."]
 script = ExtResource("9_ee41g")
+
+[node name="ui_panel" type="Control" parent="."]
+z_index = 99
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 300.0
+offset_bottom = 400.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="lbl_score" type="Label" parent="ui_panel"]
+layout_mode = 0
+offset_left = 34.0
+offset_top = 10.0
+offset_right = 338.0
+offset_bottom = 51.0
+theme_override_colors/font_color = Color(0.0666667, 0.0666667, 0.0666667, 1)
+theme_override_font_sizes/font_size = 26
+text = "SCORE: 0"

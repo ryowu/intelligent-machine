@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bhyyy2h3n5e4b"]
+
+[ext_resource type="Script" path="res://scripts/sys/global.gd" id="1_7okat"]
+
+[node name="global" type="Node2D"]
+script = ExtResource("1_7okat")
