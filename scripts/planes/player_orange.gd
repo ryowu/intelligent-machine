@@ -30,8 +30,8 @@ func _physics_process(delta):
 
 	# Keep the plane inside the screen bounds
 	var viewport_rect = get_viewport().get_visible_rect()
-	position.x = clamp(position.x, 0, viewport_rect.size.x)
-	position.y = clamp(position.y, 0, viewport_rect.size.y)
+	position.x = clamp(position.x, 80, viewport_rect.size.x - 80)
+	position.y = clamp(position.y, 16, viewport_rect.size.y - 28)
 
 	# Fire bullets when the accept button is pressed
 	if Input.is_action_just_pressed("ui_accept"):
