@@ -38,7 +38,7 @@ func play_explosion():
 	call_deferred("_disable_enemy")
 
 	# Spawn 2 to 3 coins randomly around the enemy's position
-	spawn_coins()
+	call_deferred("spawn_coins")
 
 	# Queue the enemy for removal after the explosion animation finishes
 	await explosion.animation_finished

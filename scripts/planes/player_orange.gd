@@ -38,42 +38,46 @@ func _physics_process(delta):
 		fire_bullets()
 
 func fire_bullets():
-	# Define bullet offsets and angles based on power level
 	var angles = []
-	var bullet_offset = Vector2(60, 18)  # Adjust based on your plane's size
+	var bullet_offset = Vector2(60, 15)
 
-	# Adjust the number and direction of bullets based on power level
 	if power_level == 1:
 		angles = [0]
 
 	elif power_level == 2:
-		# Power level 2: Shoot 3 bullets, one 10 degrees up, one straight, one 10 degrees down
-		angles = [-10, 0, 10]  # Three different angles
-
+		var bullet1 = build_bullet()
+		bullet1.position = position + bullet_offset + Vector2(0, -4)
+		var bullet2 = build_bullet()
+		bullet2.position = position + bullet_offset + Vector2(0, 4)
+		
 	elif power_level == 3:
-		# Power level 3: Shoot 5 bullets spread
-		angles = [-20, -10, 0, 10, 20]  # Spread bullets across a range of angles
+		angles = [-10, 0, 10]
 
-	# Create bullets with the respective angles and positions
+	elif power_level == 4:
+		var bullet1 = build_bullet()
+		bullet1.position = position + bullet_offset + Vector2(0, -4)
+		var bullet2 = build_bullet()
+		bullet2.position = position + bullet_offset + Vector2(0, 4)
+		angles = [-10, 10]
+
 	for angle in angles:
-		var bullet = BULLET_SCENE.instantiate()
-		get_parent().add_child(bullet)
-
-		# Offset bullet to the right-bottom of the plane
+		var bullet = build_bullet()
 		bullet.position = position + bullet_offset
-
-		# Set the direction of the bullet based on the angle
-		var direction = Vector2(1, 0).rotated(deg_to_rad(angle))  # Rotate the direction vector by the angle
-		bullet.direction = direction.normalized()  # Apply direction to the bullet's movement
-
-	# Optionally, play shot sound (you can uncomment this if you want sound)
+		var direction = Vector2(1, 0).rotated(deg_to_rad(angle))
+		bullet.direction = direction.normalized()
 	# shot_audio.play()
+
+func build_bullet():
+	var bullet = BULLET_SCENE.instantiate()
+	get_parent().add_child(bullet)
+	return bullet
 
 func increase_power(power_increase: int):
 	power_level += power_increase
 	# Cap the power level at 4
 	if power_level > 4:
 		power_level = 4
+		GlobalManager.add_score(500)
 		
 func die():
 	pass

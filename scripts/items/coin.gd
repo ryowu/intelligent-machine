@@ -6,7 +6,6 @@ extends Area2D
 
 @onready var collision: CollisionShape2D = $CollisionShape2D
 @onready var pick_audio: AudioStreamPlayer2D = $pick_audio
-@onready var sprite: Sprite2D = $Sprite  # Reference to Sprite2D node (replace with correct node if needed)
 
 var original_y_position: float
 var picked = false

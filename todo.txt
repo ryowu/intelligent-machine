@@ -1,0 +1,2 @@
+吸引金币的collision
+player bullet angle smaller
