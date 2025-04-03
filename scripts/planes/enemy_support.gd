@@ -1,7 +1,7 @@
 extends "res://scripts/planes/base_enemy.gd"
 
 @export var stop_position_x = 1000  # X position where the enemy stops
-@export var stop_duration = 3.0  # Time to stop in seconds
+@export var stop_duration = 2.0  # Time to stop in seconds
 @export var power_item_scene = preload("res://scene/items/power.tscn")
 @export var fireball_scene = preload("res://scene/planes/enemy_fireball_sm.tscn")  # Fireball scene
 
