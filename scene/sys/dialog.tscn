@@ -78,10 +78,9 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_joo64")
 
 [node name="Sprite2D" type="Sprite2D" parent="Panel"]
 position = Vector2(98, 96)
-scale = Vector2(0.3, 0.3)
 texture = ExtResource("1_cegef")
 region_enabled = true
-region_rect = Rect2(0, 0, 550.892, 535.737)
+region_rect = Rect2(0, 0, 166.036, 163.229)
 
 [node name="lbl_bg" type="Label" parent="Panel"]
 layout_mode = 2

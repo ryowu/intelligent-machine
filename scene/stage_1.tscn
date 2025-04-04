@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://b660raxknhu75"]
+[gd_scene load_steps=11 format=3 uid="uid://b660raxknhu75"]
 
 [ext_resource type="PackedScene" uid="uid://dan2jb8oqxnqh" path="res://scene/planes/player_orange.tscn" id="1_7hw4d"]
 [ext_resource type="Script" path="res://scripts/stages/stage_1.gd" id="1_gjdnm"]
@@ -7,8 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://btly05inuv7yq" path="res://assets/img/bg/small_cloud1.png" id="4_ycye5"]
 [ext_resource type="Texture2D" uid="uid://byap2ynlq8jq6" path="res://assets/img/bg/small_cloud2.png" id="5_vk3a7"]
 [ext_resource type="Texture2D" uid="uid://b2bk5p160ey3l" path="res://assets/img/bg/big_cloud.png" id="6_1nqo5"]
-[ext_resource type="AudioStream" uid="uid://dp2kvhq4fa5yh" path="res://assets/music/bgm_elec_1.mp3" id="8_6mcw6"]
-[ext_resource type="Script" path="res://scripts/sys/spawner.gd" id="9_ee41g"]
+[ext_resource type="Script" path="res://scripts/sys/scheduler.gd" id="9_ee41g"]
 [ext_resource type="FontFile" uid="uid://ekl3xm8ww2b1" path="res://assets/font/NotoSerifSC-Black.ttf" id="10_k7scm"]
 [ext_resource type="PackedScene" uid="uid://b6nxmwq82nulr" path="res://scene/sys/dialog.tscn" id="11_qriac"]
 
@@ -56,11 +55,7 @@ region_rect = Rect2(253.01, 739.071, 756.082, 179.622)
 [node name="Player1" parent="." instance=ExtResource("1_7hw4d")]
 position = Vector2(215, 110)
 
-[node name="bgm" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("8_6mcw6")
-autoplay = true
-
-[node name="spawner" type="Node2D" parent="."]
+[node name="scheduler" type="Node2D" parent="."]
 script = ExtResource("9_ee41g")
 enemy_schedule_path = "res://data/enemy_schedule_1.csv"
 
@@ -92,3 +87,5 @@ offset_left = 576.0
 offset_top = 533.0
 offset_right = 576.0
 offset_bottom = 533.0
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]

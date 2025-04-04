@@ -1,0 +1,79 @@
+[gd_scene load_steps=9 format=3 uid="uid://cv6roshbt5ieh"]
+
+[ext_resource type="Script" path="res://scripts/boss/defender_normal.gd" id="1_l5rea"]
+[ext_resource type="Texture2D" uid="uid://co018vdt8llkx" path="res://assets/img/boss/defender_normal/defender_normal_idle.png" id="1_tv3hd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h24fd"]
+atlas = ExtResource("1_tv3hd")
+region = Rect2(0, 0, 195, 195)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_t6gkc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h24fd")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_psaoy"]
+radius = 55.0
+height = 156.0
+
+[sub_resource type="Animation" id="Animation_f11lx"]
+resource_name = "enter_field"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1300, 350), Vector2(1000, 350)]
+}
+
+[sub_resource type="Animation" id="Animation_ii7f6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1300, 350)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_n4qjt"]
+_data = {
+"RESET": SubResource("Animation_ii7f6"),
+"enter_field": SubResource("Animation_f11lx")
+}
+
+[node name="defender_normal" type="Node2D" groups=["enemy"]]
+z_index = 9
+position = Vector2(1300, 350)
+script = ExtResource("1_l5rea")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_t6gkc")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-6, 8)
+shape = SubResource("CapsuleShape2D_psaoy")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_n4qjt")
+}

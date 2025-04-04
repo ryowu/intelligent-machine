@@ -1,16 +1,12 @@
 extends Control
 
-@export var talking_script: Array = [
-	{"sentence": "前方大批敌人出现，请做好出击准备", "voice_path": "res://assets/voice/stage1/stage1_1.mp3"},
-	{"sentence": "记得使用副武器，它可以提供有效的帮助", "voice_path": "res://assets/voice/stage1/stage1_2.mp3"},
-	{"sentence": "最后一定要安全回来哦", "voice_path": "res://assets/voice/stage1/stage1_3.mp3"}
-]
-
 @onready var lbl_text: Label = $Panel/lbl_bg
+var dialog_script = load("res://scripts/sys/talking_scripts.gd") as Script
+var script_instance = dialog_script.new()
 var current_sentence_index: int = 0
 var is_talking: bool = false
 var audio_player: AudioStreamPlayer
-
+var talking_script: Array = []
 signal dialog_ended
 
 func _ready():
@@ -23,11 +19,15 @@ func _process(_delta):
 	if is_talking and Input.is_action_just_pressed("ui_accept"):
 		show_next_sentence()
 
-func start_dialog():
-	visible = true
-	is_talking = true
-	current_sentence_index = 0
-	show_next_sentence()
+func start_dialog(dialog_name: String):
+	if dialog_script:
+		var script_variable = script_instance.get(dialog_name)
+		if typeof(script_variable) == TYPE_ARRAY:
+			talking_script = script_variable
+			visible = true
+			is_talking = true
+			current_sentence_index = 0
+			show_next_sentence()
 
 func stop_dialog():
 	audio_player.stop()
