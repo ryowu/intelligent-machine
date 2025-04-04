@@ -2,11 +2,11 @@ extends Area2D
 
 @export var speed = 200  # Adjust speed as needed
 @onready var shot_audio: AudioStreamPlayer2D = $shot
+var suspending = false
 const BULLET_SCENE = preload("res://scene/planes/bullet.tscn")  # Preload bullet scene
 
 # Player's spawn position (can be adjusted to suit your needs)
 var spawn_position = Vector2(400, 300)  # Example position, adjust as needed
-
 var power_level = 1
 
 func _ready():
@@ -14,6 +14,8 @@ func _ready():
 	position = spawn_position
 
 func _physics_process(delta):
+	if suspending:
+		return
 	var velocity = Vector2.ZERO
 
 	if Input.is_action_pressed("ui_right"):

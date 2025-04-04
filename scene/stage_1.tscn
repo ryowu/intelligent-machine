@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://b660raxknhu75"]
+[gd_scene load_steps=12 format=3 uid="uid://b660raxknhu75"]
 
 [ext_resource type="PackedScene" uid="uid://dan2jb8oqxnqh" path="res://scene/planes/player_orange.tscn" id="1_7hw4d"]
 [ext_resource type="Script" path="res://scripts/stages/stage_1.gd" id="1_gjdnm"]
@@ -10,6 +10,7 @@
 [ext_resource type="AudioStream" uid="uid://dp2kvhq4fa5yh" path="res://assets/music/bgm_elec_1.mp3" id="8_6mcw6"]
 [ext_resource type="Script" path="res://scripts/sys/spawner.gd" id="9_ee41g"]
 [ext_resource type="FontFile" uid="uid://ekl3xm8ww2b1" path="res://assets/font/NotoSerifSC-Black.ttf" id="10_k7scm"]
+[ext_resource type="PackedScene" uid="uid://b6nxmwq82nulr" path="res://scene/sys/dialog.tscn" id="11_qriac"]
 
 [node name="stage1" type="Node2D"]
 script = ExtResource("1_gjdnm")
@@ -85,3 +86,9 @@ theme_override_colors/font_shadow_color = Color(0.147672, 0.147672, 0.147672, 1)
 theme_override_fonts/font = ExtResource("10_k7scm")
 theme_override_font_sizes/font_size = 20
 text = "分数: 0"
+
+[node name="dialog" parent="." instance=ExtResource("11_qriac")]
+offset_left = 576.0
+offset_top = 533.0
+offset_right = 576.0
+offset_bottom = 533.0
