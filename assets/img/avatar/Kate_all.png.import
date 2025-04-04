@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://j88o1ly1n437"
-path="res://.godot/imported/Kate.png-a2d3ccc07553d66a12fdf585369f5a46.ctex"
+uid="uid://btasmfdfhq83r"
+path="res://.godot/imported/Kate_all.png-3756670391f5529aa8dcd02258f62b16.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/img/avatar/Kate.png"
-dest_files=["res://.godot/imported/Kate.png-a2d3ccc07553d66a12fdf585369f5a46.ctex"]
+source_file="res://assets/img/avatar/Kate_all.png"
+dest_files=["res://.godot/imported/Kate_all.png-3756670391f5529aa8dcd02258f62b16.ctex"]
 
 [params]
 

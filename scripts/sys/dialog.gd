@@ -1,5 +1,5 @@
 extends Control
-
+@onready var char_avatar: Sprite2D = $Panel/char_avatar
 @onready var lbl_text: Label = $Panel/lbl_bg
 var dialog_script = load("res://scripts/sys/talking_scripts.gd") as Script
 var script_instance = dialog_script.new()
@@ -43,12 +43,20 @@ func show_next_sentence():
 		wait_for_ui_accept_to_close()
 
 	if current_sentence_index < talking_script.size():
+		var char_name = talking_script[current_sentence_index]["char"]
 		lbl_text.text = talking_script[current_sentence_index]["sentence"]
 		play_voice(talking_script[current_sentence_index]["voice_path"])
+		update_avatar(char_name)
 		current_sentence_index += 1
 	else:
 		is_talking = false
 		lbl_text.text = "Press to close the dialog."
+
+func update_avatar(char_name: String):
+	var avatar_path = "res://assets/img/avatar/%s.png" % char_name
+	var avatar_texture = load(avatar_path) as Texture2D
+	if avatar_texture:
+		char_avatar.texture = avatar_texture
 
 func play_voice(voice_path: String):
 	var audio_stream = load(voice_path)

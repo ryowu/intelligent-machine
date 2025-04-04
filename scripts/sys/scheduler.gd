@@ -85,7 +85,7 @@ func load_schedule_from_csv():
 		return
 	var content = file.get_as_text()
 	file.close()
-	var lines = content.split("\r\n", false)
+	var lines = content.split("\n", false)
 	for line in lines:
 		if line.is_empty() or line.begins_with("#"):
 			continue

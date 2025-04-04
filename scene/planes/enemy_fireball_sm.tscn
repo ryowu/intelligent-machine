@@ -6,7 +6,8 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_uojl8"]
 radius = 9.0
 
-[node name="enemy_fireball_sm" type="Area2D"]
+[node name="enemy_fireball_sm" type="Area2D" groups=["enemy_bullet"]]
+scale = Vector2(0.8, 0.8)
 collision_layer = 8
 script = ExtResource("1_cwlnc")
 

@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://b6nxmwq82nulr"]
 
 [ext_resource type="Script" path="res://scripts/sys/dialog.gd" id="1_3s4gw"]
-[ext_resource type="Texture2D" uid="uid://btasmfdfhq83r" path="res://assets/img/avatar/Kate.png" id="1_cegef"]
+[ext_resource type="Texture2D" uid="uid://j88o1ly1n437" path="res://assets/img/avatar/Kate.png" id="1_cegef"]
 [ext_resource type="FontFile" uid="uid://cxjka85katcg8" path="res://assets/font/NotoSerifSC-Light.ttf" id="3_ephxo"]
 [ext_resource type="Texture2D" uid="uid://u1m1g20aafcd" path="res://assets/img/misc/little_triangle.png" id="4_yp1gs"]
 
@@ -16,6 +16,21 @@ corner_radius_top_left = 3
 corner_radius_top_right = 3
 corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
+
+[sub_resource type="Animation" id="Animation_tt4n5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel/triangle:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_oyps8"]
 resource_name = "flash"
@@ -32,21 +47,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [true, false, true]
-}
-
-[sub_resource type="Animation" id="Animation_tt4n5"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Panel/triangle:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_e8pbl"]
@@ -76,7 +76,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_joo64")
 
-[node name="Sprite2D" type="Sprite2D" parent="Panel"]
+[node name="char_avatar" type="Sprite2D" parent="Panel"]
 position = Vector2(98, 96)
 texture = ExtResource("1_cegef")
 region_enabled = true

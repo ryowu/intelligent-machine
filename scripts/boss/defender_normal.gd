@@ -7,10 +7,12 @@ var current_phase = BossPhase.PHASE1
 @onready var shooting_timer: Timer = $ShootingTimer
 @onready var player: Area2D = get_node("/root/stage1/Player1")
 
-@export var max_health: int = 100
+@export var max_health: int = 1000
 var hp_bar: ProgressBar = null
 var health: int = max_health
 var dying = false
+
+var even_counter = 0
 
 var fireball_scene: PackedScene = preload("res://scene/planes/enemy_fireball_sm.tscn")
 
@@ -22,61 +24,106 @@ func _ready():
 	await animation_player.animation_finished
 	shooting_timer.timeout.connect(_on_shooting_timer_timeout)
 
+func get_even_counter() -> int:
+	even_counter += 1
+	if even_counter > 1:
+		even_counter = 0
+	return even_counter
+
 func start_phase(phase):
 	current_phase = phase
+	even_counter = 0
 	match phase:
 		BossPhase.PHASE1:
 			animated_sprite_2d.play("idle")
-			shooting_timer.start(1.2)
+			shooting_timer.start(1)
 		BossPhase.PHASE2:
 			animated_sprite_2d.play("shoot_normal")
-			shooting_timer.start(0.8)
+			shooting_timer.start(0.5)
 		BossPhase.PHASE3:
 			animated_sprite_2d.play("shoot_normal")
-			shooting_timer.start(0.2)
+			shooting_timer.start(0.8)
 
 func _on_shooting_timer_timeout():
 	match current_phase:
 		BossPhase.PHASE1:
 			shoot_toward_player()
 		BossPhase.PHASE2:
-			shoot_spread(3, 15)
+			shoot_spread(5, 10)
 		BossPhase.PHASE3:
-			shoot_rain(5)
+			shoot_rain(10, 7)
 
 # Shoot directly at the player
 func shoot_toward_player():
-	var fireball = fireball_scene.instantiate()
-	get_parent().add_child(fireball)
-	fireball.position = position
-	var dir = (player.global_position - fireball.position).normalized()
-	fireball.set_velocity(dir * 200)
-
-# Shoot multiple bullets in a spread pattern
-func shoot_spread(count: int, angle_step: float):
-	for i in range(count):
-		var angle = -angle_step * (count - 1) / 2 + i * angle_step
-		var dir = Vector2.LEFT.rotated(deg_to_rad(angle))
+	if get_even_counter() == 0:
 		var fireball = fireball_scene.instantiate()
 		get_parent().add_child(fireball)
 		fireball.position = position
+		fireball.speed = 400
+		var dir = (player.global_position - fireball.position).normalized()
 		fireball.set_velocity(dir * 200)
+	else:
+		for i in range(4):
+			var angle = -15 + i * 10
+			var dir2 = Vector2.LEFT.rotated(deg_to_rad(angle))
+			var fireball2 = fireball_scene.instantiate()
+			get_parent().add_child(fireball2)
+			fireball2.position = position
+			fireball2.set_velocity(dir2 * 200)
+
+# Shoot multiple bullets in a spread pattern
+func shoot_spread(count: int, angle_step: float):
+	if get_even_counter() == 0:
+		for i in range(count):
+			var angle = -angle_step * (count - 1) / 2 + i * angle_step
+			var dir = Vector2.LEFT.rotated(deg_to_rad(angle))
+			var fireball = fireball_scene.instantiate()
+			get_parent().add_child(fireball)
+			fireball.position = position
+			fireball.set_velocity(dir * 200)
+	else:
+		for i in range(count):
+			var angle = -2.0 * (count - 1) / 2 + i * angle_step
+			var dir = Vector2.LEFT.rotated(deg_to_rad(angle))
+			var fireball = fireball_scene.instantiate()
+			get_parent().add_child(fireball)
+			fireball.position = position
+			fireball.set_velocity(dir * 200)
 
 # Rain bullets vertically
-func shoot_rain(count: int):
-	for i in range(count):
-		var fireball = fireball_scene.instantiate()
-		get_parent().add_child(fireball)
-		var offset = Vector2(i * 40 - (count / 2) * 40, 0)
-		fireball.position = position + offset
-		fireball.set_velocity(Vector2.DOWN * 250)
+func shoot_rain(count, angle_step: float):
+	if get_even_counter() == 0:
+		var fireball0 = fireball_scene.instantiate()
+		get_parent().add_child(fireball0)
+		fireball0.position = position
+		fireball0.speed = 400
+		var dir0 = (player.global_position - fireball0.position).normalized()
+		fireball0.set_velocity(dir0 * 200)
+
+		for i in range(count):
+			var angle = -angle_step * (count - 1) / 2 + i * angle_step
+			var dir = Vector2.LEFT.rotated(deg_to_rad(angle))
+			var fireball = fireball_scene.instantiate()
+			get_parent().add_child(fireball)
+			fireball.position = position
+			fireball.speed = 100
+			fireball.set_velocity(dir * 200)
+	else:
+		for i in range(count):
+			var angle = -2 * (count - 1) / 2 + i * angle_step
+			var dir = Vector2.LEFT.rotated(deg_to_rad(angle))
+			var fireball = fireball_scene.instantiate()
+			get_parent().add_child(fireball)
+			fireball.position = position
+			fireball.speed = 100
+			fireball.set_velocity(dir * 200)
 
 func take_damage(amount: int):
 	health -= amount
 	hp_bar.value = health
-	if current_phase == BossPhase.PHASE1 and health <= 70:
+	if current_phase == BossPhase.PHASE1 and health <= 700:
 		start_phase(BossPhase.PHASE2)
-	elif current_phase == BossPhase.PHASE2 and health <= 30:
+	elif current_phase == BossPhase.PHASE2 and health <= 400:
 		start_phase(BossPhase.PHASE3)
 
 	if health <= 0:
@@ -87,6 +134,7 @@ func die():
 	hp_bar.visible = false
 	hp_bar = null
 	dying = true
+	clear_field()
 	on_boss_died.emit()
 	queue_free()
 
@@ -103,3 +151,7 @@ func set_hp_bar(_hp_bar: ProgressBar):
 	hp_bar.visible = true
 	hp_bar.max_value = health
 	hp_bar.min_value = 0
+
+func clear_field():
+	for bullet in get_tree().get_nodes_in_group("enemy_bullet"):
+		bullet.queue_free()
