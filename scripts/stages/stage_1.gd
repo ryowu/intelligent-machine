@@ -7,4 +7,4 @@ func _ready():
 	player_1.position = Vector2(80, 300)
 
 func update_score_label(new_score):
-	lbl_score.text = "SCORE: " + str(new_score)
+	lbl_score.text = "分数: " + str(new_score)

@@ -81,3 +81,10 @@ func increase_power(power_increase: int):
 		
 func die():
 	pass
+
+
+func _on_gold_picker_area_entered(area: Area2D) -> void:
+	if area.is_in_group("coin") and area.has_method("fly_to_player"):
+		area.fly_to_player(self)
+
+	

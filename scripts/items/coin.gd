@@ -1,41 +1,43 @@
 extends Area2D
 
 @export var move_speed = 50
-@export var oscillation_amplitude = 20
-@export var oscillation_speed = 2
-
+@export var fly_speed = 350
 @onready var collision: CollisionShape2D = $CollisionShape2D
 @onready var pick_audio: AudioStreamPlayer2D = $pick_audio
-
-var original_y_position: float
+var player_ref: Area2D = null
+var started_fly_to_player = false
 var picked = false
 
 func _ready():
 	visible = true
-	original_y_position = position.y
 
 func _process(delta: float) -> void:
 	if picked:
 		return
 
-	# Move the item to the left
-	position.x -= move_speed * delta
-	
-	# Add oscillation effect to the vertical movement
-	# position.y = original_y_position + sin(Time.get_ticks_usec() / 1000000.0 * oscillation_speed) * oscillation_amplitude
+	if started_fly_to_player and player_ref:
+		position = position.move_toward(player_ref.global_position, fly_speed * delta)
+	else:
+		position.x -= move_speed * delta
 
-	# Free the item when it is no longer visible (off-screen)
 	if position.x + 5 < 0:
+		player_ref = null
 		queue_free()
 
-# Connect this function to the signal
 func _on_area_entered(area: Area2D) -> void:
 	if area.is_in_group("player") and !picked:
-		picked = true  # Mark the item as picked so it doesn't trigger again
+		started_fly_to_player = false
+		player_ref = null
+		picked = true
 		visible = false
 		pick_audio.play()
 
-		# Add score and wait for the sound to finish before freeing the object
 		GlobalManager.add_score(10)
 		await pick_audio.finished
 		queue_free()
+		
+func fly_to_player(player: Area2D):
+	started_fly_to_player = true
+	player_ref = player
+
+	
