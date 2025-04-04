@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://b6nxmwq82nulr"]
+[gd_scene load_steps=9 format=3 uid="uid://b6nxmwq82nulr"]
 
 [ext_resource type="Script" path="res://scripts/sys/dialog.gd" id="1_3s4gw"]
 [ext_resource type="Texture2D" uid="uid://btasmfdfhq83r" path="res://assets/img/avatar/Kate.png" id="1_cegef"]
 [ext_resource type="FontFile" uid="uid://cxjka85katcg8" path="res://assets/font/NotoSerifSC-Light.ttf" id="3_ephxo"]
+[ext_resource type="Texture2D" uid="uid://u1m1g20aafcd" path="res://assets/img/misc/little_triangle.png" id="4_yp1gs"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_joo64"]
 bg_color = Color(0.121569, 0.121569, 0.121569, 0.796078)
@@ -15,6 +16,44 @@ corner_radius_top_left = 3
 corner_radius_top_right = 3
 corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
+
+[sub_resource type="Animation" id="Animation_oyps8"]
+resource_name = "flash"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel/triangle:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+
+[sub_resource type="Animation" id="Animation_tt4n5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel/triangle:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_e8pbl"]
+_data = {
+"RESET": SubResource("Animation_tt4n5"),
+"flash": SubResource("Animation_oyps8")
+}
 
 [node name="dialog" type="Control"]
 layout_mode = 3
@@ -53,3 +92,14 @@ offset_bottom = 174.0
 size_flags_horizontal = 8
 theme_override_fonts/font = ExtResource("3_ephxo")
 theme_override_font_sizes/font_size = 24
+
+[node name="triangle" type="Sprite2D" parent="Panel"]
+visible = false
+position = Vector2(952, 169.8)
+texture = ExtResource("4_yp1gs")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_e8pbl")
+}
+autoplay = "flash"
