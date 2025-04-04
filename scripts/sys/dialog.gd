@@ -37,6 +37,8 @@ func stop_dialog():
 	dialog_ended.emit()
 
 func show_next_sentence():
+	if audio_player.playing:
+		return
 	if current_sentence_index == talking_script.size():
 		wait_for_ui_accept_to_close()
 
