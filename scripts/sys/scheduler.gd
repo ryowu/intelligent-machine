@@ -1,6 +1,7 @@
 extends Node
 
 @export var enemy_schedule_path: String = ""
+@onready var boss_hp_bar: ProgressBar = $"../ui_panel/boss_hp"
 
 var enemy_normal_scene: PackedScene = preload("res://scene/planes/enemy_normal_1.tscn")
 var enemy_shoot_1_scene: PackedScene = preload("res://scene/planes/enemy_shoot_1.tscn")
@@ -57,6 +58,9 @@ func spawn_enemy(event):
 
 	if !skip_enemy_init:
 		var enemy_instance = enemy_scene.instantiate()
+		if event["type"] == "defender_normal":
+			enemy_instance.on_boss_died.connect(_on_boss_died)
+			enemy_instance.set_hp_bar(boss_hp_bar)
 		get_parent().add_child(enemy_instance)
 		enemy_instance.position = event["position"]
 
@@ -143,3 +147,7 @@ func stop():
 	start_time = 0.0
 	spawn_index = 0
 	print("Enemy spawning stopped and reset")
+
+func _on_boss_died():
+	audio_player.stop()
+	get_parent().on_boss_died()
