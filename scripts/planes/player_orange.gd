@@ -1,7 +1,7 @@
 extends Area2D
 
 const BASIC_SPEED = 200
-const SPEED_INCREMENT = 20
+const SPEED_INCREMENT = 50
 
 @export var speed = BASIC_SPEED  # Adjust speed as needed
 @onready var shot_audio: AudioStreamPlayer2D = $shot
@@ -91,7 +91,7 @@ func increase_speed():
 	if speed_level > 4:
 		speed_level = 4
 		GlobalManager.add_score(500)
-	speed = BASIC_SPEED + speed_level * SPEED_INCREMENT
+	speed = BASIC_SPEED + (speed_level - 1) * SPEED_INCREMENT
 
 func die():
 	pass

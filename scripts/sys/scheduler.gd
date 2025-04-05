@@ -6,7 +6,7 @@ extends Node
 var enemy_normal_scene: PackedScene = preload("res://scene/planes/enemy_normal_1.tscn")
 var enemy_shoot_1_scene: PackedScene = preload("res://scene/planes/enemy_shoot_1.tscn")
 var enemy_support_scene: PackedScene = preload("res://scene/planes/enemy_support.tscn")
-
+var enemy_support_speed_scene: PackedScene = preload("res://scene/planes/enemy_support_speed.tscn")
 var boss_defender_normal_scene: PackedScene = preload("res://scene/boss/defender_normal.tscn")
 
 var start_time = 0.0
@@ -42,6 +42,8 @@ func spawn_enemy(event):
 			enemy_scene = enemy_normal_scene
 		"support":
 			enemy_scene = enemy_support_scene
+		"support_speed":
+			enemy_scene = enemy_support_speed_scene
 		"shoot_1":
 			enemy_scene = enemy_shoot_1_scene
 		"defender_normal":
