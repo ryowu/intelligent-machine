@@ -39,7 +39,7 @@ func _on_fire_timer_timeout():
 	for angle in angles:
 		var dir = Vector2.LEFT.rotated(deg_to_rad(angle))
 		var fireball = fireball_scene.instantiate()
-		fireball.position = position
+		fireball.position = position + Vector2(-80, 10)
 		fireball.set_velocity(dir * 200)
 		get_parent().add_child(fireball)
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://b660raxknhu75"]
+[gd_scene load_steps=15 format=3 uid="uid://b660raxknhu75"]
 
 [ext_resource type="PackedScene" uid="uid://dan2jb8oqxnqh" path="res://scene/planes/player_orange.tscn" id="1_7hw4d"]
 [ext_resource type="Script" path="res://scripts/stages/stage_1.gd" id="1_gjdnm"]
@@ -9,6 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://b2bk5p160ey3l" path="res://assets/img/bg/big_cloud.png" id="6_1nqo5"]
 [ext_resource type="FontFile" uid="uid://beml3tebbghat" path="res://assets/font/PixelOperator8.ttf" id="9_btq7j"]
 [ext_resource type="Script" path="res://scripts/sys/scheduler.gd" id="9_ee41g"]
+[ext_resource type="PackedScene" uid="uid://d3um0f21y2d7u" path="res://scene/items/power.tscn" id="10_0bvne"]
+[ext_resource type="PackedScene" uid="uid://b5hcdmkmlipj7" path="res://scene/items/speed_item.tscn" id="11_aex42"]
 [ext_resource type="AudioStream" uid="uid://c6s1m5if2mb2v" path="res://assets/music/stage_complete.MP3" id="11_icbop"]
 [ext_resource type="PackedScene" uid="uid://b6nxmwq82nulr" path="res://scene/sys/dialog.tscn" id="11_qriac"]
 
@@ -86,10 +88,10 @@ show_percentage = false
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ui_panel"]
 layout_mode = 0
-offset_left = 24.0
-offset_top = -5.0
-offset_right = 120.0
-offset_bottom = 102.0
+offset_left = 12.0
+offset_top = 11.0
+offset_right = 108.0
+offset_bottom = 118.0
 
 [node name="lbl_score" type="Label" parent="ui_panel/VBoxContainer"]
 texture_filter = 2
@@ -97,7 +99,7 @@ layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_shadow_color = Color(0.147672, 0.147672, 0.147672, 1)
 theme_override_fonts/font = ExtResource("9_btq7j")
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 16
 text = "分数: 0"
 
 [node name="lbl_speed" type="Label" parent="ui_panel/VBoxContainer"]
@@ -106,7 +108,7 @@ layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_shadow_color = Color(0.147672, 0.147672, 0.147672, 1)
 theme_override_fonts/font = ExtResource("9_btq7j")
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 16
 text = "速度: 1"
 
 [node name="lbl_power" type="Label" parent="ui_panel/VBoxContainer"]
@@ -115,8 +117,14 @@ layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_shadow_color = Color(0.147672, 0.147672, 0.147672, 1)
 theme_override_fonts/font = ExtResource("9_btq7j")
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 16
 text = "武器: 1"
+
+[node name="power" parent="ui_panel" instance=ExtResource("10_0bvne")]
+position = Vector2(529, 165)
+
+[node name="speed_item" parent="ui_panel" instance=ExtResource("11_aex42")]
+position = Vector2(712, 236)
 
 [node name="dialog" parent="." instance=ExtResource("11_qriac")]
 offset_left = 576.0

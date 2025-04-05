@@ -12,18 +12,19 @@ radius = 183.903
 
 [node name="PlayerOrangeOne" type="Area2D" groups=["player"]]
 z_index = 10
-scale = Vector2(0.8, 0.8)
+scale = Vector2(0.7, 0.7)
 collision_mask = 12
 script = ExtResource("1_bs04d")
 speed = 260
 
 [node name="PlayerOrangeOne" type="Sprite2D" parent="."]
+z_index = 9
 position = Vector2(0, 1)
 texture = ExtResource("1_idsrs")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+z_index = 10
 position = Vector2(0.625001, 12.25)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_604bt")
 
 [node name="shot" type="AudioStreamPlayer2D" parent="."]
@@ -36,7 +37,6 @@ collision_mask = 16
 
 [node name="gold_magnet" type="CollisionShape2D" parent="gold_picker"]
 position = Vector2(0, 12.5)
-scale = Vector2(1, 1)
 shape = SubResource("CircleShape2D_n1bhl")
 debug_color = Color(0.552082, 0.561503, 0.111175, 0.42)
 
