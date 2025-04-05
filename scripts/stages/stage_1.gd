@@ -1,7 +1,10 @@
 extends Node2D
 
 @onready var player_1: Area2D = $Player1
-@onready var lbl_score: Label = $ui_panel/lbl_score
+@onready var lbl_score: Label = $ui_panel/VBoxContainer/lbl_score
+@onready var lbl_speed: Label = $ui_panel/VBoxContainer/lbl_speed
+@onready var lbl_power: Label = $ui_panel/VBoxContainer/lbl_power
+
 @onready var scheduler: Node2D = $scheduler
 @onready var dialog: Control = $dialog
 @onready var stage_complete_bgm: AudioStreamPlayer2D = $stage_complete_bgm
@@ -14,7 +17,8 @@ func _ready():
 	scheduler.on_dialog_start.connect(_on_dialog_start)
 	dialog.dialog_ended.connect(_on_dialog_ended)
 	GlobalManager.score_updated.connect(update_score_label)
-	
+	player_1.on_power_change.connect(_on_power_change)
+	player_1.on_speed_change.connect(_on_speed_change)
 	player_1.position = Vector2(80, 300)
 	scheduler.start()
 
@@ -33,3 +37,15 @@ func _on_dialog_start(dialog_name: String):
 func on_boss_died():
 	player_1.suspending = true
 	stage_complete_bgm.play()
+
+func _on_power_change(new_power):
+	if new_power == 4:
+		lbl_power.text = "武器：MAX"
+	else:
+		lbl_power.text = "武器：" + str(new_power)
+
+func _on_speed_change(new_speed):
+	if new_speed == 4:
+		lbl_speed.text = "速度：MAX"
+	else:
+		lbl_speed.text = "速度：" + str(new_speed)

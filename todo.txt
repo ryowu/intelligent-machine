@@ -1,2 +1,3 @@
-吸引金币的collision
-player bullet angle smaller
+magnet to grab all coins in the screen
+partical for support enemies explorsion
+speed, power rank in panel labels

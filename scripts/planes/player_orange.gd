@@ -13,6 +13,9 @@ var spawn_position = Vector2(400, 300)  # Example position, adjust as needed
 var power_level = 1
 var speed_level = 1
 
+signal on_power_change(new_power: int)
+signal on_speed_change(new_speed: int)
+
 func _ready():
 	# Set player spawn position at the start of the game
 	position = spawn_position
@@ -85,6 +88,8 @@ func increase_power(power_increase: int):
 		power_level = 4
 		GlobalManager.add_score(500)
 
+	on_power_change.emit(power_level)
+
 func increase_speed():
 	speed_level += 1
 	# Cap the speed level at 4
@@ -92,6 +97,7 @@ func increase_speed():
 		speed_level = 4
 		GlobalManager.add_score(500)
 	speed = BASIC_SPEED + (speed_level - 1) * SPEED_INCREMENT
+	on_speed_change.emit(speed_level)
 
 func die():
 	pass

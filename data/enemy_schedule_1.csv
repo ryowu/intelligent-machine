@@ -3,6 +3,7 @@
 1,normal,1300 200
 1.5,normal,1300 150
 1.5,normal,1300 250
+2,support_speed, 1300 300
 2,normal,1300 400
 2.5,normal,1300 350
 2.5,normal,1300 450
@@ -14,6 +15,7 @@
 4,normal,1300 550
 4,support,1300 350
 5,shoot_1,1300 200
+5,support_speed, 1300 300
 5,shoot_1,1300 350
 5,shoot_1,1300 500
 6,normal,1300 400
@@ -25,6 +27,7 @@
 9,normal,1300 300
 9.5,shoot_1,1300 350
 10.5,shoot_1,1300 350
+10.5,support_speed, 1300 300
 11,normal,1300 200
 12,normal,1300 250
 12.5,normal,1300 300

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/sys/dialog.gd" id="1_3s4gw"]
 [ext_resource type="Texture2D" uid="uid://j88o1ly1n437" path="res://assets/img/avatar/Kate.png" id="1_cegef"]
-[ext_resource type="FontFile" uid="uid://cxjka85katcg8" path="res://assets/font/NotoSerifSC-Light.ttf" id="3_ephxo"]
+[ext_resource type="FontFile" uid="uid://beml3tebbghat" path="res://assets/font/PixelOperator8.ttf" id="3_llepd"]
 [ext_resource type="Texture2D" uid="uid://u1m1g20aafcd" path="res://assets/img/misc/little_triangle.png" id="4_yp1gs"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_joo64"]
@@ -89,8 +89,8 @@ offset_top = 31.0
 offset_right = 896.0
 offset_bottom = 174.0
 size_flags_horizontal = 8
-theme_override_fonts/font = ExtResource("3_ephxo")
-theme_override_font_sizes/font_size = 24
+theme_override_fonts/font = ExtResource("3_llepd")
+theme_override_font_sizes/font_size = 32
 
 [node name="triangle" type="Sprite2D" parent="Panel"]
 visible = false
