@@ -2,12 +2,13 @@ extends Area2D
 
 const BASIC_SPEED = 200
 const SPEED_INCREMENT = 50
-const FIRE_COOLDOWN = 0.2
-const MISSILE_COOLDOWN = 1.0
+const FIRE_COOLDOWN = 0.15
+const MISSILE_COOLDOWN = 1.5
 
 @export var speed = BASIC_SPEED  # Adjust speed as needed
 @onready var shot_audio: AudioStreamPlayer2D = $shot
 var suspending = false
+var even_bullet_counter = true
 const BULLET_SCENE = preload("res://scene/planes/bullet.tscn")  # Preload bullet scene
 const MISSILE_SCENE = preload("res://scene/planes/missile.tscn") 
 # Player's spawn position (can be adjusted to suit your needs)
@@ -17,6 +18,7 @@ var speed_level = 1
 var side_weapon_level = 0
 var time_since_last_fire = 0.0
 var time_since_last_missile = 0.0
+
 signal on_power_change(new_power: int)
 signal on_side_power_change(new_side_power: int)
 signal on_speed_change(new_speed: int)
@@ -84,32 +86,41 @@ func fire_missiles():
 func fire_bullets():
 	var angles = []
 	var bullet_offset = Vector2(60, 15)
+	var bullet_mode = 3
 
 	if power_level == 1:
+		if even_bullet_counter:
+			bullet_mode = 3
+		else:
+			bullet_mode = 1
+		even_bullet_counter = !even_bullet_counter
 		angles = [0]
 	elif power_level == 2:
-		var bullet1 = build_bullet()
-		bullet1.position = position + bullet_offset + Vector2(0, -4)
-		var bullet2 = build_bullet()
-		bullet2.position = position + bullet_offset + Vector2(0, 4)
+		bullet_mode = 3
+		var bullet1 = build_bullet(bullet_mode)
+		bullet1.position = position + bullet_offset + Vector2(0, -6)
+		var bullet2 = build_bullet(bullet_mode)
+		bullet2.position = position + bullet_offset + Vector2(0, 6)
 	elif power_level == 3:
+		bullet_mode = 3
 		angles = [-10, 0, 10]
 	elif power_level == 4:
-		var bullet1 = build_bullet()
-		bullet1.position = position + bullet_offset + Vector2(0, -4)
-		var bullet2 = build_bullet()
-		bullet2.position = position + bullet_offset + Vector2(0, 4)
+		var bullet1 = build_bullet(bullet_mode)
+		bullet1.position = position + bullet_offset + Vector2(0, -6)
+		var bullet2 = build_bullet(bullet_mode)
+		bullet2.position = position + bullet_offset + Vector2(0, 6)
 		angles = [-10, 10]
 
 	for angle in angles:
-		var bullet = build_bullet()
+		var bullet = build_bullet(bullet_mode)
 		bullet.position = position + bullet_offset
 		var direction = Vector2(1, 0).rotated(deg_to_rad(angle))
 		bullet.direction = direction.normalized()
 	# shot_audio.play()
 
-func build_bullet():
+func build_bullet(bullet_mode: int):
 	var bullet = BULLET_SCENE.instantiate()
+	bullet.bullet_mode = bullet_mode
 	get_parent().add_child(bullet)
 	return bullet
 
