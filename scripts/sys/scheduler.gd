@@ -118,7 +118,6 @@ func change_bgm(bgm_path: String):
 
 func start_dialog(dialog_name: String):
 	pause()
-	audio_player.volume_db = -20
 	on_dialog_start.emit(dialog_name)
 
 func start():
@@ -138,7 +137,7 @@ func pause():
 func resume():
 	if is_paused:
 		is_paused = false
-		audio_player.volume_db = -10
+		#audio_player.volume_db = -10
 		start_time = Time.get_ticks_msec() / 1000.0 - paused_time
 		print("Enemy spawning resumed")
 

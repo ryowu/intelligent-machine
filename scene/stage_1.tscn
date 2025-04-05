@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://b2bk5p160ey3l" path="res://assets/img/bg/big_cloud.png" id="6_1nqo5"]
 [ext_resource type="FontFile" uid="uid://beml3tebbghat" path="res://assets/font/PixelOperator8.ttf" id="9_btq7j"]
 [ext_resource type="Script" path="res://scripts/sys/scheduler.gd" id="9_ee41g"]
-[ext_resource type="PackedScene" uid="uid://cj1x01klts13t" path="res://scene/items/side_power.tscn" id="10_um5h5"]
+[ext_resource type="PackedScene" uid="uid://d3um0f21y2d7u" path="res://scene/items/power.tscn" id="10_0bvne"]
 [ext_resource type="AudioStream" uid="uid://c6s1m5if2mb2v" path="res://assets/music/stage_complete.MP3" id="11_icbop"]
 [ext_resource type="PackedScene" uid="uid://b6nxmwq82nulr" path="res://scene/sys/dialog.tscn" id="11_qriac"]
 
@@ -128,12 +128,6 @@ theme_override_fonts/font = ExtResource("9_btq7j")
 theme_override_font_sizes/font_size = 16
 text = "副武器: 0"
 
-[node name="side_power2" parent="ui_panel/VBoxContainer" instance=ExtResource("10_um5h5")]
-position = Vector2(641, 95)
-
-[node name="side_power3" parent="ui_panel/VBoxContainer" instance=ExtResource("10_um5h5")]
-position = Vector2(574, 264)
-
 [node name="dialog" parent="." instance=ExtResource("11_qriac")]
 offset_left = 576.0
 offset_top = 533.0
@@ -142,3 +136,9 @@ offset_bottom = 533.0
 
 [node name="stage_complete_bgm" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("11_icbop")
+
+[node name="power" parent="." instance=ExtResource("10_0bvne")]
+position = Vector2(530, 132)
+power_increase = null
+move_speed = null
+oscillation_speed = null

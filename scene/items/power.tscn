@@ -7,7 +7,10 @@
 [node name="power" groups=["items"] instance=ExtResource("1_1wenf")]
 scale = Vector2(0.6, 0.6)
 script = ExtResource("2_ixigv")
+power_increase = null
+move_speed = null
 oscillation_amplitude = 50
+oscillation_speed = null
 
 [node name="Sprite2D" parent="." index="0"]
 texture = ExtResource("2_katk5")
@@ -17,5 +20,8 @@ collision_layer = 16
 
 [node name="CollisionShape2D" parent="item_area" index="0"]
 position = Vector2(-1, 2)
+
+[node name="lbl_float" parent="." index="3"]
+offset_bottom = 32.0
 
 [connection signal="area_entered" from="item_area" to="." method="_on_item_area_area_entered"]
