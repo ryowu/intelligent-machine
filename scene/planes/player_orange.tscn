@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://dan2jb8oqxnqh"]
 
 [ext_resource type="Script" path="res://scripts/planes/player_orange.gd" id="1_bs04d"]
-[ext_resource type="Texture2D" uid="uid://bi2fwijh6xkw" path="res://assets/img/planes/player_orange_one.png" id="1_idsrs"]
+[ext_resource type="Texture2D" uid="uid://bi2fwijh6xkw" path="res://assets/img/planes/player/player_orange_one.png" id="1_idsrs"]
 [ext_resource type="AudioStream" uid="uid://b8ofbk4sqmdvc" path="res://assets/sound/player_gunshot.mp3" id="3_srjh2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_604bt"]
