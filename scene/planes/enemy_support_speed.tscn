@@ -6,7 +6,7 @@
 
 [node name="enemy_support_speed" instance=ExtResource("1_0nmqp")]
 script = ExtResource("2_qipq1")
-hp = 15
+hp = 20
 
 [node name="enemy_body" parent="." index="0"]
 texture = ExtResource("2_vf7xe")

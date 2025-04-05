@@ -44,5 +44,5 @@ func _on_item_area_area_entered(area: Area2D) -> void:
 		await animation_player.animation_finished
 		queue_free()
 
-func do_pickup(area: Area2D):
+func do_pickup(_area: Area2D):
 	pass

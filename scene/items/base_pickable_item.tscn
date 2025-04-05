@@ -104,6 +104,7 @@ stream = ExtResource("1_mfry3")
 
 [node name="lbl_float" type="Label" parent="."]
 visible = false
+z_index = 99
 offset_left = 46.0
 offset_top = -13.0
 offset_right = 294.0

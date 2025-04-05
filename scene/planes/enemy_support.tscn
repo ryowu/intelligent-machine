@@ -12,7 +12,7 @@ stop_position_x = 1000
 stop_duration = 3.0
 power_item_scene = ExtResource("3_hqiox")
 fireball_scene = ExtResource("4_6j172")
-hp = 18
+hp = 20
 score = 300
 
 [node name="enemy_body" parent="." index="0"]
