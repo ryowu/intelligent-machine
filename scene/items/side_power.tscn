@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://cj1x01klts13t"]
+
+[ext_resource type="PackedScene" uid="uid://dediss8ds87e7" path="res://scene/items/base_pickable_item.tscn" id="1_dursp"]
+[ext_resource type="Texture2D" uid="uid://dt4dpqet41rcq" path="res://assets/img/items/side_power_item.png" id="2_6aul3"]
+[ext_resource type="Script" path="res://scripts/items/side_power.gd" id="2_780n2"]
+
+[node name="side_power" groups=["items"] instance=ExtResource("1_dursp")]
+scale = Vector2(0.5, 0.5)
+script = ExtResource("2_780n2")
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_6aul3")
+
+[node name="item_area" parent="." index="1"]
+collision_layer = 16
+
+[connection signal="area_entered" from="item_area" to="." method="_on_item_area_area_entered"]

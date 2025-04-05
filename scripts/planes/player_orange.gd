@@ -14,10 +14,11 @@ const MISSILE_SCENE = preload("res://scene/planes/missile.tscn")
 var spawn_position = Vector2(400, 300)  # Example position, adjust as needed
 var power_level = 1
 var speed_level = 1
-var side_weapon_level = 2
+var side_weapon_level = 0
 var time_since_last_fire = 0.0
 var time_since_last_missile = 0.0
 signal on_power_change(new_power: int)
+signal on_side_power_change(new_side_power: int)
 signal on_speed_change(new_speed: int)
 
 func _ready():
@@ -125,6 +126,15 @@ func increase_power(power_increase: int):
 		GlobalManager.add_score(500)
 
 	on_power_change.emit(power_level)
+
+func increase_side_power(side_power_increase: int):
+	side_weapon_level += side_power_increase
+	# Cap the power level at 4
+	if side_weapon_level > 2:
+		side_weapon_level = 2
+		GlobalManager.add_score(500)
+
+	on_side_power_change.emit(side_weapon_level)
 
 func increase_speed():
 	speed_level += 1

@@ -1,18 +1,17 @@
 [gd_scene load_steps=4 format=3 uid="uid://bwrcbhjrmw6u6"]
 
 [ext_resource type="Script" path="res://scripts/planes/enemy_fireball_sm.gd" id="1_cwlnc"]
-[ext_resource type="Texture2D" uid="uid://b02d3gsrtjjdt" path="res://assets/img/planes/fireball_enemy/fireball_sm.png" id="1_dwi1n"]
+[ext_resource type="Texture2D" uid="uid://cl1efw34x7igp" path="res://assets/img/planes/fireball_enemy/fireball_poly_sm.png" id="2_yv8f7"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_uojl8"]
-radius = 9.0
+radius = 7.5
 
 [node name="enemy_fireball_sm" type="Area2D" groups=["enemy_bullet"]]
-scale = Vector2(0.8, 0.8)
 collision_layer = 8
 script = ExtResource("1_cwlnc")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_dwi1n")
+texture = ExtResource("2_yv8f7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_uojl8")

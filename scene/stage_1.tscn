@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://b660raxknhu75"]
+[gd_scene load_steps=14 format=3 uid="uid://b660raxknhu75"]
 
 [ext_resource type="PackedScene" uid="uid://dan2jb8oqxnqh" path="res://scene/planes/player_orange.tscn" id="1_7hw4d"]
 [ext_resource type="Script" path="res://scripts/stages/stage_1.gd" id="1_gjdnm"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://b2bk5p160ey3l" path="res://assets/img/bg/big_cloud.png" id="6_1nqo5"]
 [ext_resource type="FontFile" uid="uid://beml3tebbghat" path="res://assets/font/PixelOperator8.ttf" id="9_btq7j"]
 [ext_resource type="Script" path="res://scripts/sys/scheduler.gd" id="9_ee41g"]
+[ext_resource type="PackedScene" uid="uid://cj1x01klts13t" path="res://scene/items/side_power.tscn" id="10_um5h5"]
 [ext_resource type="AudioStream" uid="uid://c6s1m5if2mb2v" path="res://assets/music/stage_complete.MP3" id="11_icbop"]
 [ext_resource type="PackedScene" uid="uid://b6nxmwq82nulr" path="res://scene/sys/dialog.tscn" id="11_qriac"]
 
@@ -116,7 +117,22 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_shadow_color = Color(0.147672, 0.147672, 0.147672, 1)
 theme_override_fonts/font = ExtResource("9_btq7j")
 theme_override_font_sizes/font_size = 16
-text = "武器: 1"
+text = "主武器: 1"
+
+[node name="lbl_side_power" type="Label" parent="ui_panel/VBoxContainer"]
+texture_filter = 2
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.147672, 0.147672, 0.147672, 1)
+theme_override_fonts/font = ExtResource("9_btq7j")
+theme_override_font_sizes/font_size = 16
+text = "副武器: 0"
+
+[node name="side_power2" parent="ui_panel/VBoxContainer" instance=ExtResource("10_um5h5")]
+position = Vector2(641, 95)
+
+[node name="side_power3" parent="ui_panel/VBoxContainer" instance=ExtResource("10_um5h5")]
+position = Vector2(574, 264)
 
 [node name="dialog" parent="." instance=ExtResource("11_qriac")]
 offset_left = 576.0
