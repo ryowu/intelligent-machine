@@ -1,4 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://dediss8ds87e7"]
+[gd_scene load_steps=3 format=3 uid="uid://dediss8ds87e7"]
+
+[ext_resource type="AudioStream" uid="uid://d0glbqtey5vor" path="res://assets/sound/pick_item.mp3" id="1_mfry3"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_v6inq"]
 radius = 43.1045
@@ -11,3 +13,6 @@ radius = 43.1045
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="item_area"]
 shape = SubResource("CircleShape2D_v6inq")
+
+[node name="pick_audio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("1_mfry3")

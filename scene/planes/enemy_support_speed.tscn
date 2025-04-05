@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://cj6axkd7w27pn"]
+
+[ext_resource type="PackedScene" uid="uid://bmxa75rbv52mk" path="res://scene/planes/base_enemy.tscn" id="1_0nmqp"]
+[ext_resource type="Script" path="res://scripts/planes/enemy_support_speed.gd" id="2_qipq1"]
+[ext_resource type="Texture2D" uid="uid://vj0weg1o15af" path="res://assets/img/planes/enemy/enemy_support_speed.png" id="2_vf7xe"]
+
+[node name="enemy_support_speed" instance=ExtResource("1_0nmqp")]
+script = ExtResource("2_qipq1")
+
+[node name="enemy_body" parent="." index="0"]
+texture = ExtResource("2_vf7xe")
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(-7.25, 16.5)

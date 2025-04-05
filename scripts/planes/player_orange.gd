@@ -1,6 +1,9 @@
 extends Area2D
 
-@export var speed = 200  # Adjust speed as needed
+const BASIC_SPEED = 200
+const SPEED_INCREMENT = 20
+
+@export var speed = BASIC_SPEED  # Adjust speed as needed
 @onready var shot_audio: AudioStreamPlayer2D = $shot
 var suspending = false
 const BULLET_SCENE = preload("res://scene/planes/bullet.tscn")  # Preload bullet scene
@@ -8,6 +11,7 @@ const BULLET_SCENE = preload("res://scene/planes/bullet.tscn")  # Preload bullet
 # Player's spawn position (can be adjusted to suit your needs)
 var spawn_position = Vector2(400, 300)  # Example position, adjust as needed
 var power_level = 1
+var speed_level = 1
 
 func _ready():
 	# Set player spawn position at the start of the game
@@ -80,7 +84,15 @@ func increase_power(power_increase: int):
 	if power_level > 4:
 		power_level = 4
 		GlobalManager.add_score(500)
-		
+
+func increase_speed():
+	speed_level += 1
+	# Cap the speed level at 4
+	if speed_level > 4:
+		speed_level = 4
+		GlobalManager.add_score(500)
+	speed = BASIC_SPEED + speed_level * SPEED_INCREMENT
+
 func die():
 	pass
 

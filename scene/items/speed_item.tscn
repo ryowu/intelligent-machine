@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://b5hcdmkmlipj7"]
+
+[ext_resource type="PackedScene" uid="uid://dediss8ds87e7" path="res://scene/items/base_pickable_item.tscn" id="1_42usl"]
+[ext_resource type="Texture2D" uid="uid://deg520wylimxc" path="res://assets/img/items/speed_item.png" id="2_2dqdk"]
+[ext_resource type="Script" path="res://scripts/items/speed_item.gd" id="2_dh3j3"]
+
+[node name="speed_item" groups=["items"] instance=ExtResource("1_42usl")]
+script = ExtResource("2_dh3j3")
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_2dqdk")
+
+[connection signal="area_entered" from="item_area" to="." method="_on_item_area_area_entered"]
