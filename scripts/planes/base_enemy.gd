@@ -3,13 +3,17 @@ extends Area2D
 @export var speed = 220
 @export var hp = 3
 @export var score = 100
+@export var hit_effect_delta = Vector2(30, 0)
+
 @onready var explosion: AnimatedSprite2D = $explosion
 @onready var collision: CollisionShape2D = $CollisionShape2D
 @onready var enemy_body: Sprite2D = $enemy_body
 @onready var explode_audio: AudioStreamPlayer2D = $audio_explode
-@export var coin_scene: PackedScene = preload("res://scene/items/coin.tscn")  # Preload the coin scene
+@onready var hit_animation: AnimatedSprite2D = $hit_animation
 
+var coin_scene: PackedScene = preload("res://scene/items/coin.tscn")  # Preload the coin scene
 var dying = false
+var hit_playing = false
 
 func _physics_process(delta):
 	if dying: return
@@ -29,6 +33,15 @@ func _on_area_entered(area):
 			dying = true
 			GlobalManager.add_score(score)
 			play_explosion()
+		else:
+			if !hit_playing:
+				hit_playing = true
+				hit_animation.position = to_local(area.global_position) + hit_effect_delta
+				hit_animation.visible = true
+				hit_animation.play("hit")
+				await hit_animation.animation_finished
+				hit_animation.visible = false
+				hit_playing = false
 
 func play_explosion():
 	explosion.visible = true

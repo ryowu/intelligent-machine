@@ -1,10 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://dvu1org8o1th5"]
+[gd_scene load_steps=7 format=3 uid="uid://dvu1org8o1th5"]
 
 [ext_resource type="PackedScene" uid="uid://bmxa75rbv52mk" path="res://scene/planes/base_enemy.tscn" id="1_tpb5f"]
 [ext_resource type="Script" path="res://scripts/planes/enemy_support.gd" id="2_2kd3a"]
 [ext_resource type="Texture2D" uid="uid://bxx0w0itbp384" path="res://assets/img/planes/enemy/enemy_support.png" id="2_3o2o4"]
 [ext_resource type="PackedScene" uid="uid://d3um0f21y2d7u" path="res://scene/items/power.tscn" id="3_hqiox"]
 [ext_resource type="PackedScene" uid="uid://bwrcbhjrmw6u6" path="res://scene/planes/enemy_fireball_sm.tscn" id="4_6j172"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o6tja"]
+size = Vector2(235, 47)
 
 [node name="enemy_support" instance=ExtResource("1_tpb5f")]
 script = ExtResource("2_2kd3a")
@@ -20,4 +23,9 @@ scale = Vector2(0.6, 0.6)
 texture = ExtResource("2_3o2o4")
 
 [node name="CollisionShape2D" parent="." index="1"]
-position = Vector2(-22, 13)
+position = Vector2(-17.5, 9.5)
+shape = SubResource("RectangleShape2D_o6tja")
+
+[node name="explosion" parent="." index="2"]
+frame = 0
+frame_progress = 0.0
