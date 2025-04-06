@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://voh8wawdpuo5"]
+
+[ext_resource type="PackedScene" uid="uid://bmxa75rbv52mk" path="res://scene/planes/base_enemy.tscn" id="1_yav1l"]
+[ext_resource type="Texture2D" uid="uid://ba6gl8o527fs0" path="res://assets/img/planes/enemy/enemy_3.png" id="2_0r4s3"]
+[ext_resource type="Script" path="res://scripts/planes/enemy_shoot_2.gd" id="2_24ukq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_avyv5"]
+size = Vector2(157, 43)
+
+[node name="enemy_shoot_2" instance=ExtResource("1_yav1l")]
+script = ExtResource("2_24ukq")
+fireball_speed = 380
+fireball_shoot_interval = 2.5
+
+[node name="enemy_body" parent="." index="0"]
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("2_0r4s3")
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(-7.5, 3.5)
+shape = SubResource("RectangleShape2D_avyv5")
