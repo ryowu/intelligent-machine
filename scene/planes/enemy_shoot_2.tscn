@@ -11,6 +11,9 @@ size = Vector2(157, 43)
 script = ExtResource("2_24ukq")
 fireball_speed = 380
 fireball_shoot_interval = 2.5
+speed = 50
+hp = 22
+score = 300
 
 [node name="enemy_body" parent="." index="0"]
 scale = Vector2(0.9, 0.9)
@@ -19,3 +22,7 @@ texture = ExtResource("2_0r4s3")
 [node name="CollisionShape2D" parent="." index="1"]
 position = Vector2(-7.5, 3.5)
 shape = SubResource("RectangleShape2D_avyv5")
+
+[node name="hit_animation" parent="." index="4"]
+frame = 0
+frame_progress = 0.0

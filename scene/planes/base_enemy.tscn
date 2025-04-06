@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://b8qanbr06jo7o" path="res://assets/img/effect/explosion/explode2.png" id="3_lmd7t"]
 [ext_resource type="Texture2D" uid="uid://03nrfb4txfqd" path="res://assets/img/effect/explosion/explosion.png" id="3_vu0wf"]
 [ext_resource type="AudioStream" uid="uid://chpin8y5k7sr2" path="res://assets/sound/Explosion2.mp3" id="4_fqc5g"]
-[ext_resource type="Texture2D" uid="uid://p4emyvxjkn7r" path="res://assets/img/effect/hit_effect.png" id="5_h8fb5"]
+[ext_resource type="Texture2D" uid="uid://bsjwo4i7qybov" path="res://assets/img/effect/hit_effect.png" id="5_h8fb5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kxwsj"]
 atlas = ExtResource("3_vu0wf")
@@ -145,31 +145,31 @@ animations = [{
 "speed": 20.0
 }]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_af7xx"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_wwevn"]
 atlas = ExtResource("5_h8fb5")
 region = Rect2(0, 0, 42, 69)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_phd2u"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_4phv3"]
 atlas = ExtResource("5_h8fb5")
 region = Rect2(42, 0, 42, 69)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_yolet"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_m6d0e"]
 atlas = ExtResource("5_h8fb5")
 region = Rect2(84, 0, 42, 69)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_v4chp"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_b1hgk"]
 atlas = ExtResource("5_h8fb5")
 region = Rect2(126, 0, 42, 69)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_in8kw"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_sphrd"]
 atlas = ExtResource("5_h8fb5")
 region = Rect2(168, 0, 42, 69)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_xnj8c"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_hu05o"]
 atlas = ExtResource("5_h8fb5")
 region = Rect2(210, 0, 42, 69)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_2ds4p"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_1e8f4"]
 atlas = ExtResource("5_h8fb5")
 region = Rect2(252, 0, 42, 69)
 
@@ -177,25 +177,25 @@ region = Rect2(252, 0, 42, 69)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_af7xx")
+"texture": SubResource("AtlasTexture_wwevn")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_phd2u")
+"texture": SubResource("AtlasTexture_4phv3")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_yolet")
+"texture": SubResource("AtlasTexture_m6d0e")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_v4chp")
+"texture": SubResource("AtlasTexture_b1hgk")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_in8kw")
+"texture": SubResource("AtlasTexture_sphrd")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_xnj8c")
+"texture": SubResource("AtlasTexture_hu05o")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_2ds4p")
+"texture": SubResource("AtlasTexture_1e8f4")
 }],
 "loop": false,
 "name": &"hit",

@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://b660raxknhu75"]
+[gd_scene load_steps=13 format=3 uid="uid://b660raxknhu75"]
 
 [ext_resource type="PackedScene" uid="uid://dan2jb8oqxnqh" path="res://scene/planes/player_orange.tscn" id="1_7hw4d"]
 [ext_resource type="Script" path="res://scripts/stages/stage_1.gd" id="1_gjdnm"]
@@ -11,7 +11,6 @@
 [ext_resource type="Script" path="res://scripts/sys/scheduler.gd" id="9_ee41g"]
 [ext_resource type="AudioStream" uid="uid://c6s1m5if2mb2v" path="res://assets/music/stage_complete.MP3" id="11_icbop"]
 [ext_resource type="PackedScene" uid="uid://b6nxmwq82nulr" path="res://scene/sys/dialog.tscn" id="11_qriac"]
-[ext_resource type="PackedScene" uid="uid://voh8wawdpuo5" path="res://scene/planes/enemy_shoot_2.tscn" id="12_hjc5l"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3pwvq"]
 bg_color = Color(0.612299, 1.50409e-06, 5.77569e-07, 1)
@@ -58,7 +57,7 @@ texture = ExtResource("5_vk3a7")
 region_rect = Rect2(253.01, 739.071, 756.082, 179.622)
 
 [node name="Player1" parent="." instance=ExtResource("1_7hw4d")]
-position = Vector2(215, 110)
+position = Vector2(108, 314)
 
 [node name="scheduler" type="Node2D" parent="."]
 script = ExtResource("9_ee41g")
@@ -136,6 +135,3 @@ offset_bottom = 533.0
 
 [node name="stage_complete_bgm" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("11_icbop")
-
-[node name="enemy_shoot_2" parent="." instance=ExtResource("12_hjc5l")]
-position = Vector2(916, 233)

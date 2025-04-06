@@ -59,6 +59,18 @@
 24.5,normal,1300 350
 24.5,normal,1300 450
 
+25,shoot_2,900 -40,0
+25,shoot_2,900 670,1
+
+28,shoot_2,800 -40,0
+28,shoot_2,800 670,1
+
+29,normal,1300 200
+29,normal,1300 400
+
+30,normal,1300 250
+30,normal,1300 350
+
 63,command,change_bgm res://assets/music/boss_1.mp3
 64,defender_normal, 1300 300
 64,command,start_dialog stage1_2

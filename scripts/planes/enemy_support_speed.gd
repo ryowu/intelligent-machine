@@ -5,10 +5,10 @@ var speed_item_scene = preload("res://scene/items/speed_item.tscn")
 func _ready():
 	super._ready()
 	path_points = [
-		Vector2(900, -1),
-		Vector2(900, 100),
+		Vector2(900, 20),
+		Vector2(900, 150),
 		Vector2(900, 500),
-		Vector2(900, 350)
+		Vector2(900, 300)
 	]
 	path_points[0].y = position.y
 	fireball_timer.start()

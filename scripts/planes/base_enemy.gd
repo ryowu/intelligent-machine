@@ -11,26 +11,31 @@ extends Area2D
 @onready var explode_audio: AudioStreamPlayer2D = $audio_explode
 @onready var hit_animation: AnimatedSprite2D = $hit_animation
 
-var coin_scene: PackedScene = preload("res://scene/items/coin.tscn")  # Preload the coin scene
+var coin_scene: PackedScene = preload("res://scene/items/coin.tscn") # Preload the coin scene
 var dying = false
 var hit_playing = false
+var field_entered = false
 
 func _physics_process(delta):
-	if dying: 
+	if dying:
 		return
 	do_move(delta)
 
-	if position.x < -300 or position.x < -get_viewport().size.x:
+	var screen_rect = get_viewport().get_visible_rect()
+	var in_screen = screen_rect.has_point(global_position)
+	if in_screen:
+		field_entered = true
+	if field_entered and not in_screen:
 		queue_free()
 
 func do_move(delta) -> void:
 	position.x -= speed * delta
 
 func _on_area_entered(area):
-	if !dying and area.is_in_group("player_bullet"):  # Check if hit by a player bullet
-		hp -= 1  # Decrease HP by 1
-		area.queue_free()  # Remove bullet
-		if hp <= 0:  # If HP reaches zero, play explosion
+	if !dying and area.is_in_group("player_bullet"): # Check if hit by a player bullet
+		hp -= 1 # Decrease HP by 1
+		area.queue_free() # Remove bullet
+		if hp <= 0: # If HP reaches zero, play explosion
 			dying = true
 			GlobalManager.add_score(score)
 			play_explosion()
@@ -55,8 +60,8 @@ func play_explosion():
 
 # Deferred function to disable enemy
 func _disable_enemy():
-	collision.disabled = true  # Disable the collision shape
-	enemy_body.visible = false  # Make the enemy invisible
+	collision.disabled = true # Disable the collision shape
+	enemy_body.visible = false # Make the enemy invisible
 
 # Function to spawn 2 to 3 coins around the enemy's position
 func spawn_items():

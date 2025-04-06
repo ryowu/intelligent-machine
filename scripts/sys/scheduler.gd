@@ -5,6 +5,7 @@ extends Node
 
 var enemy_normal_scene: PackedScene = preload("res://scene/planes/enemy_normal_1.tscn")
 var enemy_shoot_1_scene: PackedScene = preload("res://scene/planes/enemy_shoot_1.tscn")
+var enemy_shoot_2_scene: PackedScene = preload("res://scene/planes/enemy_shoot_2.tscn")
 var enemy_support_scene: PackedScene = preload("res://scene/planes/enemy_support.tscn")
 var enemy_support_speed_scene: PackedScene = preload("res://scene/planes/enemy_support_speed.tscn")
 var boss_defender_normal_scene: PackedScene = preload("res://scene/boss/defender_normal.tscn")
@@ -46,6 +47,8 @@ func spawn_enemy(event):
 			enemy_scene = enemy_support_speed_scene
 		"shoot_1":
 			enemy_scene = enemy_shoot_1_scene
+		"shoot_2":
+			enemy_scene = enemy_shoot_2_scene
 		"defender_normal":
 			enemy_scene = boss_defender_normal_scene
 		"change_bgm":
@@ -60,17 +63,22 @@ func spawn_enemy(event):
 
 	if !skip_enemy_init:
 		var enemy_instance = enemy_scene.instantiate()
+		
 		if event["type"] == "defender_normal":
 			enemy_instance.on_boss_died.connect(_on_boss_died)
 			enemy_instance.set_hp_bar(boss_hp_bar)
+		elif event["type"] == "shoot_2":
+			enemy_instance.mode = int(event["args"])
+
 		get_parent().add_child(enemy_instance)
 		enemy_instance.position = event["position"]
 
-func append_enemy(time_line: float, _type: String, position: Vector2):
+func append_enemy(time_line: float, _type: String, position: Vector2, enemy_arg: String):
 	spawn_schedule.append({
 		"time": time_line,
 		"type": _type,
-		"position": position
+		"position": position,
+		"args": enemy_arg
 	})
 
 func append_command(time_line: float, func_name: String, func_args: String):
@@ -89,10 +97,10 @@ func load_schedule_from_csv():
 	file.close()
 	var lines = content.split("\n", false)
 	for line in lines:
-		if line.is_empty() or line.begins_with("#"):
+		if line.is_empty() or line == "\r" or line.begins_with("#"):
 			continue
 		var columns = line.split(",")
-		if columns.size() != 3:
+		if columns.size() > 4:
 			continue
 		var time = float(columns[0].strip_edges())
 		var type = columns[1].strip_edges()
@@ -104,7 +112,10 @@ func load_schedule_from_csv():
 		else:
 			var position_data = columns[2].strip_edges().split(" ")
 			var position = Vector2(float(position_data[0]), float(position_data[1]))
-			append_enemy(time, type, position)
+			var enemy_arg = ""
+			if columns.size() == 4:
+				enemy_arg = columns[3]
+			append_enemy(time, type, position, enemy_arg)
 
 func change_bgm(bgm_path: String):
 	if audio_player:
