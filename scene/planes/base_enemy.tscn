@@ -1,8 +1,8 @@
 [gd_scene load_steps=33 format=3 uid="uid://bmxa75rbv52mk"]
 
 [ext_resource type="Script" path="res://scripts/planes/base_enemy.gd" id="1_slfv3"]
-[ext_resource type="Texture2D" uid="uid://b8qanbr06jo7o" path="res://assets/img/planes/explode2.png" id="3_lmd7t"]
-[ext_resource type="Texture2D" uid="uid://03nrfb4txfqd" path="res://assets/img/planes/explosion.png" id="3_vu0wf"]
+[ext_resource type="Texture2D" uid="uid://b8qanbr06jo7o" path="res://assets/img/effect/explosion/explode2.png" id="3_lmd7t"]
+[ext_resource type="Texture2D" uid="uid://03nrfb4txfqd" path="res://assets/img/effect/explosion/explosion.png" id="3_vu0wf"]
 [ext_resource type="AudioStream" uid="uid://chpin8y5k7sr2" path="res://assets/sound/Explosion2.mp3" id="4_fqc5g"]
 [ext_resource type="Texture2D" uid="uid://p4emyvxjkn7r" path="res://assets/img/effect/hit_effect.png" id="5_h8fb5"]
 
@@ -217,9 +217,7 @@ position = Vector2(0, 1.5)
 visible = false
 position = Vector2(0, 1)
 sprite_frames = SubResource("SpriteFrames_engsn")
-animation = &"explode_big"
-frame = 7
-frame_progress = 1.0
+animation = &"explode"
 
 [node name="audio_explode" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_fqc5g")

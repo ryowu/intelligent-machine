@@ -64,7 +64,7 @@ func _disable_enemy():
 
 # Function to spawn 2 to 3 coins around the enemy's position
 func spawn_coins():
-	var coin_count = randi_range(1, 2)  # Randomly choose 2 or 3 coins
+	var coin_count = 1 # randi_range(1, 2)  # Randomly choose 2 or 3 coins
 	for i in range(coin_count):
 		var coin_instance = coin_scene.instantiate()
 		# Set a random position around the enemy (using a small offset)
