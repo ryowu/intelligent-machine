@@ -65,3 +65,9 @@ func spawn_items():
 		var coin_instance = coin_scene.instantiate()
 		coin_instance.position = position
 		get_parent().add_child(coin_instance)
+
+func drop_widget(widget: Resource):
+	if widget:
+		var speed_item = widget.instantiate()
+		speed_item.position = position
+		get_parent().add_child(speed_item)

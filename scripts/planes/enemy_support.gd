@@ -62,8 +62,5 @@ func play_explosion():
 	# Queue the enemy for removal after the explosion animation finishes
 	queue_free()
 
-# Function to spawn the power item
 func spawn_power_item():
-	var power_item = power_item_scene.instantiate()
-	power_item.position = position
-	get_parent().add_child(power_item)
+	drop_widget(power_item_scene)
