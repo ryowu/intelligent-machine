@@ -3,11 +3,13 @@ extends "res://scripts/planes/base_shootable_enemy.gd"
 @export var stop_position_x = 1000
 @export var stop_duration = 2.0
 @export var power_item_scene = preload("res://scene/items/power.tscn")
+@export var side_weapon_scene = preload("res://scene/items/side_power.tscn")
 
 var stopped = false
 var has_stopped = false
 var fireball_directions = [45, 0, -45, 0, 45, 0]
 var fireball_index = 0
+var mode = 0
 
 func _physics_process(delta):
 	if stopped:
@@ -63,4 +65,7 @@ func play_explosion():
 	queue_free()
 
 func spawn_power_item():
-	drop_widget(power_item_scene)
+	if mode == 0:
+		drop_widget(power_item_scene)
+	elif mode == 1:
+		drop_widget(side_weapon_scene)

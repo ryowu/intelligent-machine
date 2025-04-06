@@ -72,6 +72,8 @@ func spawn_enemy(event):
 			enemy_instance.set_hp_bar(boss_hp_bar)
 		elif event["type"] == "shoot_2":
 			enemy_instance.mode = int(event["args"])
+		elif event["type"] == "support":
+			enemy_instance.mode = int(event["args"])
 
 		enemy_instance.position = event["position"]
 		get_parent().add_child(enemy_instance)

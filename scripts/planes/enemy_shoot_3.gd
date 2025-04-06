@@ -5,7 +5,7 @@ extends "res://scripts/planes/base_shootable_enemy.gd"
 func _ready():
 	super._ready()
 	path_points = [
-		Vector2(600, position.y),
+		Vector2(800, position.y),
 		Vector2(1500, position.y),
 	]
 	fireball_timer.start()

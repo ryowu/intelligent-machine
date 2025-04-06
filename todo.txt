@@ -1,3 +1,3 @@
 magnet to grab all coins in the screen
 partical for support enemies explorsion
-speed, power rank in panel labels
+bullet damage
