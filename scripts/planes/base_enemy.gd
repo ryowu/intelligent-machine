@@ -16,7 +16,8 @@ var dying = false
 var hit_playing = false
 
 func _physics_process(delta):
-	if dying: return
+	if dying: 
+		return
 	do_move(delta)
 
 	if position.x < -300 or position.x < -get_viewport().size.x:
@@ -46,16 +47,11 @@ func _on_area_entered(area):
 func play_explosion():
 	explosion.visible = true
 	explode_audio.play()
-	explosion.play("explode")  # Play the explosion animation
-	# Use call_deferred to disable the collision and make the enemy invisible safely
+	explosion.play("explode")
 	call_deferred("_disable_enemy")
-
-	# Spawn 2 to 3 coins randomly around the enemy's position
-	call_deferred("spawn_coins")
-
-	# Queue the enemy for removal after the explosion animation finishes
+	call_deferred("spawn_items")
 	await explosion.animation_finished
-	queue_free()  # Remove the enemy and its explosion animation
+	queue_free()
 
 # Deferred function to disable enemy
 func _disable_enemy():
@@ -63,11 +59,9 @@ func _disable_enemy():
 	enemy_body.visible = false  # Make the enemy invisible
 
 # Function to spawn 2 to 3 coins around the enemy's position
-func spawn_coins():
+func spawn_items():
 	var coin_count = 1 # randi_range(1, 2)  # Randomly choose 2 or 3 coins
 	for i in range(coin_count):
 		var coin_instance = coin_scene.instantiate()
-		# Set a random position around the enemy (using a small offset)
-		# var random_offset = Vector2(randf_range(-20, 20), randf_range(-20, 20))
-		coin_instance.position = position# + random_offset
-		get_parent().add_child(coin_instance)  # Add coin to the scene
+		coin_instance.position = position
+		get_parent().add_child(coin_instance)

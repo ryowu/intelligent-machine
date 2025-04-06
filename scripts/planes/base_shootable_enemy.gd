@@ -1,6 +1,6 @@
-extends "res://scripts/planes/base_enemy.gd"
+extends "res://scripts/planes/base_route_enemy.gd"
 
-@export var fireball_speed = 380 # Speed of the fireball
+@export var fireball_speed = 380
 @export var fireball_shoot_interval = 2.5
 var fireball_scene: PackedScene = preload("res://scene/planes/enemy_fireball_sm.tscn")
 var fireball_timer: Timer
@@ -11,9 +11,10 @@ func _ready():
 	fireball_timer.wait_time = fireball_shoot_interval
 	fireball_timer.one_shot = false
 	fireball_timer.timeout.connect(_on_fireball_timer_timeout)
-	fireball_timer.start()
 
 func _on_fireball_timer_timeout():
+	if dying: 
+		return
 	shoot_fireball()
 
 func shoot_fireball():

@@ -9,6 +9,9 @@ size = Vector2(202, 50)
 
 [node name="enemy_support_speed" instance=ExtResource("1_0nmqp")]
 script = ExtResource("2_qipq1")
+final_move_speed = 60
+fireball_speed = 380
+fireball_shoot_interval = 2.5
 hp = 20
 
 [node name="enemy_body" parent="." index="0"]
@@ -17,9 +20,3 @@ texture = ExtResource("2_vf7xe")
 [node name="CollisionShape2D" parent="." index="1"]
 position = Vector2(-11, 18)
 shape = SubResource("RectangleShape2D_xadpg")
-
-[node name="explosion" parent="." index="2"]
-frame = 0
-frame_progress = 0.0
-
-[node name="FireTimer" type="Timer" parent="." index="4"]
