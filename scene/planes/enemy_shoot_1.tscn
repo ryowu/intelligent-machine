@@ -15,6 +15,7 @@ speed = 150
 hp = 2
 score = 150
 hit_effect_delta = Vector2(5, 0)
+coin_count = 1
 
 [node name="enemy_body" parent="." index="0"]
 scale = Vector2(0.8, 0.8)

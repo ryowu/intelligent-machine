@@ -1,4 +1,4 @@
-#0.1,command,change_bgm res://assets/music/bgm_elec_1.mp3
+0.1,command,change_bgm res://assets/music/bgm_elec_1.mp3
 #0.5,command,start_dialog stage1_1
 
 1,normal,1300 200
@@ -23,9 +23,9 @@
 9.5,shoot_1,1300 300
 10,shoot_1,1300 400
 
-11,shoot_1,1300 400
-11.5,shoot_1,1300 300
-12,shoot_1,1300 200
+11.5,shoot_1,1300 450
+12,shoot_1,1300 350
+12.5,shoot_1,1300 250
 
 12.5,normal,1300 200
 13,normal,1300 150
@@ -47,29 +47,55 @@
 20,shoot_1,1300 350
 20,shoot_1,1300 450
 
+21,normal,1300 200
+21.5,normal,1300 150
+21.5,normal,1300 250
+
 22,normal,1300 200
 22.5,normal,1300 150
 22.5,normal,1300 250
 
-23,normal,1300 200
-23.5,normal,1300 150
-23.5,normal,1300 250
+23,normal,1300 400
+23.5,normal,1300 350
+23.5,normal,1300 450
 
-24,normal,1300 400
-24.5,normal,1300 350
-24.5,normal,1300 450
+24,shoot_2,900 -40,0
+24,shoot_2,900 670,1
 
-25,shoot_2,900 -40,0
-25,shoot_2,900 670,1
-
-28,shoot_2,800 -40,0
-28,shoot_2,800 670,1
+24,support,1300 300
 
 29,normal,1300 200
 29,normal,1300 400
 
 30,normal,1300 250
 30,normal,1300 350
+
+34,shoot_3,1300 280
+34,shoot_3,1300 430
+
+35.5,shoot_3,1300 200
+35.5,shoot_3,1300 500
+
+37,shoot_3,1300 280
+37,shoot_3,1300 430
+
+39,shoot_2,900 -40,0
+39,shoot_2,900 670,1
+
+39,shoot_3,1300 280
+39,shoot_3,1300 430
+
+40,shoot_3,1300 150
+40,shoot_3,1300 450
+
+41,shoot_3,1300 300
+41,shoot_3,1300 360
+
+43,shoot_2,800 -40,0
+43,shoot_2,800 670,1
+
+46,shoot_3,1300 200
+46,shoot_3,1300 450
 
 63,command,change_bgm res://assets/music/boss_1.mp3
 64,defender_normal, 1300 300

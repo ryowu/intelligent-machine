@@ -57,7 +57,7 @@ texture = ExtResource("5_vk3a7")
 region_rect = Rect2(253.01, 739.071, 756.082, 179.622)
 
 [node name="Player1" parent="." instance=ExtResource("1_7hw4d")]
-position = Vector2(108, 314)
+position = Vector2(102, 314)
 
 [node name="scheduler" type="Node2D" parent="."]
 script = ExtResource("9_ee41g")

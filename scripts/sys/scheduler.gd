@@ -6,6 +6,7 @@ extends Node
 var enemy_normal_scene: PackedScene = preload("res://scene/planes/enemy_normal_1.tscn")
 var enemy_shoot_1_scene: PackedScene = preload("res://scene/planes/enemy_shoot_1.tscn")
 var enemy_shoot_2_scene: PackedScene = preload("res://scene/planes/enemy_shoot_2.tscn")
+var enemy_shoot_3_scene: PackedScene = preload("res://scene/planes/enemy_shoot_3.tscn")
 var enemy_support_scene: PackedScene = preload("res://scene/planes/enemy_support.tscn")
 var enemy_support_speed_scene: PackedScene = preload("res://scene/planes/enemy_support_speed.tscn")
 var boss_defender_normal_scene: PackedScene = preload("res://scene/boss/defender_normal.tscn")
@@ -49,6 +50,8 @@ func spawn_enemy(event):
 			enemy_scene = enemy_shoot_1_scene
 		"shoot_2":
 			enemy_scene = enemy_shoot_2_scene
+		"shoot_3":
+			enemy_scene = enemy_shoot_3_scene
 		"defender_normal":
 			enemy_scene = boss_defender_normal_scene
 		"change_bgm":
@@ -70,8 +73,8 @@ func spawn_enemy(event):
 		elif event["type"] == "shoot_2":
 			enemy_instance.mode = int(event["args"])
 
-		get_parent().add_child(enemy_instance)
 		enemy_instance.position = event["position"]
+		get_parent().add_child(enemy_instance)
 
 func append_enemy(time_line: float, _type: String, position: Vector2, enemy_arg: String):
 	spawn_schedule.append({

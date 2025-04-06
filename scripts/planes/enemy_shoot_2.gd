@@ -6,13 +6,13 @@ func _ready():
 	super._ready()
 	if mode == 0:
 		path_points = [
-			Vector2(900, 300),
+			Vector2(900, 285),
 			Vector2(900, -300)
 		]
 	else:
 		path_points = [
-			Vector2(900, -300),
-			Vector2(900, 300)
+			Vector2(900, 350),
+			Vector2(900, 700)
 		]
 	fireball_timer.start()
 

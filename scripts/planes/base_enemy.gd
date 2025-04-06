@@ -4,6 +4,7 @@ extends Area2D
 @export var hp = 3
 @export var score = 100
 @export var hit_effect_delta = Vector2(30, 0)
+@export var coin_count = 0 # randi_range(1, 2)  # Randomly choose 2 or 3 coins
 
 @onready var explosion: AnimatedSprite2D = $explosion
 @onready var collision: CollisionShape2D = $CollisionShape2D
@@ -65,7 +66,6 @@ func _disable_enemy():
 
 # Function to spawn 2 to 3 coins around the enemy's position
 func spawn_items():
-	var coin_count = 1 # randi_range(1, 2)  # Randomly choose 2 or 3 coins
 	for i in range(coin_count):
 		var coin_instance = coin_scene.instantiate()
 		coin_instance.position = position

@@ -10,5 +10,9 @@ func do_move(delta):
 		position += direction * speed * delta
 		if position.distance_to(target) < 5:
 			current_path_index += 1
+			on_path_point_reached(current_path_index)
 	else:
 		super.do_move(delta)
+
+func on_path_point_reached(_index: int):
+	pass

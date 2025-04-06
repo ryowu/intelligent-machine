@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://c0m1dduphm154"]
+
+[ext_resource type="PackedScene" uid="uid://bmxa75rbv52mk" path="res://scene/planes/base_enemy.tscn" id="1_l8rqo"]
+[ext_resource type="Script" path="res://scripts/planes/enemy_shoot_3.gd" id="2_034is"]
+[ext_resource type="Texture2D" uid="uid://b8ipvgisrwb1q" path="res://assets/img/planes/enemy/enemy_4.png" id="2_i60ms"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kl0t7"]
+radius = 44.8135
+
+[node name="enemy_shoot_3" instance=ExtResource("1_l8rqo")]
+script = ExtResource("2_034is")
+fireball_speed = 380
+fireball_shoot_interval = 2.0
+speed = 300
+hp = 10
+score = 150
+coin_count = 1
+
+[node name="enemy_body" parent="." index="0"]
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("2_i60ms")
+
+[node name="CollisionShape2D" parent="." index="1"]
+shape = SubResource("CircleShape2D_kl0t7")
