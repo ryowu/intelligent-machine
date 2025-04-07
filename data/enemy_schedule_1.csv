@@ -1,5 +1,5 @@
 0.1,command,change_bgm res://assets/music/bgm_elec_1.mp3
-#0.5,command,start_dialog stage1_1
+0.5,command,start_dialog stage1_1
 
 1,normal,1300 200
 1.5,normal,1300 150
