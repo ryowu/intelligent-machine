@@ -91,16 +91,30 @@ offset_top = 11.0
 offset_right = 108.0
 offset_bottom = 118.0
 
-[node name="lbl_score" type="Label" parent="ui_panel/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="ui_panel/VBoxContainer"]
+layout_mode = 2
+
+[node name="lbl_power" type="Label" parent="ui_panel/VBoxContainer/HBoxContainer"]
 texture_filter = 2
+custom_minimum_size = Vector2(120, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_shadow_color = Color(0.147672, 0.147672, 0.147672, 1)
 theme_override_fonts/font = ExtResource("9_btq7j")
 theme_override_font_sizes/font_size = 16
-text = "分数: 0"
+text = "主武器: 1"
 
-[node name="lbl_speed" type="Label" parent="ui_panel/VBoxContainer"]
+[node name="lbl_side_power" type="Label" parent="ui_panel/VBoxContainer/HBoxContainer"]
+texture_filter = 2
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.147672, 0.147672, 0.147672, 1)
+theme_override_fonts/font = ExtResource("9_btq7j")
+theme_override_font_sizes/font_size = 16
+text = "副武器: 0"
+
+[node name="lbl_speed" type="Label" parent="ui_panel/VBoxContainer/HBoxContainer"]
 texture_filter = 2
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
@@ -109,23 +123,14 @@ theme_override_fonts/font = ExtResource("9_btq7j")
 theme_override_font_sizes/font_size = 16
 text = "速度: 1"
 
-[node name="lbl_power" type="Label" parent="ui_panel/VBoxContainer"]
+[node name="lbl_score" type="Label" parent="ui_panel/VBoxContainer"]
 texture_filter = 2
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_shadow_color = Color(0.147672, 0.147672, 0.147672, 1)
 theme_override_fonts/font = ExtResource("9_btq7j")
 theme_override_font_sizes/font_size = 16
-text = "主武器: 1"
-
-[node name="lbl_side_power" type="Label" parent="ui_panel/VBoxContainer"]
-texture_filter = 2
-layout_mode = 2
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_shadow_color = Color(0.147672, 0.147672, 0.147672, 1)
-theme_override_fonts/font = ExtResource("9_btq7j")
-theme_override_font_sizes/font_size = 16
-text = "副武器: 0"
+text = "分数: 0"
 
 [node name="dialog" parent="." instance=ExtResource("11_qriac")]
 offset_left = 576.0

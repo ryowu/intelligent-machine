@@ -2,9 +2,9 @@ extends Node2D
 
 @onready var player_1: Area2D = $Player1
 @onready var lbl_score: Label = $ui_panel/VBoxContainer/lbl_score
-@onready var lbl_speed: Label = $ui_panel/VBoxContainer/lbl_speed
-@onready var lbl_power: Label = $ui_panel/VBoxContainer/lbl_power
-@onready var lbl_side_power: Label = $ui_panel/VBoxContainer/lbl_side_power
+@onready var lbl_speed: Label = $ui_panel/VBoxContainer/HBoxContainer/lbl_speed
+@onready var lbl_power: Label = $ui_panel/VBoxContainer/HBoxContainer/lbl_power
+@onready var lbl_side_power: Label = $ui_panel/VBoxContainer/HBoxContainer/lbl_side_power
 
 @onready var scheduler: Node2D = $scheduler
 @onready var dialog: Control = $dialog
