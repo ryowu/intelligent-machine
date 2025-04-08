@@ -17,7 +17,7 @@ func _ready():
 	fireball_timer.start()
 
 func shoot_fireball():
-	var angles = [-10, 0, 10]
+	var angles = [-15, 0, 15]
 	for angle in angles:
 		var dir = Vector2.LEFT.rotated(deg_to_rad(angle))
 		var fireball = fireball_scene.instantiate()

@@ -1,0 +1,33 @@
+[gd_scene load_steps=2 format=3 uid="uid://bytf3nebd4c7o"]
+
+[ext_resource type="Texture2D" uid="uid://dtacbhujwy856" path="res://assets/img/misc/skill_one.png" id="1_n442t"]
+
+[node name="skill_counter" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -896.0
+offset_bottom = -591.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 209.0
+offset_bottom = 24.0
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_n442t")
+expand_mode = 3
+
+[node name="TextureRect2" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_n442t")
+expand_mode = 3
+
+[node name="TextureRect3" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_n442t")
+expand_mode = 3

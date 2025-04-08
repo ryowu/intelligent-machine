@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://b660raxknhu75"]
+[gd_scene load_steps=14 format=3 uid="uid://b660raxknhu75"]
 
 [ext_resource type="PackedScene" uid="uid://dan2jb8oqxnqh" path="res://scene/planes/player_orange.tscn" id="1_7hw4d"]
 [ext_resource type="Script" path="res://scripts/stages/stage_1.gd" id="1_gjdnm"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://b2bk5p160ey3l" path="res://assets/img/bg/big_cloud.png" id="6_1nqo5"]
 [ext_resource type="FontFile" uid="uid://beml3tebbghat" path="res://assets/font/PixelOperator8.ttf" id="9_btq7j"]
 [ext_resource type="Script" path="res://scripts/sys/scheduler.gd" id="9_ee41g"]
+[ext_resource type="PackedScene" uid="uid://bytf3nebd4c7o" path="res://scene/sys/skill_counter.tscn" id="10_5fg37"]
 [ext_resource type="AudioStream" uid="uid://c6s1m5if2mb2v" path="res://assets/music/stage_complete.MP3" id="11_icbop"]
 [ext_resource type="PackedScene" uid="uid://b6nxmwq82nulr" path="res://scene/sys/dialog.tscn" id="11_qriac"]
 
@@ -91,6 +92,28 @@ offset_top = 11.0
 offset_right = 108.0
 offset_bottom = 118.0
 
+[node name="HBox_top" type="HBoxContainer" parent="ui_panel/VBoxContainer"]
+layout_mode = 2
+
+[node name="lbl_life" type="Label" parent="ui_panel/VBoxContainer/HBox_top"]
+texture_filter = 2
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.147672, 0.147672, 0.147672, 1)
+theme_override_fonts/font = ExtResource("9_btq7j")
+theme_override_font_sizes/font_size = 16
+text = "战机数: 3"
+
+[node name="lbl_score" type="Label" parent="ui_panel/VBoxContainer/HBox_top"]
+texture_filter = 2
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.147672, 0.147672, 0.147672, 1)
+theme_override_fonts/font = ExtResource("9_btq7j")
+theme_override_font_sizes/font_size = 16
+text = "分数: 0"
+
 [node name="HBoxContainer" type="HBoxContainer" parent="ui_panel/VBoxContainer"]
 layout_mode = 2
 
@@ -123,14 +146,8 @@ theme_override_fonts/font = ExtResource("9_btq7j")
 theme_override_font_sizes/font_size = 16
 text = "速度: 1"
 
-[node name="lbl_score" type="Label" parent="ui_panel/VBoxContainer"]
-texture_filter = 2
+[node name="skill_counter" parent="ui_panel/VBoxContainer" instance=ExtResource("10_5fg37")]
 layout_mode = 2
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_shadow_color = Color(0.147672, 0.147672, 0.147672, 1)
-theme_override_fonts/font = ExtResource("9_btq7j")
-theme_override_font_sizes/font_size = 16
-text = "分数: 0"
 
 [node name="dialog" parent="." instance=ExtResource("11_qriac")]
 offset_left = 576.0
