@@ -46,9 +46,9 @@ func play_explosion():
 	fireball_timer.stop()
 
 	# Fade to 80% transparency over 2 seconds
-	var tween = get_tree().create_tween()
-	tween.tween_property(enemy_body, "modulate", Color(1, 1, 1, 0.2), 0.3)
-	await tween.finished
+	# var tween = get_tree().create_tween()
+	# tween.tween_property(enemy_body, "modulate", Color(1, 1, 1, 0.2), 0.3)
+	# await tween.finished
 
 	explosion.visible = true
 	explode_audio.play()

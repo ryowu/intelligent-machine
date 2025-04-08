@@ -5,10 +5,14 @@
 [ext_resource type="Script" path="res://scripts/items/speed_item.gd" id="2_dh3j3"]
 
 [node name="speed_item" groups=["items"] instance=ExtResource("1_42usl")]
-scale = Vector2(0.6, 0.6)
+scale = Vector2(0.5, 0.5)
 script = ExtResource("2_dh3j3")
 
 [node name="Sprite2D" parent="." index="0"]
 texture = ExtResource("2_2dqdk")
+
+[node name="lbl_float" parent="." index="3"]
+offset_left = 0.0
+offset_right = 248.0
 
 [connection signal="area_entered" from="item_area" to="." method="_on_item_area_area_entered"]
