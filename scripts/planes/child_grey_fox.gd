@@ -42,7 +42,7 @@ func start_firing():
 
 func spawn_bullet():
 	var bullet = BULLET_SCENE.instantiate()
-	bullet.position = position + Vector2(60, 4)
+	bullet.position = position + Vector2(65, 4)
 	bullet.direction = Vector2.RIGHT
 	get_tree().current_scene.add_child(bullet)
 

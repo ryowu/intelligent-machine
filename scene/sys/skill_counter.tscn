@@ -1,8 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://bytf3nebd4c7o"]
+[gd_scene load_steps=4 format=3 uid="uid://bytf3nebd4c7o"]
 
 [ext_resource type="Texture2D" uid="uid://dtacbhujwy856" path="res://assets/img/misc/skill_one.png" id="1_n442t"]
+[ext_resource type="FontFile" uid="uid://beml3tebbghat" path="res://assets/font/PixelOperator8.ttf" id="2_o7vgq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_esql4"]
+bg_color = Color(0.704342, 0.623421, 0.186518, 1)
 
 [node name="skill_counter" type="Control"]
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -31,3 +36,20 @@ expand_mode = 3
 layout_mode = 2
 texture = ExtResource("1_n442t")
 expand_mode = 3
+
+[node name="accumulate" type="ProgressBar" parent="HBoxContainer"]
+custom_minimum_size = Vector2(50, 20)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_o7vgq")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/fill = SubResource("StyleBoxFlat_esql4")
+value = 25.0
+show_percentage = false
+
+[node name="lbl_cool_down" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_o7vgq")
+theme_override_font_sizes/font_size = 14
+text = "COOL DOWN
+"
