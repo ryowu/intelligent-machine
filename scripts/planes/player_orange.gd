@@ -9,7 +9,7 @@ const MISSILE_COOLDOWN = 1.5
 @onready var shot_audio: AudioStreamPlayer2D = $shot
 var suspending = false
 var even_bullet_counter = true
-const BULLET_SCENE = preload("res://scene/planes/bullet.tscn")  # Preload bullet scene
+const BULLET_SCENE = preload("res://scene/planes/player_bullet_green.tscn")  # Preload bullet scene
 const MISSILE_SCENE = preload("res://scene/planes/missile.tscn") 
 # Player's spawn position (can be adjusted to suit your needs)
 var spawn_position = Vector2(400, 300)  # Example position, adjust as needed

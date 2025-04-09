@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://chvpkiv8t6naa"]
+
+[ext_resource type="PackedScene" uid="uid://0yie2yefqoyr" path="res://scene/planes/base_bullet.tscn" id="1_6jppo"]
+[ext_resource type="Script" path="res://scripts/planes/child_bullet_blue.gd" id="2_xg0ux"]
+[ext_resource type="Texture2D" uid="uid://c6x7cdskqnpnk" path="res://assets/img/planes/player/player_child_bullet_blue.png" id="3_i02s4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1iu3a"]
+size = Vector2(46, 13)
+
+[node name="child_bullet_blue" instance=ExtResource("1_6jppo")]
+script = ExtResource("2_xg0ux")
+
+[node name="Bullet" parent="." index="0"]
+texture = ExtResource("3_i02s4")
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(5, -0.5)
+shape = SubResource("RectangleShape2D_1iu3a")
