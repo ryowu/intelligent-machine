@@ -1,18 +1,20 @@
 extends Area2D
 
+const BULLET_SCENE = preload("res://scene/planes/player_bullet_green.tscn")
+const MISSILE_SCENE = preload("res://scene/planes/missile.tscn") 
+const GREY_FOX_SCENE = preload("res://scene/planes/child_grey_fox.tscn")
 const BASIC_SPEED = 200
 const SPEED_INCREMENT = 50
 const FIRE_COOLDOWN = 0.15
 const MISSILE_COOLDOWN = 1.5
 
-@export var speed = BASIC_SPEED  # Adjust speed as needed
+@export var speed = BASIC_SPEED
 @onready var shot_audio: AudioStreamPlayer2D = $shot
+@onready var skill: AudioStreamPlayer2D = $skill
+
 var suspending = false
 var even_bullet_counter = true
-const BULLET_SCENE = preload("res://scene/planes/player_bullet_green.tscn")  # Preload bullet scene
-const MISSILE_SCENE = preload("res://scene/planes/missile.tscn") 
-# Player's spawn position (can be adjusted to suit your needs)
-var spawn_position = Vector2(400, 300)  # Example position, adjust as needed
+var spawn_position = Vector2(400, 300)
 var power_level = 1
 var speed_level = 1
 var side_weapon_level = 0
@@ -61,6 +63,16 @@ func _physics_process(delta):
 			fire_missiles()
 			time_since_last_missile = 0.0
 
+	if Input.is_action_just_pressed("ui_cancel"):
+		skill.play()
+		var fox1 = GREY_FOX_SCENE.instantiate()
+		fox1.position = Vector2(-200, position.y - 60)
+		get_tree().current_scene.add_child(fox1)
+
+		var fox2 = GREY_FOX_SCENE.instantiate()
+		fox2.position = Vector2(-200, position.y + 60)
+		get_tree().current_scene.add_child(fox2)
+
 func fire_missiles():
 	if side_weapon_level == 1:
 		var missile1 = build_missile()
@@ -81,7 +93,6 @@ func fire_missiles():
 		missile3.start_position = position + Vector2(0, 15)
 		var missile4 = build_missile()
 		missile4.start_position = position + Vector2(0, 15)
-
 
 func fire_bullets():
 	var angles = []

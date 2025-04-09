@@ -3,6 +3,7 @@ extends Area2D
 
 const BULLET_SCENE = preload("res://scene/planes/child_bullet_blue.tscn")
 const BULLET_INTERVAL = 0.2
+const START_SPEED = 300
 
 var velocity = Vector2.ZERO
 var shooting = false
@@ -11,7 +12,7 @@ var stage_time = 0.0
 
 func _ready():
 	position.x = -200
-	velocity = Vector2.RIGHT * 200
+	velocity = Vector2.RIGHT * START_SPEED
 
 func _process(delta):
 	stage_time += delta
@@ -41,7 +42,7 @@ func start_firing():
 
 func spawn_bullet():
 	var bullet = BULLET_SCENE.instantiate()
-	bullet.position = position
+	bullet.position = position + Vector2(60, 4)
 	bullet.direction = Vector2.RIGHT
 	get_tree().current_scene.add_child(bullet)
 
