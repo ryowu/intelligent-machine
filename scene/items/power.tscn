@@ -7,10 +7,6 @@
 [node name="power" groups=["items"] instance=ExtResource("1_1wenf")]
 scale = Vector2(0.6, 0.6)
 script = ExtResource("2_ixigv")
-power_increase = null
-move_speed = null
-oscillation_amplitude = 50
-oscillation_speed = null
 
 [node name="Sprite2D" parent="." index="0"]
 texture = ExtResource("2_katk5")

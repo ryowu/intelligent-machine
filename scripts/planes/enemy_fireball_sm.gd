@@ -17,7 +17,7 @@ func _physics_process(delta):
 		queue_free()
 
 func _on_area_entered(area: Area2D):
-	if area.is_in_group("player"):
+	if area.is_in_group("player") or area.is_in_group("player_child"):
 		if area.has_method("die"):
 			area.die()
 		queue_free()

@@ -42,7 +42,7 @@ debug_color = Color(0.552082, 0.561503, 0.111175, 0.42)
 stream = ExtResource("3_srjh2")
 volume_db = -10.0
 
-[node name="skill" type="AudioStreamPlayer2D" parent="."]
+[node name="skill" type="AudioStreamPlayer2D" parent="." groups=["player"]]
 stream = ExtResource("4_css8t")
 
 [connection signal="area_entered" from="gold_picker" to="." method="_on_gold_picker_area_entered"]

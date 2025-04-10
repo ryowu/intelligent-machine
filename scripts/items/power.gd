@@ -2,4 +2,5 @@ extends "res://scripts/items/base_pickup_item.gd"
 
 func do_pickup(area: Area2D):
 	lbl_float.text = "POWER UP"
-	area.increase_power(1)
+	if area.has_method("increase_power"):
+		area.increase_power(1)
