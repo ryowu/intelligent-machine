@@ -1,38 +1,89 @@
-[gd_scene load_steps=4 format=3 uid="uid://bytf3nebd4c7o"]
+[gd_scene load_steps=9 format=3 uid="uid://bytf3nebd4c7o"]
 
 [ext_resource type="Texture2D" uid="uid://dtacbhujwy856" path="res://assets/img/misc/skill_one.png" id="1_n442t"]
+[ext_resource type="Script" path="res://scripts/sys/skill_counter.gd" id="1_xifkw"]
 [ext_resource type="FontFile" uid="uid://beml3tebbghat" path="res://assets/font/PixelOperator8.ttf" id="2_o7vgq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_den1n"]
+bg_color = Color(0, 0, 0, 0.160784)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_esql4"]
 bg_color = Color(0.704342, 0.623421, 0.186518, 1)
 
+[sub_resource type="Animation" id="Animation_cylpq"]
+resource_name = "skill_ready"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HBoxContainer/accumulate:theme_override_styles/fill:bg_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(0.704342, 0.623421, 0.186518, 1), Color(1, 1, 1, 1), Color(0.704342, 0.623421, 0.186518, 1), Color(1, 1, 1, 1), Color(0.704342, 0.623421, 0.186518, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_rglnt"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HBoxContainer/accumulate:theme_override_styles/fill:bg_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.704342, 0.623421, 0.186518, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_eh7km"]
+_data = {
+"RESET": SubResource("Animation_rglnt"),
+"skill_ready": SubResource("Animation_cylpq")
+}
+
 [node name="skill_counter" type="Control"]
-custom_minimum_size = Vector2(0, 50)
+custom_minimum_size = Vector2(0, 30)
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = -896.0
-offset_bottom = -591.0
+offset_right = -812.0
+offset_bottom = -618.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_xifkw")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 0
 offset_right = 209.0
 offset_bottom = 24.0
 
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
+[node name="lbl_skill" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_o7vgq")
+theme_override_font_sizes/font_size = 16
+text = "必杀技"
+vertical_alignment = 1
+
+[node name="skill1" type="TextureRect" parent="HBoxContainer"]
 layout_mode = 2
 texture = ExtResource("1_n442t")
 expand_mode = 3
 
-[node name="TextureRect2" type="TextureRect" parent="HBoxContainer"]
+[node name="skill2" type="TextureRect" parent="HBoxContainer"]
 layout_mode = 2
 texture = ExtResource("1_n442t")
 expand_mode = 3
 
-[node name="TextureRect3" type="TextureRect" parent="HBoxContainer"]
+[node name="skill3" type="TextureRect" parent="HBoxContainer"]
 layout_mode = 2
 texture = ExtResource("1_n442t")
 expand_mode = 3
@@ -40,16 +91,25 @@ expand_mode = 3
 [node name="accumulate" type="ProgressBar" parent="HBoxContainer"]
 custom_minimum_size = Vector2(50, 20)
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 theme_override_fonts/font = ExtResource("2_o7vgq")
 theme_override_font_sizes/font_size = 16
+theme_override_styles/background = SubResource("StyleBoxFlat_den1n")
 theme_override_styles/fill = SubResource("StyleBoxFlat_esql4")
-value = 25.0
+value = 50.0
 show_percentage = false
 
 [node name="lbl_cool_down" type="Label" parent="HBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_o7vgq")
-theme_override_font_sizes/font_size = 14
-text = "COOL DOWN
+theme_override_font_sizes/font_size = 16
+text = "冷却中
 "
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_eh7km")
+}

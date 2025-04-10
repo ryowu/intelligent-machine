@@ -18,6 +18,7 @@ var spawn_position = Vector2(400, 300)
 var power_level = 1
 var speed_level = 1
 var side_weapon_level = 0
+var skill_ready = true
 var time_since_last_fire = 0.0
 var time_since_last_missile = 0.0
 
@@ -28,6 +29,7 @@ signal on_speed_change(new_speed: int)
 func _ready():
 	# Set player spawn position at the start of the game
 	position = spawn_position
+	GlobalManager.on_skill_ready.connect(_on_skill_ready)
 
 func _physics_process(delta):
 	if suspending:
@@ -63,15 +65,20 @@ func _physics_process(delta):
 			fire_missiles()
 			time_since_last_missile = 0.0
 
-	if Input.is_action_just_pressed("ui_cancel"):
+	if Input.is_action_just_pressed("ui_cancel") and skill_ready:
+		GlobalManager.use_skill()
 		skill.play()
 		var fox1 = GREY_FOX_SCENE.instantiate()
 		fox1.position = Vector2(-200, position.y - 60)
 		get_tree().current_scene.add_child(fox1)
 
 		var fox2 = GREY_FOX_SCENE.instantiate()
-		fox2.position = Vector2(-200, position.y + 60)
+		fox2.position = Vector2(-200, position.y)
 		get_tree().current_scene.add_child(fox2)
+
+		var fox3 = GREY_FOX_SCENE.instantiate()
+		fox3.position = Vector2(-200, position.y + 60)
+		get_tree().current_scene.add_child(fox3)
 
 func fire_missiles():
 	if side_weapon_level == 1:
@@ -174,4 +181,5 @@ func _on_gold_picker_area_entered(area: Area2D) -> void:
 	if area.is_in_group("coin") and area.has_method("fly_to_player"):
 		area.fly_to_player(self)
 
-	
+func _on_skill_ready(is_ready):
+	skill_ready = is_ready
