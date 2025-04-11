@@ -3,7 +3,8 @@ extends Area2D
 
 const BULLET_SCENE = preload("res://scene/planes/child_bullet_blue.tscn")
 const BULLET_INTERVAL = 0.2
-const START_SPEED = 300
+const START_SPEED = 400
+const SPEED_UP_X_POSITION = 250
 
 var velocity = Vector2.ZERO
 var shooting = false
@@ -20,7 +21,7 @@ func _process(delta):
 
 	match stage:
 		0:
-			if position.x >= 150:
+			if position.x >= SPEED_UP_X_POSITION:
 				stage = 1
 				stage_time = 0.0
 				velocity = Vector2.RIGHT * 50

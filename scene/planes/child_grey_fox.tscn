@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cw6yt2wnrn8o2" path="res://assets/img/planes/player/child_1.png" id="1_co76f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_74000"]
-size = Vector2(186.667, 35)
+size = Vector2(186.667, 58.3333)
 
 [node name="child_grey_fox" type="Area2D" groups=["player_child"]]
 scale = Vector2(0.6, 0.6)
@@ -17,7 +17,7 @@ texture = ExtResource("1_co76f")
 [node name="Timer" type="Timer" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(11.6667, 5.83333)
+position = Vector2(11.6667, 4.16667)
 shape = SubResource("RectangleShape2D_74000")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
