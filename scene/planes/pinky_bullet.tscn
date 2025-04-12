@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://d0uya0f53h32e"]
+
+[ext_resource type="PackedScene" uid="uid://0yie2yefqoyr" path="res://scene/planes/base_bullet.tscn" id="1_jf24t"]
+[ext_resource type="Texture2D" uid="uid://b8d7aoimekhfa" path="res://assets/img/planes/player/pinky_bullet.png" id="2_10r8m"]
+[ext_resource type="Script" path="res://scripts/planes/pinky_bullet.gd" id="2_k318j"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b56ta"]
+size = Vector2(37, 9)
+
+[node name="pinky_bullet" instance=ExtResource("1_jf24t")]
+script = ExtResource("2_k318j")
+
+[node name="body" parent="." index="0"]
+texture = ExtResource("2_10r8m")
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(5.5, -0.5)
+shape = SubResource("RectangleShape2D_b56ta")

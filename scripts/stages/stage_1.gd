@@ -1,6 +1,5 @@
 extends Node2D
 
-@onready var player_1: Area2D = $player_silver_shark
 @onready var lbl_score: Label = $ui_panel/VBoxContainer/HBox_top/lbl_score
 @onready var lbl_speed: Label = $ui_panel/VBoxContainer/HBoxContainer/lbl_speed
 @onready var lbl_power: Label = $ui_panel/VBoxContainer/HBoxContainer/lbl_power
@@ -12,17 +11,32 @@ extends Node2D
 
 signal on_stage_dialog_end()
 
+var player_1: Area2D
+
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 
+	#init_player("res://scene/planes/player_silver_shark.tscn")
+	init_player("res://scene/planes/player_pinky.tscn")
+	
 	scheduler.on_dialog_start.connect(_on_dialog_start)
 	dialog.dialog_ended.connect(_on_dialog_ended)
 	GlobalManager.score_updated.connect(update_score_label)
+	scheduler.start()
+
+func init_player(scene_path: String):
+	if player_1:
+		player_1.queue_free()
+
+	var player_scene = load(scene_path)
+	player_1 = player_scene.instantiate()
+	player_1.name = "main_player"
+	add_child(player_1)
+	player_1.position = Vector2(80, 300)
+
 	player_1.on_power_change.connect(_on_power_change)
 	player_1.on_side_power_change.connect(_on_side_power_change)
 	player_1.on_speed_change.connect(_on_speed_change)
-	player_1.position = Vector2(80, 300)
-	scheduler.start()
 
 func update_score_label(new_score):
 	lbl_score.text = "分数: " + str(new_score)

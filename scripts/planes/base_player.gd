@@ -5,13 +5,13 @@ const SPEED_INCREMENT = 50
 const FIRE_COOLDOWN = 0.15
 const MISSILE_COOLDOWN = 1.5
 
-@export var speed = BASIC_SPEED
 @onready var shot_audio: AudioStreamPlayer2D = $shot
 @onready var skill_audio: AudioStreamPlayer2D = $skill_audio
 
 var suspending = false
 var even_bullet_counter = true
 var spawn_position = Vector2(400, 300)
+var speed = BASIC_SPEED
 var power_level = 1
 var speed_level = 1
 var side_weapon_level = 0
