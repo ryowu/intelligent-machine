@@ -10,7 +10,7 @@ size = Vector2(46, 13)
 [node name="child_bullet_blue" instance=ExtResource("1_6jppo")]
 script = ExtResource("2_xg0ux")
 
-[node name="Bullet" parent="." index="0"]
+[node name="body" parent="." index="0"]
 texture = ExtResource("3_i02s4")
 
 [node name="CollisionShape2D" parent="." index="1"]

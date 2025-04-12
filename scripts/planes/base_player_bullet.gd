@@ -7,7 +7,7 @@ var direction = Vector2.RIGHT
 # Bullet damage
 var damage = GlobalConfig.BASIC_PLAYER_BULLET_DAMAGE
 
-@onready var sprite: Sprite2D = $Bullet
+@onready var sprite: Sprite2D = $body
 
 func _ready():
 	# The player bullet is on the top of all stuff

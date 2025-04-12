@@ -25,5 +25,5 @@ func _do_move(delta):
 
 func _validate_in_view():
 	var viewport_size = get_viewport().get_visible_rect().size
-	if position.x > viewport_size.x or position.y < viewport_size.position.y or position.y > viewport_size.end.y:
+	if position.x > viewport_size.x or position.y < 0 or position.y > viewport_size.y:
 		queue_free()
