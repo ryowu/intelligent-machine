@@ -17,8 +17,8 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-GlobalManager="*res://scripts/sys/global_manager.gd"
 GlobalConfig="*res://scripts/sys/global_config.gd"
+GlobalManager="*res://scene/sys/global_scene.tscn"
 
 [display]
 

@@ -1,22 +1,27 @@
 extends Node2D
+@onready var bgm_player: AudioStreamPlayer2D = $bgm_player
+@onready var skill_timer: Timer = $skill_timer
 
 signal score_updated(new_score)
+
+var bgms = [
+	"res://assets/music/main_menu.mp3",
+	""
+]
 
 var score: int = 0
 var player_skill_amount = 3
 var skill_progress: int = 100
-var skill_timer: Timer
+var charactor_name = "yunfeng"
 
 signal on_skill_ready(bool)
 signal on_skill_progressed(int)
 
 func _ready() -> void:
-	skill_timer = Timer.new()
 	skill_timer.wait_time = 0.2
-	skill_timer.autostart = true
 	skill_timer.one_shot = false
 	skill_timer.timeout.connect(skill_timer_timeout)
-	get_tree().root.call_deferred("add_child", skill_timer)
+	skill_timer.start()
 
 func add_score(amount: int):
 	score += amount
@@ -37,3 +42,17 @@ func use_skill():
 		skill_progress = 0
 		player_skill_amount -= 1
 		on_skill_ready.emit(false)
+
+func play_bgm(bgm_index: int):
+	if bgm_player.playing:
+		bgm_player.stop()
+	
+	var stream_path = bgms[bgm_index]
+	var audio_stream = load(stream_path)
+	if audio_stream:
+		bgm_player.stream = audio_stream
+		bgm_player.play()
+		
+func stop_bgm():
+	if bgm_player.playing:
+		bgm_player.stop()

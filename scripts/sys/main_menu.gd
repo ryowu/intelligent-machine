@@ -4,12 +4,11 @@ extends Node2D
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+	GlobalManager.play_bgm(0)
 	btn_start.grab_focus()
 
-
 func _on_btn_start_pressed() -> void:
-	get_tree().change_scene_to_file("res://scene/stages/stage_1.tscn")
-
+	get_tree().change_scene_to_file("res://scene/sys/select_player.tscn")
 
 func _on_btn_exit_pressed() -> void:
 	get_tree().quit()
