@@ -1,0 +1,71 @@
+[gd_scene load_steps=7 format=3 uid="uid://d270y04ft17ji"]
+
+[ext_resource type="Texture2D" uid="uid://bogyk4l2704di" path="res://assets/img/misc/blue_sky_cloud.jpg" id="1_fd3ax"]
+[ext_resource type="Script" path="res://scripts/sys/main_menu.gd" id="1_refs6"]
+[ext_resource type="Texture2D" uid="uid://banxo4pw63ht7" path="res://assets/img/misc/banner.png" id="2_g30l2"]
+[ext_resource type="Texture2D" uid="uid://dpidvge3rcbif" path="res://assets/img/misc/plane_main.png" id="2_ip78d"]
+[ext_resource type="AudioStream" uid="uid://bplsvtgfhhe5y" path="res://assets/music/Ludum Dare 30 04.mp3" id="4_qhklc"]
+[ext_resource type="FontFile" uid="uid://beml3tebbghat" path="res://assets/font/PixelOperator8.ttf" id="5_f5w3d"]
+
+[node name="main_menu" type="Node2D"]
+script = ExtResource("1_refs6")
+
+[node name="BgMainMenu" type="Sprite2D" parent="."]
+position = Vector2(575, 76)
+texture = ExtResource("1_fd3ax")
+
+[node name="Banner" type="Sprite2D" parent="."]
+position = Vector2(578, 160)
+texture = ExtResource("2_g30l2")
+
+[node name="PlaneMain" type="Sprite2D" parent="."]
+position = Vector2(555, 353)
+rotation = 0.55408
+texture = ExtResource("2_ip78d")
+
+[node name="bgm_start" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_qhklc")
+volume_db = 5.0
+autoplay = true
+
+[node name="Control" type="Control" parent="."]
+custom_minimum_size = Vector2(200, 300)
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 475.0
+offset_top = 472.0
+offset_right = 675.0
+offset_bottom = 772.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+custom_minimum_size = Vector2(200, 300)
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="btn_start" type="Button" parent="Control/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_f5w3d")
+theme_override_font_sizes/font_size = 24
+text = "开始游戏"
+
+[node name="btn_exit" type="Button" parent="Control/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_f5w3d")
+theme_override_font_sizes/font_size = 24
+text = "退出"
+
+[connection signal="pressed" from="Control/VBoxContainer/btn_start" to="." method="_on_btn_start_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/btn_exit" to="." method="_on_btn_exit_pressed"]

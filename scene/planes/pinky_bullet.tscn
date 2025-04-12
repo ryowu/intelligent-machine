@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://scripts/planes/pinky_bullet.gd" id="2_k318j"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b56ta"]
-size = Vector2(37, 9)
+size = Vector2(40, 17)
 
 [node name="pinky_bullet" instance=ExtResource("1_jf24t")]
 script = ExtResource("2_k318j")
@@ -14,5 +14,5 @@ script = ExtResource("2_k318j")
 texture = ExtResource("2_10r8m")
 
 [node name="CollisionShape2D" parent="." index="1"]
-position = Vector2(5.5, -0.5)
+position = Vector2(7, -1.5)
 shape = SubResource("RectangleShape2D_b56ta")

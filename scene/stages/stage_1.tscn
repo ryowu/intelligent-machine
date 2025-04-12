@@ -1,25 +1,25 @@
 [gd_scene load_steps=13 format=3 uid="uid://b660raxknhu75"]
 
-[ext_resource type="Script" path="res://scripts/stages/stage_1.gd" id="1_gjdnm"]
-[ext_resource type="Script" path="res://scripts/sys/parallax_background.gd" id="1_pjjte"]
-[ext_resource type="Texture2D" uid="uid://bljxidyggvjbg" path="res://assets/img/bg/blue_sky.png" id="3_dcry3"]
-[ext_resource type="Texture2D" uid="uid://btly05inuv7yq" path="res://assets/img/bg/small_cloud1.png" id="4_ycye5"]
-[ext_resource type="Texture2D" uid="uid://byap2ynlq8jq6" path="res://assets/img/bg/small_cloud2.png" id="5_vk3a7"]
-[ext_resource type="Texture2D" uid="uid://b2bk5p160ey3l" path="res://assets/img/bg/big_cloud.png" id="6_1nqo5"]
-[ext_resource type="FontFile" uid="uid://beml3tebbghat" path="res://assets/font/PixelOperator8.ttf" id="9_btq7j"]
-[ext_resource type="Script" path="res://scripts/sys/scheduler.gd" id="9_ee41g"]
-[ext_resource type="PackedScene" uid="uid://bytf3nebd4c7o" path="res://scene/sys/skill_counter.tscn" id="10_5fg37"]
-[ext_resource type="AudioStream" uid="uid://c6s1m5if2mb2v" path="res://assets/music/stage_complete.MP3" id="11_icbop"]
-[ext_resource type="PackedScene" uid="uid://b6nxmwq82nulr" path="res://scene/sys/dialog.tscn" id="11_qriac"]
+[ext_resource type="Script" path="res://scripts/stages/stage_1.gd" id="1_6gc5o"]
+[ext_resource type="Script" path="res://scripts/sys/parallax_background.gd" id="2_lldvs"]
+[ext_resource type="Texture2D" uid="uid://bljxidyggvjbg" path="res://assets/img/bg/blue_sky.png" id="3_8gcej"]
+[ext_resource type="Texture2D" uid="uid://b2bk5p160ey3l" path="res://assets/img/bg/big_cloud.png" id="4_kqb0g"]
+[ext_resource type="Texture2D" uid="uid://btly05inuv7yq" path="res://assets/img/bg/small_cloud1.png" id="5_yn5sn"]
+[ext_resource type="Texture2D" uid="uid://byap2ynlq8jq6" path="res://assets/img/bg/small_cloud2.png" id="6_pwsgs"]
+[ext_resource type="Script" path="res://scripts/sys/scheduler.gd" id="7_6m53k"]
+[ext_resource type="FontFile" uid="uid://beml3tebbghat" path="res://assets/font/PixelOperator8.ttf" id="8_kvdts"]
+[ext_resource type="PackedScene" uid="uid://bytf3nebd4c7o" path="res://scene/sys/skill_counter.tscn" id="9_g4mf8"]
+[ext_resource type="PackedScene" uid="uid://b6nxmwq82nulr" path="res://scene/sys/dialog.tscn" id="10_3b1g5"]
+[ext_resource type="AudioStream" uid="uid://c6s1m5if2mb2v" path="res://assets/music/stage_complete.MP3" id="11_hnjdj"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3pwvq"]
 bg_color = Color(0.612299, 1.50409e-06, 5.77569e-07, 1)
 
 [node name="stage1" type="Node2D"]
-script = ExtResource("1_gjdnm")
+script = ExtResource("1_6gc5o")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
-script = ExtResource("1_pjjte")
+script = ExtResource("2_lldvs")
 
 [node name="ParallaxLayer_bottom" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2(0, 0)
@@ -27,7 +27,7 @@ motion_scale = Vector2(0, 0)
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer_bottom"]
 position = Vector2(577, 335)
 scale = Vector2(0.7, 0.7)
-texture = ExtResource("3_dcry3")
+texture = ExtResource("3_8gcej")
 
 [node name="ParallaxLayer_middle" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2(0.4, 0.4)
@@ -36,7 +36,7 @@ motion_mirroring = Vector2(1200, 0)
 [node name="big_cloud" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer_middle"]
 position = Vector2(1109, 452)
 scale = Vector2(2, 2)
-texture = ExtResource("6_1nqo5")
+texture = ExtResource("4_kqb0g")
 region_enabled = true
 region_rect = Rect2(0, 0, 1024, 496.791)
 
@@ -47,17 +47,17 @@ motion_mirroring = Vector2(1200, 0)
 [node name="small_cloud1" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer_top"]
 position = Vector2(319, 169)
 scale = Vector2(2, 2)
-texture = ExtResource("4_ycye5")
+texture = ExtResource("5_yn5sn")
 region_rect = Rect2(253.01, 739.071, 756.082, 179.622)
 
 [node name="small_cloud2" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer_top"]
 position = Vector2(805, 280)
 scale = Vector2(2, 2)
-texture = ExtResource("5_vk3a7")
+texture = ExtResource("6_pwsgs")
 region_rect = Rect2(253.01, 739.071, 756.082, 179.622)
 
 [node name="scheduler" type="Node2D" parent="."]
-script = ExtResource("9_ee41g")
+script = ExtResource("7_6m53k")
 enemy_schedule_path = "res://data/enemy_schedule_1.csv"
 
 [node name="ui_panel" type="Control" parent="."]
@@ -97,7 +97,7 @@ custom_minimum_size = Vector2(120, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_shadow_color = Color(0.147672, 0.147672, 0.147672, 1)
-theme_override_fonts/font = ExtResource("9_btq7j")
+theme_override_fonts/font = ExtResource("8_kvdts")
 theme_override_font_sizes/font_size = 16
 text = "战机数: 3"
 
@@ -106,7 +106,7 @@ texture_filter = 2
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_shadow_color = Color(0.147672, 0.147672, 0.147672, 1)
-theme_override_fonts/font = ExtResource("9_btq7j")
+theme_override_fonts/font = ExtResource("8_kvdts")
 theme_override_font_sizes/font_size = 16
 text = "分数: 0"
 
@@ -119,7 +119,7 @@ custom_minimum_size = Vector2(120, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_shadow_color = Color(0.147672, 0.147672, 0.147672, 1)
-theme_override_fonts/font = ExtResource("9_btq7j")
+theme_override_fonts/font = ExtResource("8_kvdts")
 theme_override_font_sizes/font_size = 16
 text = "主武器: 1"
 
@@ -129,7 +129,7 @@ custom_minimum_size = Vector2(120, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_shadow_color = Color(0.147672, 0.147672, 0.147672, 1)
-theme_override_fonts/font = ExtResource("9_btq7j")
+theme_override_fonts/font = ExtResource("8_kvdts")
 theme_override_font_sizes/font_size = 16
 text = "副武器: 0"
 
@@ -138,18 +138,18 @@ texture_filter = 2
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_shadow_color = Color(0.147672, 0.147672, 0.147672, 1)
-theme_override_fonts/font = ExtResource("9_btq7j")
+theme_override_fonts/font = ExtResource("8_kvdts")
 theme_override_font_sizes/font_size = 16
 text = "速度: 1"
 
-[node name="skill_counter" parent="ui_panel/VBoxContainer" instance=ExtResource("10_5fg37")]
+[node name="skill_counter" parent="ui_panel/VBoxContainer" instance=ExtResource("9_g4mf8")]
 layout_mode = 2
 
-[node name="dialog" parent="." instance=ExtResource("11_qriac")]
+[node name="dialog" parent="." instance=ExtResource("10_3b1g5")]
 offset_left = 576.0
 offset_top = 533.0
 offset_right = 576.0
 offset_bottom = 533.0
 
 [node name="stage_complete_bgm" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("11_icbop")
+stream = ExtResource("11_hnjdj")

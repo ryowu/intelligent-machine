@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Intelligent Machine"
-run/main_scene="res://scene/stage_1.tscn"
+run/main_scene="res://scene/sys/main_menu.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
