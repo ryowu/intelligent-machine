@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://bwy8mdhesyr36"]
 
 [ext_resource type="Texture2D" uid="uid://md10ccjnfgeu" path="res://assets/img/planes/player/missile.png" id="1_4i2tg"]
-[ext_resource type="Script" path="res://scripts/planes/missile.gd" id="1_r24dr"]
+[ext_resource type="Script" path="res://scripts/planes/player_missile.gd" id="1_r24dr"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_oxqb6"]
 atlas = ExtResource("1_4i2tg")

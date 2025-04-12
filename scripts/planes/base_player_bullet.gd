@@ -16,10 +16,13 @@ func _ready():
 func _physics_process(delta):
 	_do_move(delta)
 	# Remove bullet when move out of the view rect
-	var viewport_size = get_viewport().get_visible_rect().size
-	if position.x > viewport_size.x or position.y > viewport_size.y or position.x < 0 or position.y < 0:
-		queue_free()
+	_validate_in_view()
 
 func _do_move(delta):
 	# Move bullet to right
 	position += direction.normalized() * speed * delta
+
+func _validate_in_view():
+	var viewport_size = get_viewport().get_visible_rect().size
+	if position.x > viewport_size.x or position.y > viewport_size.y or position.x < 0 or position.y < 0:
+		queue_free()

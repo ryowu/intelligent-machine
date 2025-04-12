@@ -1,4 +1,4 @@
 magnet to grab all coins in the screen
 partical for support enemies explorsion
-bullet damage
 shoot_1 animation top view
+shoot_3 reference player refactor

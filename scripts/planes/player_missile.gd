@@ -22,3 +22,8 @@ func _do_move(delta):
 		y_pos = -y_pos
 	var rotated = Vector2(-y, y_pos)
 	position = start_position + rotated
+
+func _validate_in_view():
+	var viewport_size = get_viewport().get_visible_rect().size
+	if position.x > viewport_size.x or position.y < viewport_size.position.y or position.y > viewport_size.end.y:
+		queue_free()
