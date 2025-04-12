@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://b43i8ens1prfi"]
+
+[ext_resource type="PackedScene" uid="uid://0yie2yefqoyr" path="res://scene/planes/base_bullet.tscn" id="1_1tw70"]
+[ext_resource type="Texture2D" uid="uid://dmqkxmkmay7j2" path="res://assets/img/planes/player/tracking_missile.png" id="2_g25ej"]
+[ext_resource type="Script" path="res://scripts/planes/tracking_missile.gd" id="2_m0fd0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rssxa"]
+size = Vector2(22, 17)
+
+[node name="tracking_missile" instance=ExtResource("1_1tw70")]
+script = ExtResource("2_m0fd0")
+
+[node name="body" parent="." index="0"]
+texture = ExtResource("2_g25ej")
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(6, -0.5)
+shape = SubResource("RectangleShape2D_rssxa")

@@ -72,7 +72,7 @@ _data = {
 "enter_field": SubResource("Animation_f11lx")
 }
 
-[node name="defender_normal" type="Node2D" groups=["enemy"]]
+[node name="defender_normal" type="Node2D"]
 z_index = 9
 position = Vector2(1300, 350)
 script = ExtResource("1_l5rea")
@@ -81,7 +81,7 @@ script = ExtResource("1_l5rea")
 sprite_frames = SubResource("SpriteFrames_t6gkc")
 animation = &"idle"
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." groups=["enemy"]]
 collision_layer = 4
 collision_mask = 3
 
