@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var player_1: Area2D = $Player1
+@onready var player_1: Area2D = $player_silver_shark
 @onready var lbl_score: Label = $ui_panel/VBoxContainer/HBox_top/lbl_score
 @onready var lbl_speed: Label = $ui_panel/VBoxContainer/HBoxContainer/lbl_speed
 @onready var lbl_power: Label = $ui_panel/VBoxContainer/HBoxContainer/lbl_power

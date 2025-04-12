@@ -1,31 +1,19 @@
-[gd_scene load_steps=7 format=3 uid="uid://dan2jb8oqxnqh"]
+[gd_scene load_steps=3 format=3 uid="uid://dan2jb8oqxnqh"]
 
-[ext_resource type="Script" path="res://scripts/planes/player_orange.gd" id="1_bs04d"]
-[ext_resource type="Texture2D" uid="uid://bi2fwijh6xkw" path="res://assets/img/planes/player/player_orange_one.png" id="1_idsrs"]
 [ext_resource type="AudioStream" uid="uid://b8ofbk4sqmdvc" path="res://assets/sound/player_gunshot.mp3" id="3_srjh2"]
 [ext_resource type="AudioStream" uid="uid://ev3vodkbwgvd" path="res://assets/sound/grey_fox_show_up.MP3" id="4_css8t"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_604bt"]
-size = Vector2(101.25, 19.5)
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_n1bhl"]
-radius = 183.903
-
-[node name="PlayerOrangeOne" type="Area2D" groups=["player"]]
+[node name="base_player" type="Area2D" groups=["player"]]
 z_index = 10
 scale = Vector2(0.7, 0.7)
 collision_mask = 12
-script = ExtResource("1_bs04d")
-speed = 260
 
-[node name="PlayerOrangeOne" type="Sprite2D" parent="."]
+[node name="player_body_sprite" type="Sprite2D" parent="."]
 z_index = 9
-texture = ExtResource("1_idsrs")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 z_index = 10
 position = Vector2(0.625001, 12.25)
-shape = SubResource("RectangleShape2D_604bt")
 
 [node name="gold_picker" type="Area2D" parent="."]
 position = Vector2(0, 10)
@@ -33,7 +21,6 @@ collision_layer = 0
 collision_mask = 16
 
 [node name="gold_magnet" type="CollisionShape2D" parent="gold_picker"]
-shape = SubResource("CircleShape2D_n1bhl")
 debug_color = Color(0.552082, 0.561503, 0.111175, 0.42)
 
 [node name="shot" type="AudioStreamPlayer2D" parent="."]

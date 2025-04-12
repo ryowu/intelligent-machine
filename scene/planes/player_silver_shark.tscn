@@ -1,0 +1,25 @@
+[gd_scene load_steps=6 format=3 uid="uid://d23hm3jpusf3t"]
+
+[ext_resource type="PackedScene" uid="uid://dan2jb8oqxnqh" path="res://scene/planes/base_player.tscn" id="1_ve3vs"]
+[ext_resource type="Texture2D" uid="uid://bi2fwijh6xkw" path="res://assets/img/planes/player/player_silver_shark.png" id="2_a5nap"]
+[ext_resource type="Script" path="res://scripts/planes/player_silver_shark.gd" id="2_kmsem"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a8icn"]
+size = Vector2(98.5714, 20)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yjhtk"]
+radius = 197.474
+
+[node name="player_silver_shark" instance=ExtResource("1_ve3vs")]
+script = ExtResource("2_kmsem")
+
+[node name="player_body_sprite" parent="." index="0"]
+texture = ExtResource("2_a5nap")
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(2.14285, 12.25)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_a8icn")
+
+[node name="gold_magnet" parent="gold_picker" index="0"]
+shape = SubResource("CircleShape2D_yjhtk")

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bi2fwijh6xkw"
-path="res://.godot/imported/player_orange_one.png-145909c063bfd92b3d12c94fc1f1b174.ctex"
+path="res://.godot/imported/player_silver_shark.png-cbbd2e59100298b01988abdfb6bb6af2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/img/planes/player/player_orange_one.png"
-dest_files=["res://.godot/imported/player_orange_one.png-145909c063bfd92b3d12c94fc1f1b174.ctex"]
+source_file="res://assets/img/planes/player/player_silver_shark.png"
+dest_files=["res://.godot/imported/player_silver_shark.png-cbbd2e59100298b01988abdfb6bb6af2.ctex"]
 
 [params]
 

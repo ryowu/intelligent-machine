@@ -1,6 +1,6 @@
 extends "res://scripts/planes/base_shootable_enemy.gd"
 
-@onready var player: Area2D = get_parent().get_node("Player1")
+@onready var player: Area2D = get_parent().get_node("player_silver_shark")
 
 func _ready():
 	super._ready()
