@@ -8,6 +8,7 @@ var scale_delta = 0
 
 func _ready():
 	speed = 100
+	damage = GlobalConfig.BASIC_PLAYER_MISSILE_DAMAGE
 	start_position = position
 
 func _do_move(delta):

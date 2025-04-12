@@ -1,6 +1,6 @@
 extends "res://scripts/planes/base_player_bullet.gd"
 
-@export var bullet_mode := 3
+var bullet_mode := 3
 
 const BULLET_IMAGES = {
 	1: preload("res://assets/img/planes/player/player_bullet_lg.png"),
