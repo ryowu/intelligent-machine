@@ -4,6 +4,12 @@ extends "res://scripts/planes/base_shootable_enemy.gd"
 
 func _ready():
 	super._ready()
+
+	hp = 10
+	speed = 250
+	score = 200
+	coin_count = 1
+
 	path_points = [
 		Vector2(800, position.y),
 		Vector2(1500, position.y),

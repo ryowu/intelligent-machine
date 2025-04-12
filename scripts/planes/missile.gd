@@ -1,20 +1,16 @@
-extends Area2D
+extends "res://scripts/planes/base_player_bullet.gd"
 
 const BASE_SCALE = 30
-
 var start_position: Vector2
 var time_passed := 0.0
-var speed := 100.0
-var screen_rect: Rect2
 var direction_up = true
 var scale_delta = 0
 
 func _ready():
-	set_as_top_level(true)
+	speed = 100
 	start_position = position
-	screen_rect = get_viewport().get_visible_rect()
 
-func _process(delta):
+func _do_move(delta):
 	time_passed += delta
 	speed += 50 * delta
 	var t = time_passed * speed * 0.01
@@ -25,5 +21,3 @@ func _process(delta):
 		y_pos = -y_pos
 	var rotated = Vector2(-y, y_pos)
 	position = start_position + rotated
-	if position.x > screen_rect.end.x or position.y < screen_rect.position.y or position.y > screen_rect.end.y:
-		queue_free()

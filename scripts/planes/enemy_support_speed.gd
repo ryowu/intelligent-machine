@@ -4,6 +4,11 @@ var speed_item_scene = preload("res://scene/items/speed_item.tscn")
 
 func _ready():
 	super._ready()
+
+	hp = 30
+	speed = 100
+	score = 200
+
 	path_points = [
 		Vector2(900, 20),
 		Vector2(900, 150),

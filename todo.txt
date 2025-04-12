@@ -1,5 +1,4 @@
 magnet to grab all coins in the screen
 partical for support enemies explorsion
 bullet damage
-skill, spawn child plane
 shoot_1 animation top view

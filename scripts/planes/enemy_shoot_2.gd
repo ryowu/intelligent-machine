@@ -4,6 +4,11 @@ var mode: int
 
 func _ready():
 	super._ready()
+	hp = 20
+	speed = 50
+	score = 200
+	coin_count = 1
+
 	if mode == 0:
 		path_points = [
 			Vector2(900, 285),

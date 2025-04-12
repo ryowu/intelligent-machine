@@ -1,10 +1,10 @@
 extends Area2D
 
-@export var speed = 220
-@export var hp = 3
-@export var score = 100
-@export var hit_effect_delta = Vector2(30, 0)
-@export var coin_count = 0 # randi_range(1, 2)  # Randomly choose 2 or 3 coins
+var speed = 220
+var hp = 2
+var score = 100
+var hit_effect_delta = Vector2(30, 0)
+var coin_count = 0
 
 @onready var explosion: AnimatedSprite2D = $explosion
 @onready var collision: CollisionShape2D = $CollisionShape2D
@@ -33,10 +33,10 @@ func do_move(delta) -> void:
 	position.x -= speed * delta
 
 func _on_area_entered(area):
-	if !dying and area.is_in_group("player_bullet"): # Check if hit by a player bullet
-		hp -= 1 # Decrease HP by 1
-		area.queue_free() # Remove bullet
-		if hp <= 0: # If HP reaches zero, play explosion
+	if !dying and area.is_in_group("player_bullet"):
+		hp -= area.damage
+		area.queue_free()
+		if hp <= 0:
 			dying = true
 			GlobalManager.add_score(score)
 			play_explosion()
@@ -59,12 +59,10 @@ func play_explosion():
 	await explosion.animation_finished
 	queue_free()
 
-# Deferred function to disable enemy
 func _disable_enemy():
 	collision.disabled = true # Disable the collision shape
 	enemy_body.visible = false # Make the enemy invisible
 
-# Function to spawn 2 to 3 coins around the enemy's position
 func spawn_items():
 	for i in range(coin_count):
 		var coin_instance = coin_scene.instantiate()

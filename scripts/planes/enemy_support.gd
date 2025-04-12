@@ -11,6 +11,12 @@ var fireball_directions = [45, 0, -45, 0, 45, 0]
 var fireball_index = 0
 var mode = 0
 
+func _ready() -> void:
+	super._ready()
+	hp = 30
+	speed = 100
+	score = 200
+
 func _physics_process(delta):
 	if stopped:
 		return
