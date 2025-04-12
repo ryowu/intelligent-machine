@@ -5,73 +5,69 @@ const MISSILE_SCENE = preload("res://scene/planes/player_missile.tscn")
 const GREY_FOX_SCENE = preload("res://scene/planes/child_grey_fox.tscn")
 
 func fire_side_weapon():
-	if side_weapon_level == 1:
-		var missile1 = build_missile()
-		missile1.direction_up = false
-		missile1.start_position = position + Vector2(0, 15)
-		var missile2 = build_missile()
-		missile2.start_position = position + Vector2(0, 15)
-	elif side_weapon_level == 2:
-		var missile1 = build_missile()
-		missile1.direction_up = false
-		missile1.scale_delta = 20
-		missile1.start_position = position + Vector2(0, 15)
-		var missile2 = build_missile()
-		missile2.direction_up = false
-		missile2.start_position = position + Vector2(0, 15)
-		var missile3 = build_missile()
-		missile3.scale_delta = 20
-		missile3.start_position = position + Vector2(0, 15)
-		var missile4 = build_missile()
-		missile4.start_position = position + Vector2(0, 15)
+	var base_position = position + Vector2(0, 15)
+	var missiles = []
+
+	match side_weapon_level:
+		1:
+			missiles = [
+				{ "direction_up": false },
+				{ }  # default upward
+			]
+		2:
+			missiles = [
+				{ "direction_up": false, "scale_delta": 20 },
+				{ "direction_up": false },
+				{ "scale_delta": 20 },
+				{ }  # default upward
+			]
+
+	for missile_data in missiles:
+		var missile = build_missile()
+		missile.start_position = base_position
+		if missile_data.has("direction_up"):
+			missile.direction_up = missile_data["direction_up"]
+		if missile_data.has("scale_delta"):
+			missile.scale_delta = missile_data["scale_delta"]
+
 
 func fire_bullets():
-	var angles = []
 	var bullet_offset = Vector2(60, 15)
 	var bullet_mode = 3
+	var spawn_offsets = []
+	var angles = []
 
-	if power_level == 1:
-		if even_bullet_counter:
+	match power_level:
+		1:
+			bullet_mode = 3 if even_bullet_counter else 1
+			even_bullet_counter = !even_bullet_counter
+			angles = [0]
+		2:
 			bullet_mode = 3
-		else:
-			bullet_mode = 1
-		even_bullet_counter = !even_bullet_counter
-		angles = [0]
-	elif power_level == 2:
-		bullet_mode = 3
-		var bullet1 = build_bullet(bullet_mode)
-		bullet1.position = position + bullet_offset + Vector2(0, -6)
-		var bullet2 = build_bullet(bullet_mode)
-		bullet2.position = position + bullet_offset + Vector2(0, 6)
-	elif power_level == 3:
-		bullet_mode = 3
-		angles = [-10, 0, 10]
-	elif power_level == 4:
-		var bullet1 = build_bullet(bullet_mode)
-		bullet1.position = position + bullet_offset + Vector2(0, -6)
-		var bullet2 = build_bullet(bullet_mode)
-		bullet2.position = position + bullet_offset + Vector2(0, 6)
-		angles = [-10, 10]
-
+			spawn_offsets = [Vector2(0, -6), Vector2(0, 6)]
+		3:
+			bullet_mode = 3
+			angles = [-10, 0, 10]
+		4:
+			spawn_offsets = [Vector2(0, -6), Vector2(0, 6)]
+			angles = [-10, 10]
+	# Spawn bullets based on offsets (if defined)
+	for offset in spawn_offsets:
+		var bullet = build_bullet(bullet_mode)
+		bullet.position = position + bullet_offset + offset
+	# Spawn bullets based on angles (if defined)
 	for angle in angles:
 		var bullet = build_bullet(bullet_mode)
 		bullet.position = position + bullet_offset
-		var direction = Vector2(1, 0).rotated(deg_to_rad(angle))
-		bullet.direction = direction.normalized()
+		bullet.direction = Vector2(1, 0).rotated(deg_to_rad(angle)).normalized()
 	# shot_audio.play()
 
 func launch_skill():
-	var fox1 = GREY_FOX_SCENE.instantiate()
-	fox1.position = Vector2(-200, position.y - 60)
-	get_tree().current_scene.add_child(fox1)
-
-	var fox2 = GREY_FOX_SCENE.instantiate()
-	fox2.position = Vector2(-200, position.y)
-	get_tree().current_scene.add_child(fox2)
-
-	var fox3 = GREY_FOX_SCENE.instantiate()
-	fox3.position = Vector2(-200, position.y + 60)
-	get_tree().current_scene.add_child(fox3)
+	var y_offsets = [-60, 0, 60]
+	for offset in y_offsets:
+		var fox = GREY_FOX_SCENE.instantiate()
+		fox.position = Vector2(-200, position.y + offset)
+		get_tree().current_scene.add_child(fox)
 
 func build_bullet(bullet_mode: int):
 	var bullet = BULLET_SCENE.instantiate()
