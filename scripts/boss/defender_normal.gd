@@ -5,7 +5,7 @@ var current_phase = BossPhase.PHASE1
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
 @onready var shooting_timer: Timer = $ShootingTimer
-@onready var player: Area2D = get_node("/root/stage1/player_1")
+@onready var player: Area2D = get_parent().get_node(GlobalConfig.PLAYER_NODE_NAME)
 
 @export var max_health: int = 1000
 var hp_bar: ProgressBar = null

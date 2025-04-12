@@ -32,7 +32,7 @@ func init_player(scene_path: String):
 
 	var player_scene = load(scene_path)
 	player_1 = player_scene.instantiate()
-	player_1.name = "main_player"
+	player_1.name = GlobalConfig.PLAYER_NODE_NAME
 	add_child(player_1)
 	player_1.position = Vector2(80, 300)
 
