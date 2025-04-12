@@ -15,10 +15,11 @@ scale = Vector2(1, 1)
 script = ExtResource("2_rabhu")
 
 [node name="player_body_sprite" parent="." index="0"]
+position = Vector2(0, -6)
 texture = ExtResource("2_nfdfx")
 
 [node name="CollisionShape2D" parent="." index="1"]
-position = Vector2(1, 7)
+position = Vector2(0, 2)
 shape = SubResource("RectangleShape2D_0shcn")
 
 [node name="gold_magnet" parent="gold_picker" index="0"]

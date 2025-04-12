@@ -5,3 +5,4 @@ shoot_3 reference player refactor
 conversation with Kate
 Xiaoai's skill
 Bomb pickable from enemy
+Pickable item fly around

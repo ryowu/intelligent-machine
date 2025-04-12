@@ -3,12 +3,12 @@ extends "res://scripts/planes/base_player.gd"
 const BULLET_SCENE = preload("res://scene/planes/pinky_bullet.tscn")
 const MISSILE_SCENE = preload("res://scene/planes/tracking_missile.tscn") 
 
-var bullet_offset = Vector2(60, 13)
+var bullet_offset = Vector2(65, 10)
 var bullet_patterns = {
-	1: [Vector2(0, -6)],
-	2: [Vector2(0, -6), Vector2(0, 6)],
-	3: [Vector2(0, -6), Vector2(0, 0), Vector2(0, 6)],
-	4: [Vector2(0, -8), Vector2(0, -4), Vector2(0, 4), Vector2(0, 8)]
+	1: [Vector2(0, -2)],
+	2: [Vector2(0, -8), Vector2(0, 4)],
+	3: [Vector2(0, -10), Vector2(0, -2), Vector2(0, 6)],
+	4: [Vector2(0, -12), Vector2(0, -5.3), Vector2(0, 1.4), Vector2(0, 8)]
 }
 
 func _ready():
