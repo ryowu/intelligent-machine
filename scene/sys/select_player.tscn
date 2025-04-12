@@ -92,18 +92,14 @@ theme_override_fonts/font = ExtResource("4_ptc6p")
 theme_override_font_sizes/font_size = 22
 text = "小爱"
 
-[node name="select_char_audio" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("5_v6stk")
-volume_db = 10.0
-
 [node name="description" type="Control" parent="."]
 custom_minimum_size = Vector2(450, 270)
 layout_mode = 3
 anchors_preset = 0
 offset_left = 664.0
 offset_top = 49.0
-offset_right = 704.0
-offset_bottom = 89.0
+offset_right = 1114.0
+offset_bottom = 319.0
 
 [node name="Panel" type="Panel" parent="description"]
 layout_mode = 1
@@ -131,6 +127,13 @@ text = "云峰（Yunfeng）
 誓为人类守护最后一道防线"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="select_char_audio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_v6stk")
+volume_db = 10.0
+
+[node name="player_voice" type="AudioStreamPlayer2D" parent="."]
+volume_db = 5.0
 
 [connection signal="focus_entered" from="Control/HBoxContainer/yunfeng" to="." method="_on_yunfeng_focus_entered"]
 [connection signal="pressed" from="Control/HBoxContainer/yunfeng" to="." method="_on_yunfeng_pressed"]
