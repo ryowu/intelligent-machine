@@ -12,7 +12,7 @@ var bgms = [
 var score: int = 0
 var player_skill_amount = 3
 var skill_progress: int = 100
-var charactor_name = "yunfeng"
+var charactor_name = "Yunfeng"
 
 signal on_skill_ready(bool)
 signal on_skill_progressed(int)

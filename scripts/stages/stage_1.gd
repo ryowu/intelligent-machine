@@ -16,9 +16,9 @@ var player_1: Area2D
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 
-	if GlobalManager.charactor_name == "yunfeng":
+	if GlobalManager.charactor_name == "Yunfeng":
 		init_player("res://scene/planes/player_silver_shark.tscn")
-	elif GlobalManager.charactor_name == "xiaoai":
+	elif GlobalManager.charactor_name == "Xiaoai":
 		init_player("res://scene/planes/player_pinky.tscn")
 	
 	scheduler.on_dialog_start.connect(_on_dialog_start)

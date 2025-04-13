@@ -80,7 +80,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_joo64")
 position = Vector2(98, 96)
 texture = ExtResource("1_cegef")
 region_enabled = true
-region_rect = Rect2(0, 0, 166.036, 163.229)
+region_rect = Rect2(0, 0, 166.036, 166)
 
 [node name="lbl_bg" type="Label" parent="Panel"]
 layout_mode = 2

@@ -39,15 +39,23 @@ func stop_dialog():
 func show_next_sentence():
 	if audio_player.playing and current_sentence_index < 2:
 		return
+
 	if current_sentence_index == talking_script.size():
 		wait_for_ui_accept_to_close()
+		return
 
 	if current_sentence_index < talking_script.size():
 		var char_name = talking_script[current_sentence_index]["char"]
 		lbl_text.text = talking_script[current_sentence_index]["sentence"]
-		play_voice(talking_script[current_sentence_index]["voice_path"])
-		update_avatar(char_name)
-		current_sentence_index += 1
+		if char_name.begins_with("@") and char_name.substr(1) != GlobalManager.charactor_name:
+			current_sentence_index += 1
+			show_next_sentence()
+		else:
+			play_voice(talking_script[current_sentence_index]["voice_path"])
+			if char_name.begins_with("@"):
+				char_name = char_name.substr(1)
+			update_avatar(char_name)
+			current_sentence_index += 1
 	else:
 		is_talking = false
 		lbl_text.text = "Press to close the dialog."

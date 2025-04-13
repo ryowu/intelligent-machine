@@ -14,7 +14,7 @@ var is_focused = false
 var yunfeng_voice_index := 0
 var xiaoai_voice_index := 0
 
-const yunfeng_description = "云峰（Yunfeng）\n空军中校，年龄30，作战经验丰富\n多次执行高危任务，冷静果断\n擅长指挥与战术规划，是团队核心\n内心坚毅，沉稳可靠，战友信赖的领袖\n誓为人类守护最后一道防线"
+const yunfeng_description = "云峰（Yunfeng）\n空军上校，年龄30，作战经验丰富\n多次执行高危任务，冷静果断\n擅长指挥与战术规划，是团队核心\n内心坚毅，沉稳可靠，战友信赖的领袖\n誓为人类守护最后一道防线"
 const silver_shark_description = "机体：银鲨号
 必杀技：援护小队
 特点：大范围的子弹覆盖以及
@@ -50,7 +50,7 @@ func _on_yunfeng_pressed() -> void:
 	button_confirm.play()
 	await button_confirm.finished
 	GlobalManager.stop_bgm()
-	GlobalManager.charactor_name = "yunfeng"
+	GlobalManager.charactor_name = "Yunfeng"
 	await play_voice(yunfeng_start_voice, true)
 	get_tree().change_scene_to_file("res://scene/stages/stage_1.tscn")
 
@@ -59,7 +59,7 @@ func _on_xiaoai_pressed() -> void:
 	button_confirm.play()
 	await button_confirm.finished
 	GlobalManager.stop_bgm()
-	GlobalManager.charactor_name = "xiaoai"
+	GlobalManager.charactor_name = "Xiaoai"
 	await play_voice(xiaoai_start_voice, true)
 	get_tree().change_scene_to_file("res://scene/stages/stage_1.tscn")
 

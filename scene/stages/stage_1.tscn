@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://b660raxknhu75"]
+[gd_scene load_steps=13 format=3 uid="uid://b660raxknhu75"]
 
 [ext_resource type="Script" path="res://scripts/stages/stage_1.gd" id="1_6gc5o"]
 [ext_resource type="Script" path="res://scripts/sys/parallax_background.gd" id="2_lldvs"]
@@ -11,7 +11,6 @@
 [ext_resource type="PackedScene" uid="uid://bytf3nebd4c7o" path="res://scene/sys/skill_counter.tscn" id="9_g4mf8"]
 [ext_resource type="PackedScene" uid="uid://b6nxmwq82nulr" path="res://scene/sys/dialog.tscn" id="10_3b1g5"]
 [ext_resource type="AudioStream" uid="uid://c6s1m5if2mb2v" path="res://assets/music/stage_complete.MP3" id="11_hnjdj"]
-[ext_resource type="PackedScene" uid="uid://d3um0f21y2d7u" path="res://scene/items/power.tscn" id="12_oqqrh"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3pwvq"]
 bg_color = Color(0.612299, 1.50409e-06, 5.77569e-07, 1)
@@ -154,6 +153,3 @@ offset_bottom = 533.0
 
 [node name="stage_complete_bgm" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("11_hnjdj")
-
-[node name="power" parent="." instance=ExtResource("12_oqqrh")]
-position = Vector2(633, 204)

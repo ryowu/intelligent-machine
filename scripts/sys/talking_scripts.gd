@@ -3,7 +3,9 @@ extends Node
 var stage1_1: Array = [
 	{"char": "Kate", "sentence": "前方大批敌人出现，请做好出击准备", "voice_path": "res://assets/voice/stage1/stage1_1.mp3"},
 	{"char": "Kate", "sentence": "记得使用副武器，它可以提供有效的帮助", "voice_path": "res://assets/voice/stage1/stage1_2.mp3"},
-	{"char": "Kate", "sentence": "最后一定要安全回来哦", "voice_path": "res://assets/voice/stage1/stage1_3.mp3"}
+	{"char": "Kate", "sentence": "最后一定要安全回来哦", "voice_path": "res://assets/voice/stage1/stage1_3.mp3"},
+	{"char": "@Yunfeng", "sentence": "之后的战斗支援也拜托了", "voice_path": "res://assets/voice/stage1/stage1_6.mp3"},
+	{"char": "@Xiaoai", "sentence": "谢谢姐姐，晚上一起吃火锅", "voice_path": "res://assets/voice/stage1/stage1_7.mp3"}
 ]
 
 var stage1_2: Array = [
