@@ -1,10 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://dwjmmilatv1ro"]
+[gd_scene load_steps=11 format=3 uid="uid://dwjmmilatv1ro"]
 
 [ext_resource type="Texture2D" uid="uid://duxvsq5q608qq" path="res://assets/img/avatar/xiaoai.jpg" id="1_aujpg"]
 [ext_resource type="Script" path="res://scripts/sys/select_player.gd" id="1_yu5t7"]
 [ext_resource type="Texture2D" uid="uid://bs5xksppejde4" path="res://assets/img/avatar/yunfeng.jpg" id="2_ls3vb"]
 [ext_resource type="FontFile" uid="uid://cxjka85katcg8" path="res://assets/font/NotoSerifSC-Light.ttf" id="4_ptc6p"]
-[ext_resource type="AudioStream" uid="uid://bthoifijbx05s" path="res://assets/sound/select_char.mp3" id="5_v6stk"]
+[ext_resource type="AudioStream" uid="uid://bthoifijbx05s" path="res://assets/sound/UI/select_char.mp3" id="5_v6stk"]
+[ext_resource type="AudioStream" uid="uid://dxwgeaojfnh75" path="res://assets/sound/UI/confirm_sound.MP3" id="6_svi5k"]
+[ext_resource type="AudioStream" uid="uid://di0xoybdjk7yo" path="res://assets/sound/UI/cancel_sound.MP3" id="7_8y68c"]
 
 [sub_resource type="Animation" id="Animation_4wj84"]
 resource_name = "change_char_to_yunfeng"
@@ -168,6 +170,12 @@ volume_db = 10.0
 
 [node name="player_voice" type="AudioStreamPlayer2D" parent="."]
 volume_db = 5.0
+
+[node name="button_confirm" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_svi5k")
+
+[node name="button_cancel" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_8y68c")
 
 [connection signal="focus_entered" from="Control/HBoxContainer/yunfeng" to="." method="_on_yunfeng_focus_entered"]
 [connection signal="pressed" from="Control/HBoxContainer/yunfeng" to="." method="_on_yunfeng_pressed"]

@@ -7,6 +7,8 @@ extends Node2D
 @onready var lbl_description: Label = $description/Panel/lbl_description
 @onready var lbl_plane_description: Label = $description_plane/Panel_plane/lbl_plane_description
 @onready var player_voice: AudioStreamPlayer2D = $player_voice
+@onready var button_confirm: AudioStreamPlayer2D = $button_confirm
+@onready var button_cancel: AudioStreamPlayer2D = $button_cancel
 
 var is_focused = false
 var yunfeng_voice_index := 0
@@ -43,12 +45,16 @@ func _ready():
 
 
 func _on_yunfeng_pressed() -> void:
+	button_confirm.play()
+	await button_confirm.finished
 	GlobalManager.stop_bgm()
 	GlobalManager.charactor_name = "yunfeng"
 	get_tree().change_scene_to_file("res://scene/stages/stage_1.tscn")
 
 
 func _on_xiaoai_pressed() -> void:
+	button_confirm.play()
+	await button_confirm.finished
 	GlobalManager.stop_bgm()
 	GlobalManager.charactor_name = "xiaoai"
 	get_tree().change_scene_to_file("res://scene/stages/stage_1.tscn")

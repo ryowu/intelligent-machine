@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://d270y04ft17ji"]
+[gd_scene load_steps=7 format=3 uid="uid://d270y04ft17ji"]
 
 [ext_resource type="Texture2D" uid="uid://bogyk4l2704di" path="res://assets/img/misc/blue_sky_cloud.jpg" id="1_fd3ax"]
 [ext_resource type="Script" path="res://scripts/sys/main_menu.gd" id="1_refs6"]
 [ext_resource type="Texture2D" uid="uid://banxo4pw63ht7" path="res://assets/img/misc/banner.png" id="2_g30l2"]
 [ext_resource type="Texture2D" uid="uid://dpidvge3rcbif" path="res://assets/img/misc/plane_main.png" id="2_ip78d"]
 [ext_resource type="FontFile" uid="uid://beml3tebbghat" path="res://assets/font/PixelOperator8.ttf" id="5_f5w3d"]
+[ext_resource type="AudioStream" uid="uid://dxwgeaojfnh75" path="res://assets/sound/UI/confirm_sound.MP3" id="6_gkcaw"]
 
 [node name="main_menu" type="Node2D"]
 script = ExtResource("1_refs6")
@@ -60,6 +61,9 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("5_f5w3d")
 theme_override_font_sizes/font_size = 24
 text = "退出"
+
+[node name="button_confirm" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_gkcaw")
 
 [connection signal="pressed" from="Control/VBoxContainer/btn_start" to="." method="_on_btn_start_pressed"]
 [connection signal="pressed" from="Control/VBoxContainer/btn_exit" to="." method="_on_btn_exit_pressed"]
