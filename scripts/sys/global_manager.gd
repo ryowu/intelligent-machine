@@ -56,3 +56,11 @@ func play_bgm(bgm_index: int):
 func stop_bgm():
 	if bgm_player.playing:
 		bgm_player.stop()
+
+func disable_all_buttons(root: Node = get_tree().current_scene) -> void:
+	for button in root.get_children():
+		if button is Button:
+			button.disabled = true
+			button.focus_mode = Control.FOCUS_NONE
+		elif button.has_method("get_children"):
+			disable_all_buttons(button)

@@ -132,6 +132,10 @@
 58,shoot_3,1300 400
 58,shoot_3,1300 500
 
-63,command,change_bgm res://assets/music/boss_1.mp3
-64,defender_normal, 1300 300
-64,command,start_dialog stage1_2
+60,command,fade_out_bgm 2
+
+62,command,warning 3.5
+
+65,command,change_bgm res://assets/music/boss_1.mp3
+66,defender_normal, 1300 300
+67,command,start_dialog stage1_2

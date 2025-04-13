@@ -14,7 +14,7 @@ var bullet_patterns = {
 
 func _ready():
 	super._ready()
-	side_weapon_level = 1
+	#side_weapon_level = 1
 	speed = 260
 
 func fire_bullets():

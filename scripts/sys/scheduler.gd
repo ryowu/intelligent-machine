@@ -10,6 +10,7 @@ var enemy_shoot_3_scene: PackedScene = preload("res://scene/planes/enemy_shoot_3
 var enemy_support_scene: PackedScene = preload("res://scene/planes/enemy_support.tscn")
 var enemy_support_speed_scene: PackedScene = preload("res://scene/planes/enemy_support_speed.tscn")
 var boss_defender_normal_scene: PackedScene = preload("res://scene/boss/defender_normal.tscn")
+var warning_scene: PackedScene = preload("res://scene/sys/warning.tscn")
 
 var start_time = 0.0
 var spawn_index = 0
@@ -33,10 +34,10 @@ func _process(_delta):
 	var elapsed_time = Time.get_ticks_msec() / 1000.0 - start_time - paused_time
 	
 	while spawn_index < spawn_schedule.size() and spawn_schedule[spawn_index]["time"] <= elapsed_time:
-		spawn_enemy(spawn_schedule[spawn_index])
+		execute_schedule_item(spawn_schedule[spawn_index])
 		spawn_index += 1
 
-func spawn_enemy(event):
+func execute_schedule_item(event):
 	var enemy_scene
 	var skip_enemy_init = false
 	match event["type"]:
@@ -57,6 +58,12 @@ func spawn_enemy(event):
 		"change_bgm":
 			skip_enemy_init = true
 			change_bgm(event["func_args"])
+		"fade_out_bgm":
+			skip_enemy_init = true
+			fade_out_audio(float(event["func_args"]))
+		"warning":
+			skip_enemy_init = true
+			show_warning(float(event["func_args"]))
 		"stop":
 			skip_enemy_init = true
 			is_running = false
@@ -171,3 +178,16 @@ func stop():
 func _on_boss_died():
 	audio_player.stop()
 	get_parent().on_boss_died()
+
+func fade_out_audio(duration: float = 1.0):
+	var tween = create_tween()
+	tween.tween_property(audio_player, "volume_db", -80, duration).as_relative()
+	tween.tween_callback(Callable(audio_player, "stop"))
+
+func show_warning(duration: float = 1.0) -> void:
+	var warning_instance = warning_scene.instantiate()
+	get_tree().current_scene.add_child(warning_instance)
+	var viewport_size = get_viewport().get_visible_rect().size
+	warning_instance.position = viewport_size / 2
+	await get_tree().create_timer(duration).timeout
+	warning_instance.queue_free()

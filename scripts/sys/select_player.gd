@@ -47,6 +47,7 @@ func _ready():
 
 
 func _on_yunfeng_pressed() -> void:
+	GlobalManager.disable_all_buttons(get_tree().current_scene)
 	button_confirm.play()
 	await button_confirm.finished
 	GlobalManager.stop_bgm()
@@ -56,6 +57,7 @@ func _on_yunfeng_pressed() -> void:
 
 
 func _on_xiaoai_pressed() -> void:
+	GlobalManager.disable_all_buttons(get_tree().current_scene)
 	button_confirm.play()
 	await button_confirm.finished
 	GlobalManager.stop_bgm()

@@ -1,0 +1,55 @@
+[gd_scene load_steps=7 format=3 uid="uid://cy3st13d4de2o"]
+
+[ext_resource type="Texture2D" uid="uid://buths5ux47b7" path="res://assets/img/misc/warning.png" id="1_vd53b"]
+[ext_resource type="Script" path="res://scripts/sys/warning.gd" id="2_4kbgi"]
+[ext_resource type="AudioStream" uid="uid://dkvcplovoigxs" path="res://assets/sound/Alarm.mp3" id="3_5qxp5"]
+
+[sub_resource type="Animation" id="Animation_es3vu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_6w3ym"]
+resource_name = "flash"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ldt4t"]
+_data = {
+"RESET": SubResource("Animation_es3vu"),
+"flash": SubResource("Animation_6w3ym")
+}
+
+[node name="warning" type="Sprite2D"]
+texture = ExtResource("1_vd53b")
+script = ExtResource("2_4kbgi")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ldt4t")
+}
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_5qxp5")
+autoplay = true

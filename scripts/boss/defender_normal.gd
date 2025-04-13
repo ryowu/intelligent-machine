@@ -3,7 +3,7 @@ extends Node2D
 enum BossPhase { PHASE1, PHASE2, PHASE3 }
 var current_phase = BossPhase.PHASE1
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
-
+@onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 @onready var shooting_timer: Timer = $ShootingTimer
 @onready var player: Area2D = get_parent().get_node(GlobalConfig.PLAYER_NODE_NAME)
 
@@ -20,6 +20,7 @@ signal on_boss_died
 
 func _ready():
 	get_parent().on_stage_dialog_end.connect(_on_dialog_end)
+	collision_shape_2d.disabled = true
 	animation_player.play("enter_field")
 	await animation_player.animation_finished
 	shooting_timer.timeout.connect(_on_shooting_timer_timeout)
@@ -144,6 +145,7 @@ func do_hurt(area: Area2D, keep_original = false):
 	take_damage(area.damage)
 
 func _on_dialog_end():
+	collision_shape_2d.disabled = false
 	start_phase(BossPhase.PHASE1)
 
 func set_hp_bar(_hp_bar: ProgressBar):
