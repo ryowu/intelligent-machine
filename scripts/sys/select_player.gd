@@ -32,12 +32,14 @@ const yunfeng_voice = [
 	"res://assets/voice/select_chars/yunfeng_s2.mp3",
 	"res://assets/voice/select_chars/yunfeng_s3.mp3"
 ]
+const yunfeng_start_voice = "res://assets/voice/select_chars/yunfeng_start.mp3"
 
 const xiaoai_voice = [
 	"res://assets/voice/select_chars/xiaoai_s1.mp3",
 	"res://assets/voice/select_chars/xiaoai_s2.mp3",
 	"res://assets/voice/select_chars/xiaoai_s3.mp3"
 ]
+const xiaoai_start_voice = "res://assets/voice/select_chars/xiaoai_start.mp3"
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
@@ -49,6 +51,7 @@ func _on_yunfeng_pressed() -> void:
 	await button_confirm.finished
 	GlobalManager.stop_bgm()
 	GlobalManager.charactor_name = "yunfeng"
+	await play_voice(yunfeng_start_voice, true)
 	get_tree().change_scene_to_file("res://scene/stages/stage_1.tscn")
 
 
@@ -57,6 +60,7 @@ func _on_xiaoai_pressed() -> void:
 	await button_confirm.finished
 	GlobalManager.stop_bgm()
 	GlobalManager.charactor_name = "xiaoai"
+	await play_voice(xiaoai_start_voice, true)
 	get_tree().change_scene_to_file("res://scene/stages/stage_1.tscn")
 
 
@@ -90,8 +94,13 @@ func _play_next_voice(voice_array: Array, who: String) -> void:
 		xiaoai_voice_index = (xiaoai_voice_index + 1) % voice_array.size()
 	
 	var path = voice_array[index]
+	play_voice(path)
+
+func play_voice(path: String, _await = false):
 	var stream = load(path)
 	if stream:
 		player_voice.stop()
 		player_voice.stream = stream
 		player_voice.play()
+		if _await:
+			await player_voice.finished
