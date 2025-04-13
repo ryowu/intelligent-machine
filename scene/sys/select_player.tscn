@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://dwjmmilatv1ro"]
 
 [ext_resource type="Texture2D" uid="uid://duxvsq5q608qq" path="res://assets/img/avatar/xiaoai.jpg" id="1_aujpg"]
-[ext_resource type="Script" path="res://scene/sys/select_player.gd" id="1_yu5t7"]
+[ext_resource type="Script" path="res://scripts/sys/select_player.gd" id="1_yu5t7"]
 [ext_resource type="Texture2D" uid="uid://bs5xksppejde4" path="res://assets/img/avatar/yunfeng.jpg" id="2_ls3vb"]
 [ext_resource type="FontFile" uid="uid://cxjka85katcg8" path="res://assets/font/NotoSerifSC-Light.ttf" id="4_ptc6p"]
 [ext_resource type="AudioStream" uid="uid://bthoifijbx05s" path="res://assets/sound/select_char.mp3" id="5_v6stk"]
@@ -125,6 +125,40 @@ text = "云峰（Yunfeng）
 擅长指挥与战术规划，是团队核心
 内心坚毅，沉稳可靠，战友信赖的领袖
 誓为人类守护最后一道防线"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="description_plane" type="Control" parent="."]
+custom_minimum_size = Vector2(450, 270)
+layout_mode = 3
+anchors_preset = 0
+offset_left = 664.0
+offset_top = 339.0
+offset_right = 1114.0
+offset_bottom = 609.0
+
+[node name="Panel_plane" type="Panel" parent="description_plane"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_prmcw")
+
+[node name="lbl_plane_description" type="Label" parent="description_plane/Panel_plane"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_ptc6p")
+theme_override_font_sizes/font_size = 24
+text = "机体：银鲨号
+必杀技：援护小队
+特点：大范围的子弹覆盖以及
+小队支援使得作战安全性大大提高"
 horizontal_alignment = 1
 vertical_alignment = 1
 

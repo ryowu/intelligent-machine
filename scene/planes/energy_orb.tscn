@@ -1,10 +1,11 @@
-[gd_scene load_steps=17 format=3 uid="uid://xmm07uk1b1ii"]
+[gd_scene load_steps=18 format=3 uid="uid://xmm07uk1b1ii"]
 
 [ext_resource type="Script" path="res://scripts/planes/energy_orb.gd" id="1_454vt"]
 [ext_resource type="Texture2D" uid="uid://wd5qei52ef3h" path="res://assets/img/planes/player/energy_orb/orb1.png" id="1_vwioc"]
 [ext_resource type="Texture2D" uid="uid://u4dj01rjrpwp" path="res://assets/img/planes/player/energy_orb/orb2.png" id="2_md64m"]
 [ext_resource type="Texture2D" uid="uid://dffqvb866alv6" path="res://assets/img/planes/player/energy_orb/orb3.png" id="3_16mlq"]
 [ext_resource type="Texture2D" uid="uid://b5tp5iyovl3v6" path="res://assets/img/planes/player/energy_orb/orb4.png" id="4_3bon5"]
+[ext_resource type="AudioStream" uid="uid://b0dwdt00aoivd" path="res://assets/sound/elec_sound.MP3" id="6_x1rdr"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_n3sht"]
 atlas = ExtResource("1_vwioc")
@@ -97,3 +98,6 @@ animation = &"move"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 4)
 shape = SubResource("CircleShape2D_iqbur")
+
+[node name="elec_sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_x1rdr")

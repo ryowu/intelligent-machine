@@ -2,6 +2,7 @@ extends Area2D
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
+@onready var elec_sound: AudioStreamPlayer2D = $elec_sound
 @onready var check_timer: Timer = Timer.new()
 
 const EXPLODE_SCALE = 1.3
@@ -36,6 +37,7 @@ func _process(delta):
 	elif exploded:
 		timer += delta
 		if timer >= 3.0:
+			elec_sound.stop()
 			queue_free()
 
 func _start_explode():
@@ -43,6 +45,7 @@ func _start_explode():
 		return
 	is_moving = false
 	exploded = true
+	elec_sound.play()
 	collision_shape_2d.scale = Vector2(EXPLODE_COLLISION_SCALE, EXPLODE_COLLISION_SCALE)
 	animated_sprite_2d.scale = Vector2(EXPLODE_SCALE, EXPLODE_SCALE)
 	animated_sprite_2d.play("explode")
