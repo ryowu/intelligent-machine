@@ -40,7 +40,6 @@ func _on_item_area_area_entered(area: Area2D) -> void:
 		do_pickup(area)
 		pick_audio.play()
 		animation_player.play("float")
-		await pick_audio.finished
 		await animation_player.animation_finished
 		queue_free()
 

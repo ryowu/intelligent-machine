@@ -31,10 +31,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_psaoy"]
-radius = 55.0
-height = 156.0
-
 [sub_resource type="Animation" id="Animation_ii7f6"]
 length = 0.001
 tracks/0/type = "value"
@@ -72,22 +68,20 @@ _data = {
 "enter_field": SubResource("Animation_f11lx")
 }
 
-[node name="defender_normal" type="Node2D"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_psaoy"]
+radius = 55.0
+height = 156.0
+
+[node name="defender_normal" type="Area2D" groups=["enemy"]]
 z_index = 9
 position = Vector2(1300, 350)
+collision_layer = 4
+collision_mask = 3
 script = ExtResource("1_l5rea")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_t6gkc")
 animation = &"idle"
-
-[node name="Area2D" type="Area2D" parent="." groups=["enemy"]]
-collision_layer = 4
-collision_mask = 3
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-6, 8)
-shape = SubResource("CapsuleShape2D_psaoy")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -96,4 +90,8 @@ libraries = {
 
 [node name="ShootingTimer" type="Timer" parent="."]
 
-[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-6, 8)
+shape = SubResource("CapsuleShape2D_psaoy")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

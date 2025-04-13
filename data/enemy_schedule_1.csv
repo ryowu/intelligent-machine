@@ -95,6 +95,43 @@
 46,shoot_3,1300 200
 46,shoot_3,1300 450
 
+48,support,1300 250
+
+49,shoot_3,1300 200
+49,shoot_3,1300 450
+
+50,shoot_2,800 -40,0
+50,shoot_2,800 670,1
+
+51,normal,1300 200
+51,normal,1300 400
+
+52,normal,1300 250
+52,normal,1300 350
+
+52,support,1300 250,1
+
+54,shoot_1,1300 150
+54,shoot_1,1300 250
+54,shoot_1,1300 350
+54,shoot_1,1300 450
+
+55,shoot_3,1300 200
+55,shoot_3,1300 450
+
+56,shoot_3,1300 200
+56,shoot_3,1300 450
+
+57,shoot_1,1300 150
+57,shoot_1,1300 250
+57,shoot_1,1300 350
+57,shoot_1,1300 450
+
+58,shoot_3,1300 200
+58,shoot_3,1300 300
+58,shoot_3,1300 400
+58,shoot_3,1300 500
+
 63,command,change_bgm res://assets/music/boss_1.mp3
 64,defender_normal, 1300 300
 64,command,start_dialog stage1_2

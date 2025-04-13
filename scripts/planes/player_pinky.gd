@@ -2,6 +2,7 @@ extends "res://scripts/planes/base_player.gd"
 
 const BULLET_SCENE = preload("res://scene/planes/pinky_bullet.tscn")
 const MISSILE_SCENE = preload("res://scene/planes/tracking_missile.tscn") 
+const ENERGY_ORB_SCENE = preload("res://scene/planes/energy_orb.tscn")
 
 var bullet_offset = Vector2(65, 10)
 var bullet_patterns = {
@@ -38,7 +39,10 @@ func fire_side_weapon():
 		missile.position = position + missile_offsets[i]
 		missile.rotation = deg_to_rad(initial_angles[i])
 
-		#missile.target = null 
+func launch_skill():
+	var orb = ENERGY_ORB_SCENE.instantiate()
+	orb.position = position + Vector2(20, 5)
+	get_tree().current_scene.add_child(orb)
 
 func build_bullet():
 	var bullet = BULLET_SCENE.instantiate()

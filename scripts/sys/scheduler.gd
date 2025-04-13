@@ -57,6 +57,9 @@ func spawn_enemy(event):
 		"change_bgm":
 			skip_enemy_init = true
 			change_bgm(event["func_args"])
+		"stop":
+			skip_enemy_init = true
+			is_running = false
 		"start_dialog":
 			skip_enemy_init = true
 			start_dialog(event["func_args"])

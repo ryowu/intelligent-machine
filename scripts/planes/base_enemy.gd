@@ -34,21 +34,7 @@ func do_move(delta) -> void:
 
 func _on_area_entered(area):
 	if !dying and area.is_in_group("player_bullet"):
-		hp -= area.damage
-		area.queue_free()
-		if hp <= 0:
-			dying = true
-			GlobalManager.add_score(score)
-			play_explosion()
-		else:
-			if !hit_playing:
-				hit_playing = true
-				hit_animation.position = to_local(area.global_position) + hit_effect_delta
-				hit_animation.visible = true
-				hit_animation.play("hit")
-				await hit_animation.animation_finished
-				hit_animation.visible = false
-				hit_playing = false
+		do_hurt(area)
 
 func play_explosion():
 	explosion.visible = true
@@ -74,3 +60,21 @@ func drop_widget(widget: Resource):
 		var speed_item = widget.instantiate()
 		speed_item.position = position
 		get_parent().add_child(speed_item)
+
+func do_hurt(area: Area2D, keep_original = false):
+	hp -= area.damage
+	if !keep_original:
+		area.queue_free()
+	if hp <= 0:
+		dying = true
+		GlobalManager.add_score(score)
+		play_explosion()
+	else:
+		if !hit_playing:
+			hit_playing = true
+			hit_animation.position = to_local(area.global_position) + hit_effect_delta
+			hit_animation.visible = true
+			hit_animation.play("hit")
+			await hit_animation.animation_finished
+			hit_animation.visible = false
+			hit_playing = false

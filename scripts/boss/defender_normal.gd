@@ -138,10 +138,10 @@ func die():
 	on_boss_died.emit()
 	queue_free()
 
-func _on_area_2d_area_entered(area: Area2D) -> void:
-	if !dying and area.is_in_group("player_bullet"):
+func do_hurt(area: Area2D, keep_original = false):
+	if !keep_original:
 		area.queue_free()
-		take_damage(1)
+	take_damage(area.damage)
 
 func _on_dialog_end():
 	start_phase(BossPhase.PHASE1)
@@ -155,3 +155,8 @@ func set_hp_bar(_hp_bar: ProgressBar):
 func clear_field():
 	for bullet in get_tree().get_nodes_in_group("enemy_bullet"):
 		bullet.queue_free()
+
+
+func _on_area_entered(area: Area2D) -> void:
+	if !dying and area.is_in_group("player_bullet"):
+		do_hurt(area)
