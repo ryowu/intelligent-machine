@@ -4,3 +4,4 @@ shoot_1 animation top view
 voices when event happen, more vivid
 Bomb pickable from enemy
 Pickable item fly around
+boss improve
