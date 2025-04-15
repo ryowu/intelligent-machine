@@ -158,7 +158,6 @@ func clear_field():
 	for bullet in get_tree().get_nodes_in_group("enemy_bullet"):
 		bullet.queue_free()
 
-
 func _on_area_entered(area: Area2D) -> void:
 	if !dying and area.is_in_group("player_bullet"):
 		do_hurt(area)

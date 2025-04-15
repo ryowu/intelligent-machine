@@ -9,7 +9,7 @@ var enemy_shoot_2_scene: PackedScene = preload("res://scene/planes/enemy_shoot_2
 var enemy_shoot_3_scene: PackedScene = preload("res://scene/planes/enemy_shoot_3.tscn")
 var enemy_support_scene: PackedScene = preload("res://scene/planes/enemy_support.tscn")
 var enemy_support_speed_scene: PackedScene = preload("res://scene/planes/enemy_support_speed.tscn")
-var boss_defender_normal_scene: PackedScene = preload("res://scene/boss/defender_normal.tscn")
+var boss_xuanwu_scene: PackedScene = preload("res://scene/boss/xuanwu.tscn")
 var warning_scene: PackedScene = preload("res://scene/sys/warning.tscn")
 
 var start_time = 0.0
@@ -53,8 +53,8 @@ func execute_schedule_item(event):
 			enemy_scene = enemy_shoot_2_scene
 		"shoot_3":
 			enemy_scene = enemy_shoot_3_scene
-		"defender_normal":
-			enemy_scene = boss_defender_normal_scene
+		"xuanwu":
+			enemy_scene = boss_xuanwu_scene
 		"change_bgm":
 			skip_enemy_init = true
 			change_bgm(event["func_args"])
@@ -77,7 +77,7 @@ func execute_schedule_item(event):
 	if !skip_enemy_init:
 		var enemy_instance = enemy_scene.instantiate()
 		
-		if event["type"] == "defender_normal":
+		if event["type"] == "xuanwu":
 			enemy_instance.on_boss_died.connect(_on_boss_died)
 			enemy_instance.set_hp_bar(boss_hp_bar)
 		elif event["type"] == "shoot_2":

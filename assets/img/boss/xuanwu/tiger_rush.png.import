@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c551n8nsyi7xy"
-path="res://.godot/imported/tiger_idle.png-308d6abcef1071b4a673c52d6a52bb0d.ctex"
+uid="uid://j2ctfj6na11x"
+path="res://.godot/imported/tiger_rush.png-5b618ffaca90ed6f24424223b28e89a9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/img/boss/tiger/tiger_idle.png"
-dest_files=["res://.godot/imported/tiger_idle.png-308d6abcef1071b4a673c52d6a52bb0d.ctex"]
+source_file="res://assets/img/boss/xuanwu/tiger_rush.png"
+dest_files=["res://.godot/imported/tiger_rush.png-5b618ffaca90ed6f24424223b28e89a9.ctex"]
 
 [params]
 
