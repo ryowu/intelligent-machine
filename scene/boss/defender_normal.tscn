@@ -1,22 +1,26 @@
-[gd_scene load_steps=11 format=3 uid="uid://cv6roshbt5ieh"]
+[gd_scene load_steps=12 format=3 uid="uid://cv6roshbt5ieh"]
 
 [ext_resource type="Script" path="res://scripts/boss/defender_normal.gd" id="1_l5rea"]
-[ext_resource type="Texture2D" uid="uid://co018vdt8llkx" path="res://assets/img/boss/defender_normal/defender_normal_idle.png" id="1_tv3hd"]
-[ext_resource type="Texture2D" uid="uid://ecpcyhg77wg2" path="res://assets/img/boss/defender_normal/shoot_normal.png" id="3_q8rvf"]
+[ext_resource type="Texture2D" uid="uid://c551n8nsyi7xy" path="res://assets/img/boss/tiger/tiger_idle.png" id="2_6i1oo"]
+[ext_resource type="Texture2D" uid="uid://j2ctfj6na11x" path="res://assets/img/boss/tiger/tiger_rush.png" id="3_ew32v"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_h24fd"]
-atlas = ExtResource("1_tv3hd")
-region = Rect2(0, 0, 195, 195)
+[sub_resource type="AtlasTexture" id="AtlasTexture_ro60l"]
+atlas = ExtResource("2_6i1oo")
+region = Rect2(0, 0, 269, 264)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ciwto"]
-atlas = ExtResource("3_q8rvf")
-region = Rect2(0, 0, 305, 195)
+[sub_resource type="AtlasTexture" id="AtlasTexture_g67ao"]
+atlas = ExtResource("3_ew32v")
+region = Rect2(0, 0, 269, 149)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3i00y"]
+atlas = ExtResource("2_6i1oo")
+region = Rect2(0, 0, 269, 264)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_t6gkc"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_h24fd")
+"texture": SubResource("AtlasTexture_ro60l")
 }],
 "loop": false,
 "name": &"idle",
@@ -24,7 +28,15 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ciwto")
+"texture": SubResource("AtlasTexture_g67ao")
+}],
+"loop": false,
+"name": &"rush",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3i00y")
 }],
 "loop": false,
 "name": &"shoot_normal",
@@ -69,8 +81,8 @@ _data = {
 }
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_psaoy"]
-radius = 55.0
-height = 156.0
+radius = 63.0
+height = 226.0
 
 [node name="defender_normal" type="Area2D" groups=["enemy"]]
 z_index = 9
