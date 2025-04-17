@@ -50,6 +50,9 @@ func init_engine(_target: Node2D, _action_script: String):
 	target = _target
 	action_script = _action_script
 
+func start_phase(phase_index: int):
+	pass
+
 func load_next_action():
 	pass
 
@@ -61,6 +64,7 @@ func reset():
 
 func start():
 	is_running = true
+	start_phase(0)
 	pass
 
 func pause():

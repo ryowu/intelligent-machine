@@ -23,7 +23,7 @@ func _physics_process(delta):
 	do_move(delta)
 
 	var screen_rect = get_viewport().get_visible_rect()
-	var in_screen = screen_rect.has_point(global_position)
+	var in_screen = screen_rect.has_point(global_position + Vector2(30, 0))
 	if in_screen:
 		field_entered = true
 	if field_entered and not in_screen:
