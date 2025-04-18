@@ -6,7 +6,7 @@ var action_script := """
 	"target_property": {
 		"speed": "200"
 	},
-	"phase": [
+	j"phase": [
 		{
 			"loop": "true",
 			"action": [
