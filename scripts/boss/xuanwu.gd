@@ -90,6 +90,7 @@ func player_position_reached():
 	animated_sprite_2d.flip_h = true
 
 func wait_and_shoot():
+	speed = 300
 	animated_sprite_2d.play("idle")
 	animated_sprite_2d.flip_h = false
 	await get_tree().create_timer(0.5).timeout
@@ -155,6 +156,7 @@ func shoot_spread_multi(count: int, angle: float, _speed: float):
 # endregion
 
 func shoot_around():
+	speed = 1000
 	animated_sprite_2d.play("shoot_around")
 	var fireball_count = 12
 	var angle_step = 360.0 / fireball_count
@@ -191,13 +193,14 @@ func advance_to_next_path_point():
 		current_path_index = 0
 		match current_phase:
 			BossPhase.PHASE1:
+				speed = 800
 				animated_sprite_2d.play("idle")
 			BossPhase.PHASE2:
 				await get_tree().create_timer(1.0).timeout
 				speed = 1000
 				animated_sprite_2d.play("idle")
 			BossPhase.PHASE3:
-				await get_tree().create_timer(3.0).timeout
+				await get_tree().create_timer(1.0).timeout
 				speed = 300
 				animated_sprite_2d.play("idle")
 
@@ -268,6 +271,8 @@ func die():
 	hp_bar = null
 	dying = true
 	clear_field()
+	animated_sprite_2d.play("dying")
+	await get_tree().create_timer(2.0).timeout
 	on_boss_died.emit()
 	queue_free()
 

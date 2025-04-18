@@ -1,10 +1,15 @@
-[gd_scene load_steps=15 format=3 uid="uid://cv6roshbt5ieh"]
+[gd_scene load_steps=17 format=3 uid="uid://cv6roshbt5ieh"]
 
 [ext_resource type="Script" path="res://scripts/boss/xuanwu.gd" id="1_x48o3"]
 [ext_resource type="Texture2D" uid="uid://c551n8nsyi7xy" path="res://assets/img/boss/xuanwu/tiger_idle.png" id="2_by8eo"]
+[ext_resource type="Texture2D" uid="uid://bi3a65duraiui" path="res://assets/img/boss/xuanwu/tiger_hurt.png" id="2_ywt07"]
 [ext_resource type="Texture2D" uid="uid://j2ctfj6na11x" path="res://assets/img/boss/xuanwu/tiger_rush.png" id="3_dwmto"]
 [ext_resource type="Texture2D" uid="uid://b8chenv1a611s" path="res://assets/img/boss/xuanwu/tiger_shoot_around.png" id="4_o2ev5"]
 [ext_resource type="Texture2D" uid="uid://by3ttaajcylbu" path="res://assets/img/boss/xuanwu/tiger_shoot_around_1.png" id="5_508kk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ttswd"]
+atlas = ExtResource("2_ywt07")
+region = Rect2(0, 0, 297, 269)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ro60l"]
 atlas = ExtResource("2_by8eo")
@@ -24,6 +29,14 @@ region = Rect2(0, 0, 176, 264)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_t6gkc"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ttswd")
+}],
+"loop": false,
+"name": &"dying",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ro60l")
@@ -103,7 +116,6 @@ script = ExtResource("1_x48o3")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_t6gkc")
 animation = &"idle"
-frame_progress = 1.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
