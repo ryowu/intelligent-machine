@@ -3,10 +3,12 @@ extends Node2D
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 @onready var player: Area2D = get_parent().get_node(GlobalConfig.PLAYER_NODE_NAME)
-@export var max_health: int = 1000
+@onready var audio_explode: AudioStreamPlayer2D = $audio_explode
+@export var max_health: int = 300
 
 var fireball_scene_sm: PackedScene = preload("res://scene/planes/enemy_fireball_sm.tscn")
 var fireball_scene_md: PackedScene = preload("res://scene/planes/enemy_fireball_md.tscn")
+var explorsion_scene: PackedScene = preload("res://scene/planes/explorsion.tscn")
 
 var is_flashing = false
 var shoot_offset_angle = 0
@@ -26,6 +28,7 @@ var current_path_index = 0
 var current_action = {}
 var speed = 300
 var player_locked = false
+var pause = false
 
 var phase0_path = [
 	{ "target": Vector2(900, 320), "call": "", "dynamic_position": "" }
@@ -53,15 +56,12 @@ signal on_boss_died
 
 func _ready():
 	player.power_level = 4
-	player.speed_level = 2
-	player.side_weapon_level = 2
-	
 	get_parent().on_stage_dialog_end.connect(_on_dialog_end)
 	collision_shape_2d.disabled = true
 	current_action = phase0_path[0]
-var pause = false
+
 func _process(delta):
-	if pause: return
+	if pause or dying: return
 	if current_action.dynamic_position == "player" and !player_locked:
 		player_locked = true
 		current_action.target = player.position
@@ -274,7 +274,35 @@ func die():
 	hp_bar = null
 	clear_field()
 	animated_sprite_2d.play("dying")
-	await get_tree().create_timer(2.0).timeout
+	await get_tree().create_timer(0.5).timeout
+
+	var explosion_count = 12
+	var rect = Rect2(Vector2(-20, -20), Vector2(180, 280))
+
+	for i in explosion_count:
+		var expl = explorsion_scene.instantiate()
+		var offset = Vector2(randf_range(-rect.size.x/2, rect.size.x/2), randf_range(-rect.size.y/2, rect.size.y/2))
+		expl.position = position + offset
+		expl.visible = true
+		get_parent().add_child(expl)
+		audio_explode.play()
+		expl.play("explode_sm")
+		await get_tree().create_timer(0.2).timeout
+		expl.queue_free()
+
+	await get_tree().create_timer(0.1).timeout
+
+	animated_sprite_2d.visible = false
+	# Play one medium explosion at center
+	var final_expl = explorsion_scene.instantiate()
+	final_expl.position = position
+	final_expl.visible = true
+	get_parent().add_child(final_expl)
+	audio_explode.play()
+	final_expl.play("explode_md")
+	await final_expl.animation_finished
+	final_expl.queue_free()
+
 	on_boss_died.emit()
 	queue_free()
 

@@ -6,7 +6,7 @@ var score = 100
 var hit_effect_delta = Vector2(30, 0)
 var coin_count = 0
 
-@onready var explosion: AnimatedSprite2D = $explosion
+@onready var explorsion: AnimatedSprite2D = $explorsion
 @onready var collision: CollisionShape2D = $CollisionShape2D
 @onready var enemy_body: Sprite2D = $enemy_body
 @onready var explode_audio: AudioStreamPlayer2D = $audio_explode
@@ -36,13 +36,13 @@ func _on_area_entered(area):
 	if !dying and area.is_in_group("player_bullet"):
 		do_hurt(area)
 
-func play_explosion():
-	explosion.visible = true
+func play_explorsion():
+	explorsion.visible = true
 	explode_audio.play()
-	explosion.play("explode")
+	explorsion.play("explode_sm")
 	call_deferred("_disable_enemy")
 	call_deferred("spawn_items")
-	await explosion.animation_finished
+	await explorsion.animation_finished
 	queue_free()
 
 func _disable_enemy():
@@ -68,7 +68,7 @@ func do_hurt(area: Area2D, keep_original = false):
 	if hp <= 0:
 		dying = true
 		GlobalManager.add_score(score)
-		play_explosion()
+		play_explorsion()
 	else:
 		if !hit_playing:
 			hit_playing = true

@@ -47,7 +47,7 @@ func shoot_fireball():
 	fireball.direction = Vector2.LEFT.rotated(deg_to_rad(angle))
 	fireball_index = (fireball_index + 1) % fireball_directions.size()
 
-func play_explosion():
+func play_explorsion():
 	dying = true
 	fireball_timer.stop()
 
@@ -56,13 +56,13 @@ func play_explosion():
 	# tween.tween_property(enemy_body, "modulate", Color(1, 1, 1, 0.2), 0.3)
 	# await tween.finished
 
-	explosion.visible = true
+	explorsion.visible = true
 	explode_audio.play()
-	explosion.play("explode_big")
+	explorsion.play("explode_md")
 
 	# Disable collision and wait for explosion animation
 	call_deferred("_disable_enemy")
-	await explosion.animation_finished
+	await explorsion.animation_finished
 
 	# Spawn the power item at the enemy's position after explosion
 	spawn_power_item()
