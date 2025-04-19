@@ -84,13 +84,14 @@ region_rect = Rect2(0, 0, 166.036, 166)
 
 [node name="lbl_bg" type="Label" parent="Panel"]
 layout_mode = 2
-offset_left = 187.0
-offset_top = 31.0
-offset_right = 896.0
-offset_bottom = 174.0
+offset_left = 233.0
+offset_top = 31.8
+offset_right = 942.0
+offset_bottom = 174.8
 size_flags_horizontal = 8
 theme_override_fonts/font = ExtResource("3_llepd")
 theme_override_font_sizes/font_size = 32
+autowrap_mode = 2
 
 [node name="triangle" type="Sprite2D" parent="Panel"]
 visible = false

@@ -9,6 +9,8 @@ var stage1_1: Array = [
 ]
 
 var stage1_2: Array = [
-	{"char": "cpu", "sentence": "防御者已发现入侵者，启动防御程序", "voice_path": "res://assets/voice/stage1/stage1_4.mp3"},
-	{"char": "cpu", "sentence": "入侵者，我要将你击毁！", "voice_path": "res://assets/voice/stage1/stage1_5.mp3"}
+	{"char": "Xuanwu", "sentence": "本大爷是永智帝国四大战力之一的玄武，你们会后悔来到这里", "voice_path": "res://assets/voice/stage1/stage1_4.mp3"},
+	{"char": "Xuanwu", "sentence": "颤抖吧！机械智能将统治一切！", "voice_path": "res://assets/voice/stage1/stage1_5.mp3"},
+	{"char": "@Yunfeng", "sentence": "我们人类是靠意志活下来的", "voice_path": "res://assets/voice/stage1/stage1_8.mp3"},
+	{"char": "@Xiaoai", "sentence": "大猫咪不听话可是要受到惩罚哦", "voice_path": "res://assets/voice/stage1/stage1_9.mp3"}
 ]
