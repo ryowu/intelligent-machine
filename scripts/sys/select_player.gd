@@ -53,7 +53,7 @@ func _on_yunfeng_pressed() -> void:
 	GlobalManager.stop_bgm()
 	GlobalManager.charactor_name = "Yunfeng"
 	await play_voice(yunfeng_start_voice, true)
-	get_tree().change_scene_to_file("res://scene/stages/stage_1.tscn")
+	get_tree().change_scene_to_file("res://scene/stages/stage_2.tscn")
 
 
 func _on_xiaoai_pressed() -> void:
@@ -63,7 +63,7 @@ func _on_xiaoai_pressed() -> void:
 	GlobalManager.stop_bgm()
 	GlobalManager.charactor_name = "Xiaoai"
 	await play_voice(xiaoai_start_voice, true)
-	get_tree().change_scene_to_file("res://scene/stages/stage_1.tscn")
+	get_tree().change_scene_to_file("res://scene/stages/stage_2.tscn")
 
 
 func _on_yunfeng_focus_entered() -> void:

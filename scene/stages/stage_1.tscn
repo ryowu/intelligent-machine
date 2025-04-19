@@ -1,155 +1,38 @@
-[gd_scene load_steps=13 format=3 uid="uid://b660raxknhu75"]
+[gd_scene load_steps=7 format=3 uid="uid://cfdhuk6o2hr15"]
 
+[ext_resource type="PackedScene" uid="uid://b5ucep8iup57x" path="res://scene/stages/base_stage.tscn" id="1_5axvk"]
 [ext_resource type="Script" path="res://scripts/stages/stage_1.gd" id="1_6gc5o"]
-[ext_resource type="Script" path="res://scripts/sys/parallax_background.gd" id="2_lldvs"]
 [ext_resource type="Texture2D" uid="uid://bljxidyggvjbg" path="res://assets/img/bg/blue_sky.png" id="3_8gcej"]
 [ext_resource type="Texture2D" uid="uid://b2bk5p160ey3l" path="res://assets/img/bg/big_cloud.png" id="4_kqb0g"]
 [ext_resource type="Texture2D" uid="uid://btly05inuv7yq" path="res://assets/img/bg/small_cloud1.png" id="5_yn5sn"]
 [ext_resource type="Texture2D" uid="uid://byap2ynlq8jq6" path="res://assets/img/bg/small_cloud2.png" id="6_pwsgs"]
-[ext_resource type="Script" path="res://scripts/sys/scheduler.gd" id="7_6m53k"]
-[ext_resource type="FontFile" uid="uid://beml3tebbghat" path="res://assets/font/PixelOperator8.ttf" id="8_kvdts"]
-[ext_resource type="PackedScene" uid="uid://bytf3nebd4c7o" path="res://scene/sys/skill_counter.tscn" id="9_g4mf8"]
-[ext_resource type="PackedScene" uid="uid://b6nxmwq82nulr" path="res://scene/sys/dialog.tscn" id="10_3b1g5"]
-[ext_resource type="AudioStream" uid="uid://c6s1m5if2mb2v" path="res://assets/music/stage_complete.MP3" id="11_hnjdj"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3pwvq"]
-bg_color = Color(0.612299, 1.50409e-06, 5.77569e-07, 1)
-
-[node name="stage1" type="Node2D"]
+[node name="stage1" instance=ExtResource("1_5axvk")]
 script = ExtResource("1_6gc5o")
 
-[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
-script = ExtResource("2_lldvs")
-
-[node name="ParallaxLayer_bottom" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2(0, 0)
-
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer_bottom"]
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer_bottom" index="0"]
 position = Vector2(577, 335)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("3_8gcej")
 
-[node name="ParallaxLayer_middle" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2(0.4, 0.4)
-motion_mirroring = Vector2(1200, 0)
-
-[node name="big_cloud" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer_middle"]
+[node name="big_cloud" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer_middle" index="0"]
 position = Vector2(1109, 452)
 scale = Vector2(2, 2)
 texture = ExtResource("4_kqb0g")
 region_enabled = true
 region_rect = Rect2(0, 0, 1024, 496.791)
 
-[node name="ParallaxLayer_top" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2(0.8, 0.8)
-motion_mirroring = Vector2(1200, 0)
-
-[node name="small_cloud1" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer_top"]
+[node name="small_cloud1" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer_top" index="0"]
 position = Vector2(319, 169)
 scale = Vector2(2, 2)
 texture = ExtResource("5_yn5sn")
 region_rect = Rect2(253.01, 739.071, 756.082, 179.622)
 
-[node name="small_cloud2" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer_top"]
+[node name="small_cloud2" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer_top" index="1"]
 position = Vector2(805, 280)
 scale = Vector2(2, 2)
 texture = ExtResource("6_pwsgs")
 region_rect = Rect2(253.01, 739.071, 756.082, 179.622)
 
-[node name="scheduler" type="Node2D" parent="."]
-script = ExtResource("7_6m53k")
+[node name="scheduler" parent="." index="1"]
 enemy_schedule_path = "res://data/enemy_schedule_1.csv"
-
-[node name="ui_panel" type="Control" parent="."]
-z_index = 99
-layout_mode = 3
-anchors_preset = 14
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="boss_hp" type="ProgressBar" parent="ui_panel"]
-visible = false
-z_index = 99
-layout_mode = 0
-offset_left = 607.0
-offset_top = 6.0
-offset_right = 1146.0
-offset_bottom = 15.0
-theme_override_styles/fill = SubResource("StyleBoxFlat_3pwvq")
-show_percentage = false
-
-[node name="VBoxContainer" type="VBoxContainer" parent="ui_panel"]
-layout_mode = 0
-offset_left = 12.0
-offset_top = 11.0
-offset_right = 108.0
-offset_bottom = 118.0
-
-[node name="HBox_top" type="HBoxContainer" parent="ui_panel/VBoxContainer"]
-layout_mode = 2
-
-[node name="lbl_life" type="Label" parent="ui_panel/VBoxContainer/HBox_top"]
-texture_filter = 2
-custom_minimum_size = Vector2(120, 0)
-layout_mode = 2
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_shadow_color = Color(0.147672, 0.147672, 0.147672, 1)
-theme_override_fonts/font = ExtResource("8_kvdts")
-theme_override_font_sizes/font_size = 16
-text = "战机数: 3"
-
-[node name="lbl_score" type="Label" parent="ui_panel/VBoxContainer/HBox_top"]
-texture_filter = 2
-layout_mode = 2
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_shadow_color = Color(0.147672, 0.147672, 0.147672, 1)
-theme_override_fonts/font = ExtResource("8_kvdts")
-theme_override_font_sizes/font_size = 16
-text = "分数: 0"
-
-[node name="HBoxContainer" type="HBoxContainer" parent="ui_panel/VBoxContainer"]
-layout_mode = 2
-
-[node name="lbl_power" type="Label" parent="ui_panel/VBoxContainer/HBoxContainer"]
-texture_filter = 2
-custom_minimum_size = Vector2(120, 0)
-layout_mode = 2
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_shadow_color = Color(0.147672, 0.147672, 0.147672, 1)
-theme_override_fonts/font = ExtResource("8_kvdts")
-theme_override_font_sizes/font_size = 16
-text = "主武器: 1"
-
-[node name="lbl_side_power" type="Label" parent="ui_panel/VBoxContainer/HBoxContainer"]
-texture_filter = 2
-custom_minimum_size = Vector2(120, 0)
-layout_mode = 2
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_shadow_color = Color(0.147672, 0.147672, 0.147672, 1)
-theme_override_fonts/font = ExtResource("8_kvdts")
-theme_override_font_sizes/font_size = 16
-text = "副武器: 0"
-
-[node name="lbl_speed" type="Label" parent="ui_panel/VBoxContainer/HBoxContainer"]
-texture_filter = 2
-layout_mode = 2
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_shadow_color = Color(0.147672, 0.147672, 0.147672, 1)
-theme_override_fonts/font = ExtResource("8_kvdts")
-theme_override_font_sizes/font_size = 16
-text = "速度: 1"
-
-[node name="skill_counter" parent="ui_panel/VBoxContainer" instance=ExtResource("9_g4mf8")]
-layout_mode = 2
-
-[node name="dialog" parent="." instance=ExtResource("10_3b1g5")]
-offset_left = 576.0
-offset_top = 533.0
-offset_right = 576.0
-offset_bottom = 533.0
-
-[node name="stage_complete_bgm" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("11_hnjdj")
