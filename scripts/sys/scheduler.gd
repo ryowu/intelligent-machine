@@ -3,12 +3,12 @@ extends Node
 @export var enemy_schedule_path: String = ""
 @onready var boss_hp_bar: ProgressBar = $"../ui_panel/boss_hp"
 
-var enemy_normal_scene: PackedScene = preload("res://scene/planes/enemy_normal_1.tscn")
-var enemy_shoot_1_scene: PackedScene = preload("res://scene/planes/enemy_shoot_1.tscn")
-var enemy_shoot_2_scene: PackedScene = preload("res://scene/planes/enemy_shoot_2.tscn")
-var enemy_shoot_3_scene: PackedScene = preload("res://scene/planes/enemy_shoot_3.tscn")
-var enemy_support_scene: PackedScene = preload("res://scene/planes/enemy_support.tscn")
-var enemy_support_speed_scene: PackedScene = preload("res://scene/planes/enemy_support_speed.tscn")
+var enemy_normal_scene: PackedScene = preload("res://scene/moving_objects/enemy_normal_1.tscn")
+var enemy_shoot_1_scene: PackedScene = preload("res://scene/moving_objects/enemy_shoot_1.tscn")
+var enemy_shoot_2_scene: PackedScene = preload("res://scene/moving_objects/enemy_shoot_2.tscn")
+var enemy_shoot_3_scene: PackedScene = preload("res://scene/moving_objects/enemy_shoot_3.tscn")
+var enemy_support_scene: PackedScene = preload("res://scene/moving_objects/enemy_support.tscn")
+var enemy_support_speed_scene: PackedScene = preload("res://scene/moving_objects/enemy_support_speed.tscn")
 var boss_xuanwu_scene: PackedScene = preload("res://scene/boss/xuanwu.tscn")
 var warning_scene: PackedScene = preload("res://scene/sys/warning.tscn")
 

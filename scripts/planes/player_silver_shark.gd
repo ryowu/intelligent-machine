@@ -1,8 +1,8 @@
 extends "res://scripts/planes/base_player.gd"
 
-const BULLET_SCENE = preload("res://scene/planes/player_bullet_green.tscn")
-const MISSILE_SCENE = preload("res://scene/planes/player_missile.tscn") 
-const GREY_FOX_SCENE = preload("res://scene/planes/child_grey_fox.tscn")
+const BULLET_SCENE = preload("res://scene/moving_objects/player_bullet_green.tscn")
+const MISSILE_SCENE = preload("res://scene/moving_objects/player_missile.tscn") 
+const GREY_FOX_SCENE = preload("res://scene/moving_objects/child_grey_fox.tscn")
 
 func fire_side_weapon():
 	var base_position = position + Vector2(0, 15)

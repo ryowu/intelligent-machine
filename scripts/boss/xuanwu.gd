@@ -7,9 +7,9 @@ extends Node2D
 @export var max_health: int = 1000
 
 var player: Area2D
-var fireball_scene_sm: PackedScene = preload("res://scene/planes/enemy_fireball_sm.tscn")
-var fireball_scene_md: PackedScene = preload("res://scene/planes/enemy_fireball_md.tscn")
-var explorsion_scene: PackedScene = preload("res://scene/planes/explorsion.tscn")
+var fireball_scene_sm: PackedScene = preload("res://scene/moving_objects/enemy_fireball_sm.tscn")
+var fireball_scene_md: PackedScene = preload("res://scene/moving_objects/enemy_fireball_md.tscn")
+var explorsion_scene: PackedScene = preload("res://scene/moving_objects/explorsion.tscn")
 
 var is_flashing = false
 var shoot_offset_angle = 0

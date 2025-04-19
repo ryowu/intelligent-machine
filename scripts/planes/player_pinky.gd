@@ -1,8 +1,8 @@
 extends "res://scripts/planes/base_player.gd"
 
-const BULLET_SCENE = preload("res://scene/planes/pinky_bullet.tscn")
-const MISSILE_SCENE = preload("res://scene/planes/tracking_missile.tscn") 
-const ENERGY_ORB_SCENE = preload("res://scene/planes/energy_orb.tscn")
+const BULLET_SCENE = preload("res://scene/moving_objects/pinky_bullet.tscn")
+const MISSILE_SCENE = preload("res://scene/moving_objects/tracking_missile.tscn") 
+const ENERGY_ORB_SCENE = preload("res://scene/moving_objects/energy_orb.tscn")
 
 var bullet_offset = Vector2(65, 10)
 var bullet_patterns = {

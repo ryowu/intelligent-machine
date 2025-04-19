@@ -1,7 +1,7 @@
 extends Area2D
 @onready var timer: Timer = $Timer
 
-const BULLET_SCENE = preload("res://scene/planes/child_bullet_blue.tscn")
+const BULLET_SCENE = preload("res://scene/moving_objects/child_bullet_blue.tscn")
 const BULLET_INTERVAL = 0.2
 const START_SPEED = 400
 const SPEED_UP_X_POSITION = 250
