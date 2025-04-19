@@ -90,7 +90,6 @@ func player_position_reached():
 	animated_sprite_2d.flip_h = true
 
 func wait_and_shoot():
-	speed = 300
 	animated_sprite_2d.play("idle")
 	animated_sprite_2d.flip_h = false
 	await get_tree().create_timer(0.5).timeout
@@ -112,6 +111,7 @@ func shoot_half_round():
 
 	for repeat in 2:  # Repeat the entire sequence twice
 		for i in range(min(up_angles.size(), down_angles.size())):
+			if dying: return
 			var angle_up = deg_to_rad(up_angles[i])
 			var angle_down = deg_to_rad(down_angles[i])
 
@@ -166,6 +166,7 @@ func shoot_around():
 		shoot_toggle = !shoot_toggle
 
 		for i in 12:
+			if dying: return
 			var angle_deg = i * angle_step + shoot_offset_angle
 			var angle_rad = deg_to_rad(angle_deg)
 
@@ -254,6 +255,7 @@ func set_bullet_position(bullet: Area2D, _direction = 0):
 		bullet.position = position + Vector2(130, -20)
 
 func take_damage(amount: int):
+	if dying: return
 	health -= amount
 	hp_bar.value = health
 	if current_phase == BossPhase.PHASE1 and health <= 700 and !phase1_changed:
@@ -267,9 +269,9 @@ func take_damage(amount: int):
 		die()
 
 func die():
+	dying = true
 	hp_bar.visible = false
 	hp_bar = null
-	dying = true
 	clear_field()
 	animated_sprite_2d.play("dying")
 	await get_tree().create_timer(2.0).timeout

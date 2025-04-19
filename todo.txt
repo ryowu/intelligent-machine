@@ -1,7 +1,6 @@
 magnet to grab all coins in the screen
-partical for support enemies explorsion
 shoot_1 animation top view
 voices when event happen, more vivid
 Bomb pickable from enemy
 Pickable item fly around
-boss improve
+do not shoot when dying for boss
