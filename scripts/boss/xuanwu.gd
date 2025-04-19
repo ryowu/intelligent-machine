@@ -304,6 +304,17 @@ func die():
 	hp_bar = null
 	clear_field()
 	animated_sprite_2d.play("dying")
+
+	var expl_first = explorsion_scene.instantiate()
+	expl_first.position = position + Vector2(70, 110)
+	expl_first.visible = true
+	get_parent().add_child(expl_first)
+	audio_explode.play()
+	expl_first.play("explode_sm")
+	await expl_first.animation_finished
+	expl_first.queue_free()
+
+	
 	audio_die.play()
 	await audio_die.finished
 	await get_tree().create_timer(0.5).timeout
