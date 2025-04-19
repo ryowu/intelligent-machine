@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://bfu6m3vk215tl"]
+[gd_scene load_steps=7 format=3 uid="uid://bfu6m3vk215tl"]
 
 [ext_resource type="PackedScene" uid="uid://dan2jb8oqxnqh" path="res://scene/planes/base_player.tscn" id="1_31pso"]
 [ext_resource type="Texture2D" uid="uid://cx6okpxh4pg25" path="res://assets/img/planes/player/player_pinky.png" id="2_nfdfx"]
 [ext_resource type="Script" path="res://scripts/planes/player_pinky.gd" id="2_rabhu"]
+[ext_resource type="AudioStream" uid="uid://cukf66rfxgojk" path="res://assets/voice/chars_die/xiaoai_die.mp3" id="4_hg8b6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0shcn"]
 size = Vector2(81, 14)
@@ -24,3 +25,7 @@ shape = SubResource("RectangleShape2D_0shcn")
 
 [node name="gold_magnet" parent="gold_picker" index="0"]
 shape = SubResource("CircleShape2D_nyeel")
+
+[node name="player_die" parent="." index="5"]
+stream = ExtResource("4_hg8b6")
+volume_db = 5.0

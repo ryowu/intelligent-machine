@@ -4,31 +4,50 @@ const BASIC_SPEED = 200
 const SPEED_INCREMENT = 50
 const FIRE_COOLDOWN = 0.15
 const MISSILE_COOLDOWN = 1.5
+const FLY_IN_SPEED = 500
 
 @onready var shot_audio: AudioStreamPlayer2D = $shot
 @onready var skill_audio: AudioStreamPlayer2D = $skill_audio
+@onready var player_die: AudioStreamPlayer2D = $player_die
+@onready var explode_audio: AudioStreamPlayer2D = $explode_audio
+@onready var explorsion: AnimatedSprite2D = $explorsion
+@onready var player_body_sprite: Sprite2D = $player_body_sprite
 
 var suspending = false
+var control_enabled: bool = false
+var immune = true
 var even_bullet_counter = true
-var spawn_position = Vector2(400, 300)
+var spawn_position = Vector2(200, 300)
 var speed = BASIC_SPEED
+var lives = 3
 var power_level = 1
 var speed_level = 1
 var side_weapon_level = 0
 var skill_ready = true
 var time_since_last_fire = 0.0
 var time_since_last_missile = 0.0
+var dying = false
 
 signal on_power_change(new_power: int)
 signal on_side_power_change(new_side_power: int)
 signal on_speed_change(new_speed: int)
+signal on_player_die(new_life: int)
 
 func _ready():
-	position = spawn_position
 	GlobalManager.on_skill_ready.connect(_on_skill_ready)
 
 func _physics_process(delta):
-	if suspending:
+	if not control_enabled:
+		position = position.move_toward(spawn_position, FLY_IN_SPEED * delta)
+		if position.distance_to(spawn_position) < 2:
+			position = spawn_position
+			control_enabled = true
+			await get_tree().create_timer(3).timeout
+			player_body_sprite.modulate.a = 1.0
+			immune = false
+		return
+
+	if suspending or dying:
 		return
 
 	time_since_last_fire += delta
@@ -103,7 +122,16 @@ func increase_speed():
 	on_speed_change.emit(speed_level)
 
 func die():
-	pass
+	dying = true
+	player_body_sprite.visible = false
+	explode_audio.play()
+	player_die.play()
+	explorsion.visible = true
+	explorsion.play("explode_md")
+	await explorsion.animation_finished
+	await player_die.finished
+	lives -= 1
+	on_player_die.emit(lives)
 
 func _on_gold_picker_area_entered(area: Area2D) -> void:
 	if area.is_in_group("coin") and area.has_method("fly_to_player"):
@@ -111,3 +139,6 @@ func _on_gold_picker_area_entered(area: Area2D) -> void:
 
 func _on_skill_ready(is_ready):
 	skill_ready = is_ready
+
+func can_hurt() -> bool:
+	return !immune and !dying

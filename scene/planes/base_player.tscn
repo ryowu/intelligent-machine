@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://dan2jb8oqxnqh"]
+[gd_scene load_steps=5 format=3 uid="uid://dan2jb8oqxnqh"]
 
 [ext_resource type="AudioStream" uid="uid://b8ofbk4sqmdvc" path="res://assets/sound/player_gunshot.mp3" id="3_srjh2"]
+[ext_resource type="PackedScene" uid="uid://ptu848aiao14" path="res://scene/planes/explorsion.tscn" id="3_u35tg"]
 [ext_resource type="AudioStream" uid="uid://ev3vodkbwgvd" path="res://assets/sound/grey_fox_show_up.MP3" id="4_css8t"]
+[ext_resource type="AudioStream" uid="uid://chpin8y5k7sr2" path="res://assets/sound/Explosion2.mp3" id="4_qfvdn"]
 
 [node name="base_player" type="Area2D" groups=["player"]]
 z_index = 10
@@ -29,5 +31,13 @@ volume_db = -10.0
 
 [node name="skill_audio" type="AudioStreamPlayer2D" parent="." groups=["player"]]
 stream = ExtResource("4_css8t")
+
+[node name="player_die" type="AudioStreamPlayer2D" parent="."]
+
+[node name="explorsion" parent="." instance=ExtResource("3_u35tg")]
+visible = false
+
+[node name="explode_audio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_qfvdn")
 
 [connection signal="area_entered" from="gold_picker" to="." method="_on_gold_picker_area_entered"]

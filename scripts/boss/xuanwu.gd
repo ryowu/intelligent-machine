@@ -2,11 +2,11 @@ extends Node2D
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
-@onready var player: Area2D = get_parent().get_node(GlobalConfig.PLAYER_NODE_NAME)
 @onready var audio_explode: AudioStreamPlayer2D = $audio_explode
 @onready var audio_die: AudioStreamPlayer2D = $die
 @export var max_health: int = 1000
 
+var player: Area2D
 var fireball_scene_sm: PackedScene = preload("res://scene/planes/enemy_fireball_sm.tscn")
 var fireball_scene_md: PackedScene = preload("res://scene/planes/enemy_fireball_md.tscn")
 var explorsion_scene: PackedScene = preload("res://scene/planes/explorsion.tscn")
@@ -65,7 +65,9 @@ func _process(delta):
 	if pause or dying: return
 	if current_action.dynamic_position == "player" and !player_locked:
 		player_locked = true
-		current_action.target = player.position
+		player = get_player()
+		if is_instance_valid(player):
+			current_action.target = player.position
 
 	var direction = (current_action.target - global_position).normalized()
 	var distance = (current_action.target - global_position).length()
@@ -132,7 +134,8 @@ func shoot_half_round():
 
 func shoot_spread_multi(count: int, angle: float, _speed: float):
 	if dying: return
-	if player == null:
+	player = get_player()
+	if !is_instance_valid(player):
 		return
 
 	var fireball_origin = position
@@ -188,7 +191,7 @@ func shoot_around():
 	# Spin shot pattern
 	var left_angle = 180
 	var right_angle = 0
-	var total_rotation = 360
+	var total_rotation = 360.0
 	var rotation_step = 10
 	var steps = int(total_rotation / rotation_step)
 
@@ -260,6 +263,8 @@ func advance_to_next_path_point():
 
 # Shoot directly at the player
 func shoot_toward_player():
+	player = get_player()
+	if !is_instance_valid(player): return
 	if get_even_counter() == 0:
 		for i in 3:
 			var fireball = fireball_scene_md.instantiate()
@@ -376,6 +381,9 @@ func flash_hurt():
 		animated_sprite_2d.modulate = Color(1, 1, 1, 1)
 		await get_tree().create_timer(0.1).timeout
 	is_flashing = false
+
+func get_player()-> Area2D:
+	return get_parent().get_node(GlobalConfig.PLAYER_NODE_NAME)
 
 func _on_dialog_end():
 	collision_shape_2d.disabled = false

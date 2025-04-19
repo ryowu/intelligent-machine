@@ -18,6 +18,6 @@ func _physics_process(delta):
 
 func _on_area_entered(area: Area2D):
 	if area.is_in_group("player") or area.is_in_group("player_child"):
-		if area.has_method("die"):
+		if area.has_method("die") and area.can_hurt():
 			area.die()
 		queue_free()

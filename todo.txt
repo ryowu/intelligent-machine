@@ -2,4 +2,4 @@ magnet to grab all coins in the screen
 shoot_1 animation top view
 voices when event happen, more vivid
 Bomb pickable from enemy
-Pickable item fly around
+player die

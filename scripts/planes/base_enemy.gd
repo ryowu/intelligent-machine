@@ -36,6 +36,9 @@ func _on_area_entered(area):
 	if !dying and area.is_in_group("player_bullet"):
 		do_hurt(area)
 
+	if !dying and area.is_in_group("player") and area.can_hurt():
+		area.die()
+
 func play_explorsion():
 	explorsion.visible = true
 	explode_audio.play()

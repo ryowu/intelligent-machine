@@ -1,5 +1,6 @@
 extends Node2D
 
+@onready var lbl_life: Label = $ui_panel/VBoxContainer/HBox_top/lbl_life
 @onready var lbl_score: Label = $ui_panel/VBoxContainer/HBox_top/lbl_score
 @onready var lbl_speed: Label = $ui_panel/VBoxContainer/HBoxContainer/lbl_speed
 @onready var lbl_power: Label = $ui_panel/VBoxContainer/HBoxContainer/lbl_power
@@ -10,7 +11,7 @@ extends Node2D
 @onready var stage_complete_bgm: AudioStreamPlayer2D = $stage_complete_bgm
 
 signal on_stage_dialog_end()
-
+var player_scene_path = ""
 var player_1: Area2D
 
 func _ready():
@@ -26,19 +27,25 @@ func _ready():
 	GlobalManager.score_updated.connect(update_score_label)
 	scheduler.start()
 
-func init_player(scene_path: String):
-	if player_1:
-		player_1.queue_free()
+func init_player(scene_path: String) -> void:
+	player_scene_path = scene_path
 
 	var player_scene = load(scene_path)
 	player_1 = player_scene.instantiate()
 	player_1.name = GlobalConfig.PLAYER_NODE_NAME
+	player_1.position = Vector2(-300, 300)
 	add_child(player_1)
-	player_1.position = Vector2(80, 300)
 
 	player_1.on_power_change.connect(_on_power_change)
 	player_1.on_side_power_change.connect(_on_side_power_change)
 	player_1.on_speed_change.connect(_on_speed_change)
+	player_1.on_player_die.connect(_on_player_die)
+
+	# Set player_body_sprite transparent
+	var body_sprite = player_1.get_node("player_body_sprite")
+	if body_sprite is Sprite2D:
+		body_sprite.modulate.a = 0.5
+
 
 func update_score_label(new_score):
 	lbl_score.text = "分数: " + str(new_score)
@@ -73,3 +80,12 @@ func _on_speed_change(new_speed):
 		lbl_speed.text = "速度：MAX"
 	else:
 		lbl_speed.text = "速度：" + str(new_speed)
+
+func _on_player_die(new_life: int):
+	if new_life > 0:
+		lbl_life.text = "战机数：" + str(new_life)
+		player_1.queue_free()
+		await get_tree().process_frame
+		init_player(player_scene_path)
+	else:
+		pass

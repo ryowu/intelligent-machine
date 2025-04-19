@@ -15,7 +15,7 @@ func _process(delta: float) -> void:
 	if picked:
 		return
 
-	if started_fly_to_player and player_ref:
+	if started_fly_to_player and is_instance_valid(player_ref):
 		position = position.move_toward(player_ref.global_position, fly_speed * delta)
 	else:
 		position.x -= move_speed * delta
