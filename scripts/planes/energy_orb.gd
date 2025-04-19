@@ -8,8 +8,8 @@ extends Area2D
 const EXPLODE_SCALE = 1.3
 const EXPLODE_COLLISION_SCALE = 4.2
 
-var damage = 4
-var speed = 100
+var damage = 6
+var speed = 200
 var move_distance = 300
 var moved = 0
 var is_moving = true

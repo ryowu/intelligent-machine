@@ -4,7 +4,8 @@ extends Node2D
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 @onready var player: Area2D = get_parent().get_node(GlobalConfig.PLAYER_NODE_NAME)
 @onready var audio_explode: AudioStreamPlayer2D = $audio_explode
-@export var max_health: int = 300
+@onready var audio_die: AudioStreamPlayer2D = $die
+@export var max_health: int = 1000
 
 var fireball_scene_sm: PackedScene = preload("res://scene/planes/enemy_fireball_sm.tscn")
 var fireball_scene_md: PackedScene = preload("res://scene/planes/enemy_fireball_md.tscn")
@@ -55,7 +56,7 @@ var phase3_path = [
 signal on_boss_died
 
 func _ready():
-	player.power_level = 4
+	#player.power_level = 4
 	get_parent().on_stage_dialog_end.connect(_on_dialog_end)
 	collision_shape_2d.disabled = true
 	current_action = phase0_path[0]
@@ -130,6 +131,7 @@ func shoot_half_round():
 			await get_tree().create_timer(0.1).timeout
 
 func shoot_spread_multi(count: int, angle: float, _speed: float):
+	if dying: return
 	if player == null:
 		return
 
@@ -158,14 +160,16 @@ func shoot_spread_multi(count: int, angle: float, _speed: float):
 func shoot_around():
 	speed = 1000
 	animated_sprite_2d.play("shoot_around")
+
 	var fireball_count = 12
 	var angle_step = 360.0 / fireball_count
 
+	# Round pattern
 	for k in 6:
 		shoot_offset_angle = 15 if shoot_toggle else 0
 		shoot_toggle = !shoot_toggle
 
-		for i in 12:
+		for i in fireball_count:
 			if dying: return
 			var angle_deg = i * angle_step + shoot_offset_angle
 			var angle_rad = deg_to_rad(angle_deg)
@@ -173,13 +177,39 @@ func shoot_around():
 			var fireball = fireball_scene_sm.instantiate()
 			get_parent().add_child(fireball)
 			fireball.position = position
+			fireball.speed = 100
 			var direction = Vector2.RIGHT.rotated(angle_rad).normalized()
 			fireball.set_velocity(direction * 200)
-		
+
 		await get_tree().create_timer(0.5).timeout
 
 	await get_tree().create_timer(1).timeout
+
+	# Spin shot pattern
+	var left_angle = 180
+	var right_angle = 0
+	var total_rotation = 360
+	var rotation_step = 10
+	var steps = int(total_rotation / rotation_step)
+
+	for i in steps:
+		if dying: return
+
+		for direction_angle in [left_angle, right_angle]:
+			var fireball = fireball_scene_sm.instantiate()
+			get_parent().add_child(fireball)
+			fireball.position = position
+			fireball.speed = 300
+			var direction = Vector2.RIGHT.rotated(deg_to_rad(direction_angle)).normalized()
+			fireball.set_velocity(direction * 200)
+
+		left_angle += rotation_step
+		right_angle += rotation_step
+		await get_tree().create_timer(0.1).timeout
+
+	await get_tree().create_timer(1).timeout
 	animated_sprite_2d.play("idle")
+
 
 func get_even_counter() -> int:
 	even_counter += 1
@@ -274,6 +304,8 @@ func die():
 	hp_bar = null
 	clear_field()
 	animated_sprite_2d.play("dying")
+	audio_die.play()
+	await audio_die.finished
 	await get_tree().create_timer(0.5).timeout
 
 	var explosion_count = 12
