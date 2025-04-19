@@ -9,6 +9,8 @@ var enemy_shoot_2_scene: PackedScene = preload("res://scene/moving_objects/enemy
 var enemy_shoot_3_scene: PackedScene = preload("res://scene/moving_objects/enemy_shoot_3.tscn")
 var enemy_support_scene: PackedScene = preload("res://scene/moving_objects/enemy_support.tscn")
 var enemy_support_speed_scene: PackedScene = preload("res://scene/moving_objects/enemy_support_speed.tscn")
+var enemy_sphinx_tank_scene: PackedScene = preload("res://scene/moving_objects/sphinx_tank.tscn")
+
 var boss_xuanwu_scene: PackedScene = preload("res://scene/boss/xuanwu.tscn")
 var warning_scene: PackedScene = preload("res://scene/sys/warning.tscn")
 
@@ -53,6 +55,8 @@ func execute_schedule_item(event):
 			enemy_scene = enemy_shoot_2_scene
 		"shoot_3":
 			enemy_scene = enemy_shoot_3_scene
+		"sphinx_tank":
+			enemy_scene = enemy_sphinx_tank_scene			
 		"xuanwu":
 			enemy_scene = boss_xuanwu_scene
 		"change_bgm":

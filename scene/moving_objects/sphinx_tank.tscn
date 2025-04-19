@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://bwudfxrlsdhcg"]
+
+[ext_resource type="PackedScene" uid="uid://bmxa75rbv52mk" path="res://scene/moving_objects/base_enemy.tscn" id="1_ob5rf"]
+[ext_resource type="Texture2D" uid="uid://bipqrfr78runv" path="res://assets/img/moving_objects/vehicles/sphinx_tank.png" id="2_dyuvo"]
+[ext_resource type="Script" path="res://scripts/planes/sphinx_tank.gd" id="2_nmfev"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kxecw"]
+size = Vector2(153, 94)
+
+[node name="sphinx_tank" instance=ExtResource("1_ob5rf")]
+script = ExtResource("2_nmfev")
+fireball_speed = 380
+fireball_shoot_interval = 2.5
+
+[node name="enemy_body" parent="." index="0"]
+texture = ExtResource("2_dyuvo")
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(4.5, 4)
+shape = SubResource("RectangleShape2D_kxecw")
