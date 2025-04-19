@@ -3,3 +3,4 @@ shoot_1 animation top view
 voices when event happen, more vivid
 Bomb pickable from enemy
 player die
+move player data to global

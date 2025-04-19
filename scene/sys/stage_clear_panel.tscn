@@ -1,0 +1,65 @@
+[gd_scene load_steps=6 format=3 uid="uid://cgni8mqks0vlr"]
+
+[ext_resource type="Script" path="res://scripts/sys/stage_clear_panel.gd" id="1_ade7e"]
+[ext_resource type="FontFile" uid="uid://cxjka85katcg8" path="res://assets/font/NotoSerifSC-Light.ttf" id="1_m6udf"]
+[ext_resource type="AudioStream" uid="uid://bdb0lmnlvc667" path="res://assets/sound/Coin3.wav" id="3_m6xjs"]
+[ext_resource type="AudioStream" uid="uid://c1mycq88culud" path="res://assets/sound/Cash Register 1-2.wav" id="4_6ecab"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h1rit"]
+bg_color = Color(0, 0, 0, 0.435294)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="stage_clear_panel" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ade7e")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="CenterContainer"]
+custom_minimum_size = Vector2(400, 300)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_h1rit")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="lbl_stage_clear" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_m6udf")
+theme_override_font_sizes/font_size = 50
+text = "完成关卡"
+
+[node name="lbl_coins" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_m6udf")
+theme_override_font_sizes/font_size = 22
+text = "收集金币：25"
+horizontal_alignment = 1
+
+[node name="lbl_coin_score" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_m6udf")
+theme_override_font_sizes/font_size = 22
+text = "奖励分数：2500"
+horizontal_alignment = 1
+
+[node name="collect_coin" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_m6xjs")
+
+[node name="cash_registry" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_6ecab")

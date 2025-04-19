@@ -5,6 +5,7 @@ extends Node2D
 @onready var lbl_speed: Label = $ui_panel/VBoxContainer/HBoxContainer/lbl_speed
 @onready var lbl_power: Label = $ui_panel/VBoxContainer/HBoxContainer/lbl_power
 @onready var lbl_side_power: Label = $ui_panel/VBoxContainer/HBoxContainer/lbl_side_power
+@onready var stage_clear_panel: Control = $stage_clear_panel
 
 @onready var scheduler: Node2D = $scheduler
 @onready var dialog: Control = $dialog
@@ -13,9 +14,11 @@ extends Node2D
 signal on_stage_dialog_end()
 var player_scene_path = ""
 var player_1: Area2D
+var next_scene = ""
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+	GlobalManager.new_stage()
 
 	if GlobalManager.charactor_name == "Yunfeng":
 		init_player("res://scene/moving_objects/player_silver_shark.tscn")
@@ -62,6 +65,10 @@ func _on_dialog_start(dialog_name: String):
 func on_boss_died():
 	player_1.suspending = true
 	stage_complete_bgm.play()
+	stage_clear_panel.next_scene = next_scene
+	stage_clear_panel.update_view()
+	stage_clear_panel.visible = true
+	stage_clear_panel.launch_sum_up()
 
 func _on_power_change(new_power):
 	if new_power == 4:

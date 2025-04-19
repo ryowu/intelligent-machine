@@ -32,7 +32,7 @@ func _on_area_entered(area: Area2D) -> void:
 		visible = false
 		pick_audio.play()
 
-		GlobalManager.add_score(10)
+		GlobalManager.add_coin()
 		await pick_audio.finished
 		queue_free()
 		

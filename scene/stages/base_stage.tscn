@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://b5ucep8iup57x"]
+[gd_scene load_steps=9 format=3 uid="uid://b5ucep8iup57x"]
 
 [ext_resource type="Script" path="res://scripts/sys/parallax_background.gd" id="1_xje0n"]
 [ext_resource type="Script" path="res://scripts/sys/scheduler.gd" id="2_r2spk"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bytf3nebd4c7o" path="res://scene/sys/skill_counter.tscn" id="4_51kqy"]
 [ext_resource type="AudioStream" uid="uid://c6s1m5if2mb2v" path="res://assets/music/stage_complete.MP3" id="5_jb676"]
 [ext_resource type="PackedScene" uid="uid://b6nxmwq82nulr" path="res://scene/sys/dialog.tscn" id="6_mc3v5"]
+[ext_resource type="PackedScene" uid="uid://cgni8mqks0vlr" path="res://scene/sys/stage_clear_panel.tscn" id="7_lt5cw"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tdtt6"]
 bg_color = Color(0.612299, 1.50409e-06, 5.77569e-07, 1)
@@ -122,3 +123,9 @@ offset_left = 576.0
 offset_top = 533.0
 offset_right = 576.0
 offset_bottom = 533.0
+
+[node name="stage_clear_panel" parent="." instance=ExtResource("7_lt5cw")]
+offset_left = 582.0
+offset_top = 356.0
+offset_right = 582.0
+offset_bottom = 356.0

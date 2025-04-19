@@ -13,6 +13,7 @@ var score: int = 0
 var player_skill_amount = 3
 var skill_progress: int = 100
 var charactor_name = "Yunfeng"
+var coin_count = 0
 
 signal on_skill_ready(bool)
 signal on_skill_progressed(int)
@@ -22,6 +23,15 @@ func _ready() -> void:
 	skill_timer.one_shot = false
 	skill_timer.timeout.connect(skill_timer_timeout)
 	skill_timer.start()
+
+func new_game():
+	pass
+
+func new_stage():
+	coin_count = 0
+
+func add_coin():
+	coin_count += 1
 
 func add_score(amount: int):
 	score += amount
