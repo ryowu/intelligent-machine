@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/planes/base_enemy.gd" id="1_slfv3"]
 [ext_resource type="AudioStream" uid="uid://chpin8y5k7sr2" path="res://assets/sound/Explosion2.mp3" id="4_fqc5g"]
-[ext_resource type="PackedScene" uid="uid://ptu848aiao14" path="res://scene/planes/explorsion.tscn" id="4_tukel"]
+[ext_resource type="PackedScene" uid="uid://ptu848aiao14" path="res://scene/moving_objects/explorsion.tscn" id="4_tukel"]
 [ext_resource type="Texture2D" uid="uid://bsjwo4i7qybov" path="res://assets/img/effect/hit_effect.png" id="5_h8fb5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wwevn"]

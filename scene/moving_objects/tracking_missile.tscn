@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://b43i8ens1prfi"]
 
-[ext_resource type="PackedScene" uid="uid://0yie2yefqoyr" path="res://scene/planes/base_bullet.tscn" id="1_1tw70"]
+[ext_resource type="PackedScene" uid="uid://0yie2yefqoyr" path="res://scene/moving_objects/base_bullet.tscn" id="1_1tw70"]
 [ext_resource type="Texture2D" uid="uid://dmqkxmkmay7j2" path="res://assets/img/moving_objects/player/tracking_missile.png" id="2_g25ej"]
 [ext_resource type="Script" path="res://scripts/planes/tracking_missile.gd" id="2_m0fd0"]
 

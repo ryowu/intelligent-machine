@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://ckeajbjqoj4te"]
 
-[ext_resource type="PackedScene" uid="uid://bmxa75rbv52mk" path="res://scene/planes/base_enemy.tscn" id="1_fer35"]
+[ext_resource type="PackedScene" uid="uid://bmxa75rbv52mk" path="res://scene/moving_objects/base_enemy.tscn" id="1_fer35"]
 [ext_resource type="Texture2D" uid="uid://cbrmuo8fioj22" path="res://assets/img/moving_objects/plane/enemy_1.png" id="2_kjgck"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2h1st"]

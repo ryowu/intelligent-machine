@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cgovry2gg1qm7"]
 
-[ext_resource type="PackedScene" uid="uid://0yie2yefqoyr" path="res://scene/planes/base_bullet.tscn" id="1_3i77w"]
+[ext_resource type="PackedScene" uid="uid://0yie2yefqoyr" path="res://scene/moving_objects/base_bullet.tscn" id="1_3i77w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bbrda"]
 size = Vector2(52, 35)
