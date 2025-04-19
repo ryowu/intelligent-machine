@@ -11,6 +11,7 @@ var bgms = [
 
 var score: int = 0
 var player_skill_amount = 3
+var player_life = 3
 var skill_progress: int = 100
 var charactor_name = "Yunfeng"
 var coin_count = 0
@@ -25,6 +26,7 @@ func _ready() -> void:
 	skill_timer.start()
 
 func new_game():
+	player_life = 3
 	pass
 
 func new_stage():

@@ -95,4 +95,5 @@ func _on_player_die(new_life: int):
 		await get_tree().process_frame
 		init_player(player_scene_path)
 	else:
-		pass
+		await get_tree().create_timer(3).timeout
+		get_tree().change_scene_to_file("res://scene/sys/main_menu.tscn")

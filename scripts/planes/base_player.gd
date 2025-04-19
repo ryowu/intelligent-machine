@@ -19,7 +19,7 @@ var immune = true
 var even_bullet_counter = true
 var spawn_position = Vector2(200, 300)
 var speed = BASIC_SPEED
-var lives = 3
+
 var power_level = 1
 var speed_level = 1
 var side_weapon_level = 0
@@ -130,8 +130,8 @@ func die():
 	explorsion.play("explode_md")
 	await explorsion.animation_finished
 	await player_die.finished
-	lives -= 1
-	on_player_die.emit(lives)
+	GlobalManager.player_life -= 1
+	on_player_die.emit(GlobalManager.player_life)
 
 func _on_gold_picker_area_entered(area: Area2D) -> void:
 	if area.is_in_group("coin") and area.has_method("fly_to_player"):
