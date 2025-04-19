@@ -25,7 +25,7 @@ position = Vector2(620, 314)
 texture = ExtResource("3_k16ji")
 
 [node name="pyramyd" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer_bottom" index="1"]
-position = Vector2(939, 322)
+position = Vector2(926, 320)
 texture = ExtResource("5_jtlxg")
 
 [node name="ParallaxLayer_middle" parent="ParallaxBackground" index="2"]

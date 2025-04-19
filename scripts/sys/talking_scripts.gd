@@ -14,3 +14,11 @@ var stage1_2: Array = [
 	{"char": "@Yunfeng", "sentence": "我们人类是靠意志活下来的", "voice_path": "res://assets/voice/stage1/stage1_8.mp3"},
 	{"char": "@Xiaoai", "sentence": "大猫咪不听话可是要受到惩罚哦", "voice_path": "res://assets/voice/stage1/stage1_9.mp3"}
 ]
+
+var stage2_1: Array = [
+	{"char": "Kate", "sentence": "我们的设备监测到沙漠中出现了巨大的能量反应", "voice_path": "res://assets/voice/stage2/stage2_1.mp3"},
+	{"char": "Kate", "sentence": "人工智能一定是发现了古埃及的某种技术", "voice_path": "res://assets/voice/stage2/stage2_2.mp3"},
+	{"char": "Kate", "sentence": "要赶在它们到达前阻止它们", "voice_path": "res://assets/voice/stage2/stage2_3.mp3"},
+	{"char": "@Yunfeng", "sentence": "我要把这些机器变为废铁", "voice_path": "res://assets/voice/stage2/stage2_4.mp3"},
+	{"char": "@Xiaoai", "sentence": "这里的太阳光太强烈了，幸好小爱涂了防晒霜", "voice_path": "res://assets/voice/stage2/stage2_5.mp3"}
+]
