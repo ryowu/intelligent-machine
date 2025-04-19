@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dffqvb866alv6"
-path="res://.godot/imported/orb3.png-f5181610227d396e9aaffccb55c0fa84.ctex"
+uid="uid://bnn5ye7uksh6b"
+path="res://.godot/imported/player_bullet_single.png-559370bddbd76140a1f57f3313d284af.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/img/planes/player/energy_orb/orb3.png"
-dest_files=["res://.godot/imported/orb3.png-f5181610227d396e9aaffccb55c0fa84.ctex"]
+source_file="res://assets/img/moving_objects/player/player_bullet_single.png"
+dest_files=["res://.godot/imported/player_bullet_single.png-559370bddbd76140a1f57f3313d284af.ctex"]
 
 [params]
 

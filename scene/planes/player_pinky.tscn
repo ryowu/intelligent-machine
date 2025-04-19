@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://bfu6m3vk215tl"]
 
 [ext_resource type="PackedScene" uid="uid://dan2jb8oqxnqh" path="res://scene/planes/base_player.tscn" id="1_31pso"]
-[ext_resource type="Texture2D" uid="uid://cx6okpxh4pg25" path="res://assets/img/planes/player/player_pinky.png" id="2_nfdfx"]
+[ext_resource type="Texture2D" uid="uid://cx6okpxh4pg25" path="res://assets/img/moving_objects/player/player_pinky.png" id="2_nfdfx"]
 [ext_resource type="Script" path="res://scripts/planes/player_pinky.gd" id="2_rabhu"]
 [ext_resource type="AudioStream" uid="uid://cukf66rfxgojk" path="res://assets/voice/chars_die/xiaoai_die.mp3" id="4_hg8b6"]
 

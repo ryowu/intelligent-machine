@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bmxa75rbv52mk" path="res://scene/planes/base_enemy.tscn" id="1_0nmqp"]
 [ext_resource type="Script" path="res://scripts/planes/enemy_support_speed.gd" id="2_qipq1"]
-[ext_resource type="Texture2D" uid="uid://vj0weg1o15af" path="res://assets/img/planes/enemy/enemy_support_speed.png" id="2_vf7xe"]
+[ext_resource type="Texture2D" uid="uid://vj0weg1o15af" path="res://assets/img/moving_objects/plane/enemy_support_speed.png" id="2_vf7xe"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xadpg"]
 size = Vector2(202, 50)

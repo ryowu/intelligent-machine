@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bi2fwijh6xkw"
-path="res://.godot/imported/player_silver_shark.png-cbbd2e59100298b01988abdfb6bb6af2.ctex"
+uid="uid://md10ccjnfgeu"
+path="res://.godot/imported/missile.png-7939f80f41a22b11b1d795e6e88113c2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/img/planes/player/player_silver_shark.png"
-dest_files=["res://.godot/imported/player_silver_shark.png-cbbd2e59100298b01988abdfb6bb6af2.ctex"]
+source_file="res://assets/img/moving_objects/player/missile.png"
+dest_files=["res://.godot/imported/missile.png-7939f80f41a22b11b1d795e6e88113c2.ctex"]
 
 [params]
 

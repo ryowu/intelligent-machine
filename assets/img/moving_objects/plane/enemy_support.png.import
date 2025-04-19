@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b5tp5iyovl3v6"
-path="res://.godot/imported/orb4.png-74c33e66043e019310ef92bc1a31fc0a.ctex"
+uid="uid://bxx0w0itbp384"
+path="res://.godot/imported/enemy_support.png-99892a7f9ef767d6d703ebf9c98eb63f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/img/planes/player/energy_orb/orb4.png"
-dest_files=["res://.godot/imported/orb4.png-74c33e66043e019310ef92bc1a31fc0a.ctex"]
+source_file="res://assets/img/moving_objects/plane/enemy_support.png"
+dest_files=["res://.godot/imported/enemy_support.png-99892a7f9ef767d6d703ebf9c98eb63f.ctex"]
 
 [params]
 

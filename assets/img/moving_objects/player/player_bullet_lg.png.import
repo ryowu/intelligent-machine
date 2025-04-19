@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://6lg8jg24vkwu"
-path="res://.godot/imported/fireball_poly_md.png-0c039819ff5e3a6534cdd0e65502c4c5.ctex"
+uid="uid://bcdw8sgfp0wba"
+path="res://.godot/imported/player_bullet_lg.png-ec16ca63031d55d3ec9f2f205d3a258c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/img/planes/fireball_enemy/fireball_poly_md.png"
-dest_files=["res://.godot/imported/fireball_poly_md.png-0c039819ff5e3a6534cdd0e65502c4c5.ctex"]
+source_file="res://assets/img/moving_objects/player/player_bullet_lg.png"
+dest_files=["res://.godot/imported/player_bullet_lg.png-ec16ca63031d55d3ec9f2f205d3a258c.ctex"]
 
 [params]
 

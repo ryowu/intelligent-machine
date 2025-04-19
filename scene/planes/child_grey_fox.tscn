@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bdp8oxcvojtyw"]
 
 [ext_resource type="Script" path="res://scripts/planes/child_grey_fox.gd" id="1_ba8o7"]
-[ext_resource type="Texture2D" uid="uid://cw6yt2wnrn8o2" path="res://assets/img/planes/player/child_1.png" id="1_co76f"]
+[ext_resource type="Texture2D" uid="uid://cw6yt2wnrn8o2" path="res://assets/img/moving_objects/player/child_1.png" id="1_co76f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_74000"]
 size = Vector2(186.667, 58.3333)

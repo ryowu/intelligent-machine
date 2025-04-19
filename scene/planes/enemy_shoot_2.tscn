@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://voh8wawdpuo5"]
 
 [ext_resource type="PackedScene" uid="uid://bmxa75rbv52mk" path="res://scene/planes/base_enemy.tscn" id="1_yav1l"]
-[ext_resource type="Texture2D" uid="uid://ba6gl8o527fs0" path="res://assets/img/planes/enemy/enemy_3.png" id="2_0r4s3"]
+[ext_resource type="Texture2D" uid="uid://ba6gl8o527fs0" path="res://assets/img/moving_objects/plane/enemy_3.png" id="2_0r4s3"]
 [ext_resource type="Script" path="res://scripts/planes/enemy_shoot_2.gd" id="2_24ukq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_avyv5"]

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c6x7cdskqnpnk"
-path="res://.godot/imported/player_child_bullet_blue.png-b8356e7d9e55e76f08ddf8d3c6110169.ctex"
+uid="uid://cbrmuo8fioj22"
+path="res://.godot/imported/enemy_1.png-6e4b340228fe40c36dbe3405a601e462.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/img/planes/player/player_child_bullet_blue.png"
-dest_files=["res://.godot/imported/player_child_bullet_blue.png-b8356e7d9e55e76f08ddf8d3c6110169.ctex"]
+source_file="res://assets/img/moving_objects/plane/enemy_1.png"
+dest_files=["res://.godot/imported/enemy_1.png-6e4b340228fe40c36dbe3405a601e462.ctex"]
 
 [params]
 

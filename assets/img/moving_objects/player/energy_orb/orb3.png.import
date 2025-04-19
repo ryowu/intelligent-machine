@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b8d7aoimekhfa"
-path="res://.godot/imported/pinky_bullet.png-477da28fd3dbf89cfb8f7578daa4a211.ctex"
+uid="uid://dffqvb866alv6"
+path="res://.godot/imported/orb3.png-bc1ee34188e635c7d9e869157c40a0a1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/img/planes/player/pinky_bullet.png"
-dest_files=["res://.godot/imported/pinky_bullet.png-477da28fd3dbf89cfb8f7578daa4a211.ctex"]
+source_file="res://assets/img/moving_objects/player/energy_orb/orb3.png"
+dest_files=["res://.godot/imported/orb3.png-bc1ee34188e635c7d9e869157c40a0a1.ctex"]
 
 [params]
 

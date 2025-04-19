@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cx6okpxh4pg25"
-path="res://.godot/imported/player_pinky.png-398a14b3723effab77af4164cc9eb718.ctex"
+uid="uid://dmqkxmkmay7j2"
+path="res://.godot/imported/tracking_missile.png-8895e40d2f9fb965b8ce41374f04e156.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/img/planes/player/player_pinky.png"
-dest_files=["res://.godot/imported/player_pinky.png-398a14b3723effab77af4164cc9eb718.ctex"]
+source_file="res://assets/img/moving_objects/player/tracking_missile.png"
+dest_files=["res://.godot/imported/tracking_missile.png-8895e40d2f9fb965b8ce41374f04e156.ctex"]
 
 [params]
 

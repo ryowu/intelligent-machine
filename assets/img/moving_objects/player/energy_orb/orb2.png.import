@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b02d3gsrtjjdt"
-path="res://.godot/imported/fireball_sm.png-dc4c05f18bb3a29d207fd976f412e55b.ctex"
+uid="uid://u4dj01rjrpwp"
+path="res://.godot/imported/orb2.png-aa24da8ea8cd942d5dbd668f3c8f1fa3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/img/planes/fireball_enemy/fireball_sm.png"
-dest_files=["res://.godot/imported/fireball_sm.png-dc4c05f18bb3a29d207fd976f412e55b.ctex"]
+source_file="res://assets/img/moving_objects/player/energy_orb/orb2.png"
+dest_files=["res://.godot/imported/orb2.png-aa24da8ea8cd942d5dbd668f3c8f1fa3.ctex"]
 
 [params]
 

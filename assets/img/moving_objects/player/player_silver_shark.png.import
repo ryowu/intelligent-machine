@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://wd5qei52ef3h"
-path="res://.godot/imported/orb1.png-5130b049f23a8a89c9a95194d2fd9236.ctex"
+uid="uid://bi2fwijh6xkw"
+path="res://.godot/imported/player_silver_shark.png-d5af7e3f3f98349b7028b75ccb8ac6b1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/img/planes/player/energy_orb/orb1.png"
-dest_files=["res://.godot/imported/orb1.png-5130b049f23a8a89c9a95194d2fd9236.ctex"]
+source_file="res://assets/img/moving_objects/player/player_silver_shark.png"
+dest_files=["res://.godot/imported/player_silver_shark.png-d5af7e3f3f98349b7028b75ccb8ac6b1.ctex"]
 
 [params]
 

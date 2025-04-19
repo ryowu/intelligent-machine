@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://u4dj01rjrpwp"
-path="res://.godot/imported/orb2.png-0304f9e51e8f8135fd84f269cd59413e.ctex"
+uid="uid://cx6okpxh4pg25"
+path="res://.godot/imported/player_pinky.png-3f19afb154f94caa42385982560dfd87.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/img/planes/player/energy_orb/orb2.png"
-dest_files=["res://.godot/imported/orb2.png-0304f9e51e8f8135fd84f269cd59413e.ctex"]
+source_file="res://assets/img/moving_objects/player/player_pinky.png"
+dest_files=["res://.godot/imported/player_pinky.png-3f19afb154f94caa42385982560dfd87.ctex"]
 
 [params]
 

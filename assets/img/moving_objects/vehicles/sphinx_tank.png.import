@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dmqkxmkmay7j2"
-path="res://.godot/imported/tracking_missile.png-337951d2e0ded0a90b2a03c224a6e57d.ctex"
+uid="uid://bipqrfr78runv"
+path="res://.godot/imported/sphinx_tank.png-21376f1739cee228176f5cf32531b8f9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/img/planes/player/tracking_missile.png"
-dest_files=["res://.godot/imported/tracking_missile.png-337951d2e0ded0a90b2a03c224a6e57d.ctex"]
+source_file="res://assets/img/moving_objects/vehicles/sphinx_tank.png"
+dest_files=["res://.godot/imported/sphinx_tank.png-21376f1739cee228176f5cf32531b8f9.ctex"]
 
 [params]
 

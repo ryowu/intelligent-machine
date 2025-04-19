@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://by04fgm53yoxj"]
 
-[ext_resource type="Texture2D" uid="uid://md10ccjnfgeu" path="res://assets/img/planes/player/missile.png" id="1_4i2tg"]
+[ext_resource type="Texture2D" uid="uid://md10ccjnfgeu" path="res://assets/img/moving_objects/player/missile.png" id="1_4i2tg"]
 [ext_resource type="PackedScene" uid="uid://0yie2yefqoyr" path="res://scene/planes/base_bullet.tscn" id="1_o58nf"]
 [ext_resource type="Script" path="res://scripts/planes/player_missile.gd" id="1_r24dr"]
 
