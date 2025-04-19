@@ -3,4 +3,3 @@ shoot_1 animation top view
 voices when event happen, more vivid
 Bomb pickable from enemy
 Pickable item fly around
-do not shoot when dying for boss

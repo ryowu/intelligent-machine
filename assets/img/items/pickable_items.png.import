@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dt4dpqet41rcq"
-path="res://.godot/imported/side_power_item.png-61aebe7ba1d820d2572f149d25cb514c.ctex"
+uid="uid://c2m8b5o6jo077"
+path="res://.godot/imported/pickable_items.png-3e8a48118bacf79ffc65aa621fece2d2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/img/items/side_power_item.png"
-dest_files=["res://.godot/imported/side_power_item.png-61aebe7ba1d820d2572f149d25cb514c.ctex"]
+source_file="res://assets/img/items/pickable_items.png"
+dest_files=["res://.godot/imported/pickable_items.png-3e8a48118bacf79ffc65aa621fece2d2.ctex"]
 
 [params]
 
