@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://scripts/sys/stage_clear_panel.gd" id="1_ade7e"]
 [ext_resource type="FontFile" uid="uid://cxjka85katcg8" path="res://assets/font/NotoSerifSC-Light.ttf" id="1_m6udf"]
-[ext_resource type="AudioStream" uid="uid://bdb0lmnlvc667" path="res://assets/sound/Coin3.wav" id="3_m6xjs"]
-[ext_resource type="AudioStream" uid="uid://c1mycq88culud" path="res://assets/sound/Cash Register 1-2.wav" id="4_6ecab"]
+[ext_resource type="AudioStream" uid="uid://b1sbe8abtl31d" path="res://assets/sound/Coin3.mp3" id="3_n874o"]
+[ext_resource type="AudioStream" uid="uid://dah6ftludblh4" path="res://assets/sound/Cash Register 1-2.mp3" id="4_cs503"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h1rit"]
 bg_color = Color(0, 0, 0, 0.435294)
@@ -59,7 +59,7 @@ text = "奖励分数：2500"
 horizontal_alignment = 1
 
 [node name="collect_coin" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("3_m6xjs")
+stream = ExtResource("3_n874o")
 
 [node name="cash_registry" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("4_6ecab")
+stream = ExtResource("4_cs503")
