@@ -4,3 +4,4 @@ voices when event happen, more vivid
 Bomb pickable from enemy
 player die
 move player data to global
+when player die, still can pickup item
