@@ -7,6 +7,8 @@ var current_sentence_index: int = 0
 var is_talking: bool = false
 var audio_player: AudioStreamPlayer
 var talking_script: Array = []
+var dialog_input_blocked: bool = false
+
 signal dialog_ended
 
 func _ready():
@@ -16,7 +18,7 @@ func _ready():
 	add_child(audio_player)
 
 func _process(_delta):
-	if is_talking and Input.is_action_just_pressed("ui_accept"):
+	if is_talking and not dialog_input_blocked and Input.is_action_just_pressed("ui_accept"):
 		show_next_sentence()
 
 func start_dialog(dialog_name: String):
@@ -28,6 +30,9 @@ func start_dialog(dialog_name: String):
 			is_talking = true
 			current_sentence_index = 0
 			show_next_sentence()
+			dialog_input_blocked = true
+			await get_tree().create_timer(0.5).timeout
+			dialog_input_blocked = false
 
 func stop_dialog():
 	audio_player.stop()
@@ -37,9 +42,6 @@ func stop_dialog():
 	dialog_ended.emit()
 
 func show_next_sentence():
-	if audio_player.playing and current_sentence_index < 2:
-		return
-
 	if current_sentence_index == talking_script.size():
 		wait_for_ui_accept_to_close()
 		return

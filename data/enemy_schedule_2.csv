@@ -1,126 +1,66 @@
 0.1,command,change_bgm res://assets/music/pyramid.mp3
-#0.5,command,start_dialog stage2_1
+0.5,command,start_dialog stage2_1
+1,pyramid,1300 200
+2,pyramid,1300 300
+3,pyramid,1300 250
 
-#1,xuanwu, 1300 320
-#1,command,start_dialog stage1_2
-#1,command,stop 1
-
-1,sphinx_tank,1300 570
 4,sphinx_tank,1300 570
-7,sphinx_tank,1300 570
+6,sphinx_tank,1300 570
+8,sphinx_tank,1300 570
+10,sphinx_tank,1300 570
 
-9,shoot_1,1300 200
-9.5,shoot_1,1300 300
-10,shoot_1,1300 400
+12,pyramid,1300 200
+13,pyramid,1300 300
+14,support_speed,1300 250
 
-11.5,shoot_1,1300 450
-12,shoot_1,1300 350
-12.5,shoot_1,1300 250
+15,sphinx_tank,1300 570
+16,sphinx_tank,1300 570
+17,sphinx_tank,1300 570
 
-12.5,normal,1300 200
-13,normal,1300 150
-13,normal,1300 250
+20,pyramid,1300 200
+21,support,1300 150,1
+22,pyramid,1300 300
 
-14,normal,1300 400
-14.5,normal,1300 350
-14.5,normal,1300 450
+23,sphinx_tank,1300 570
+24,sphinx_tank,1300 570
 
-15,support_speed,1300 150
+26,pyramid,1300 250
+27,pyramid,1300 350
+28,pyramid,1300 200
 
-18,shoot_1,1300 200
-18,shoot_1,1300 300
-18,shoot_1,1300 400
-18,shoot_1,1300 500
+30,sphinx_tank,1300 570
+31,sphinx_tank,1300 570
 
-20,shoot_1,1300 150
-20,shoot_1,1300 250
-20,shoot_1,1300 350
-20,shoot_1,1300 450
+33,pyramid,1300 300
+34,pyramid,1300 180
+35,support_speed,1300 270
 
-20.5,support,1300 300,1
+36,sphinx_tank,1300 570
+37,sphinx_tank,1300 570
 
-22,normal,1300 200
-22.5,normal,1300 150
-22.5,normal,1300 250
+39,pyramid,1300 220
+40,pyramid,1300 320
+41,pyramid,1300 150
 
-23,normal,1300 400
-23.5,normal,1300 350
-23.5,normal,1300 450
+42,sphinx_tank,1300 570
+43,sphinx_tank,1300 570
+44,sphinx_tank,1300 570
 
-24,shoot_2,900 -40,0
-24,shoot_2,900 670,1
+46,support,1300 250,1
+47,pyramid,1300 350
+48,pyramid,1300 300
 
-24,support,1300 300
+49,sphinx_tank,1300 570
+50,sphinx_tank,1300 570
 
-29,normal,1300 200
-29,normal,1300 400
+52,pyramid,1300 200
+53,pyramid,1300 250
 
-30,normal,1300 250
-30,normal,1300 350
+54,sphinx_tank,1300 570
+55,sphinx_tank,1300 570
 
-34,shoot_3,1300 280
-34,shoot_3,1300 430
-
-35.5,shoot_3,1300 200
-35.5,shoot_3,1300 500
-
-37,shoot_3,1300 280
-37,shoot_3,1300 430
-
-39,shoot_2,900 -40,0
-39,shoot_2,900 670,1
-
-39,shoot_3,1300 280
-39,shoot_3,1300 430
-
-40,shoot_3,1300 150
-40,shoot_3,1300 450
-
-41,shoot_3,1300 300
-41,shoot_3,1300 360
-
-43,shoot_2,800 -40,0
-43,shoot_2,800 670,1
-
-46,shoot_3,1300 200
-46,shoot_3,1300 450
-
-48,support,1300 250
-
-49,shoot_3,1300 200
-49,shoot_3,1300 450
-
-50,shoot_2,800 -40,0
-50,shoot_2,800 670,1
-
-51,normal,1300 200
-51,normal,1300 400
-
-52,normal,1300 250
-52,normal,1300 350
-
-52,support,1300 250,1
-
-54,shoot_1,1300 150
-54,shoot_1,1300 250
-54,shoot_1,1300 350
-54,shoot_1,1300 450
-
-55,shoot_3,1300 200
-55,shoot_3,1300 450
-
-56,shoot_3,1300 200
-56,shoot_3,1300 450
-
-57,shoot_1,1300 150
-57,shoot_1,1300 250
-57,shoot_1,1300 350
-57,shoot_1,1300 450
-
-58,shoot_3,1300 200
-58,shoot_3,1300 300
-58,shoot_3,1300 400
-58,shoot_3,1300 500
+57,pyramid,1300 300
+58,pyramid,1300 180
 
 60,command,fade_out_bgm 2
 

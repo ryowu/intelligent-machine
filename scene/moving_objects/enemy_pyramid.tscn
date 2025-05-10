@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://cmncjoi08sb1b"]
+
+[ext_resource type="PackedScene" uid="uid://bmxa75rbv52mk" path="res://scene/moving_objects/base_enemy.tscn" id="1_xt084"]
+[ext_resource type="Script" path="res://scripts/planes/enemy_pyramid.gd" id="2_chgfo"]
+[ext_resource type="Texture2D" uid="uid://cgfvriiy4qc6d" path="res://assets/img/moving_objects/plane/enemy_5/enemy_5_1.png" id="2_qwfxl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ylxsp"]
+size = Vector2(164, 84.75)
+
+[node name="enemy_pyramid" instance=ExtResource("1_xt084")]
+script = ExtResource("2_chgfo")
+fireball_speed = 380
+fireball_shoot_interval = 2.5
+
+[node name="enemy_body" parent="." index="0"]
+texture = ExtResource("2_qwfxl")
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_ylxsp")
