@@ -13,7 +13,7 @@ extends Node2D
 var is_focused = false
 var yunfeng_voice_index := 0
 var xiaoai_voice_index := 0
-const first_stage = "res://scene/stages/stage_3.tscn"
+const first_stage = "res://scene/stages/stage_1.tscn"
 
 const yunfeng_description = "云峰（Yunfeng）\n空军上校，年龄30，作战经验丰富\n多次执行高危任务，冷静果断\n擅长指挥与战术规划，是团队核心\n内心坚毅，沉稳可靠，战友信赖的领袖\n誓为人类守护最后一道防线"
 const silver_shark_description = "机体：银鲨号
