@@ -80,7 +80,7 @@ func move_final_drift(delta):
 	position.x -= final_drift_speed * delta
 
 func _on_item_area_area_entered(area: Area2D) -> void:
-	if area.is_in_group("player") and !picked:
+	if area.is_in_group("player") and !picked and !area.dying:
 		picked = true
 		sprite.visible = false
 		do_pickup(area)

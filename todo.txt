@@ -2,6 +2,5 @@ magnet to grab all coins in the screen
 shoot_1 animation top view
 voices when event happen, more vivid
 Bomb pickable from enemy
-player die
-move player data to global
-when player die, still can pickup item
+player die, throw power item by difficulty
+Fixed: when player die, still can pickup item
