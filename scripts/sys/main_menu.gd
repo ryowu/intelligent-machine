@@ -10,6 +10,7 @@ func _ready():
 
 func _on_btn_start_pressed() -> void:
 	GlobalManager.disable_all_buttons(get_tree().current_scene)
+	GlobalManager.new_game()
 	button_confirm.play()
 	await button_confirm.finished
 	get_tree().change_scene_to_file("res://scene/sys/select_player.tscn")
