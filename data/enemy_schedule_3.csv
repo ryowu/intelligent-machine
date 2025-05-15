@@ -1,5 +1,5 @@
 0.1,command,change_bgm res://assets/music/knight_go.mp3
-0.5,command,start_dialog stage2_1
+0.5,command,start_dialog stage3_1
 1,normal,1300 200
 2,normal,1300 300
 3,shoot_1,1300 250

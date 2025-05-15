@@ -38,6 +38,7 @@ func init_player(scene_path: String) -> void:
 	player_1.name = GlobalConfig.PLAYER_NODE_NAME
 	player_1.position = Vector2(-300, 300)
 	set_player_data()
+	set_display_text()
 	add_child(player_1)
 
 	player_1.on_power_change.connect(_on_power_change)
@@ -54,6 +55,13 @@ func set_player_data() -> void:
 	player_1.power_level = GlobalManager.player_main_weapon_level
 	player_1.side_weapon_level = GlobalManager.player_side_weapon_level
 	player_1.speed_level = GlobalManager.player_speed_level
+	player_1.speed = player_1.BASIC_SPEED + (player_1.speed_level - 1) * player_1.SPEED_INCREMENT
+
+func set_display_text() -> void:
+	lbl_score.text = "分数: " + str(GlobalManager.score)
+	_on_power_change(player_1.power_level)
+	_on_side_power_change(player_1.side_weapon_level)
+	_on_speed_change(player_1.speed_level)
 
 func update_score_label(new_score):
 	lbl_score.text = "分数: " + str(new_score)
@@ -74,10 +82,6 @@ func on_boss_died():
 	stage_clear_panel.update_view()
 	stage_clear_panel.visible = true
 	stage_clear_panel.launch_sum_up()
-
-	GlobalManager.player_main_weapon_level = player_1.power_level
-	GlobalManager.player_side_weapon_level = player_1.side_weapon_level
-	GlobalManager.player_speed_level = player_1.speed_level
 
 func _on_power_change(new_power):
 	if new_power == 4:

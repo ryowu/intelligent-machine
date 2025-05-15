@@ -100,7 +100,7 @@ func increase_power(power_increase: int):
 	if power_level > 4:
 		power_level = 4
 		GlobalManager.add_score(500)
-
+	GlobalManager.player_main_weapon_level = power_level
 	on_power_change.emit(power_level)
 
 func increase_side_power(side_power_increase: int):
@@ -109,7 +109,7 @@ func increase_side_power(side_power_increase: int):
 	if side_weapon_level > 2:
 		side_weapon_level = 2
 		GlobalManager.add_score(500)
-
+	GlobalManager.player_side_weapon_level = side_weapon_level
 	on_side_power_change.emit(side_weapon_level)
 
 func increase_speed():
@@ -118,6 +118,7 @@ func increase_speed():
 	if speed_level > 4:
 		speed_level = 4
 		GlobalManager.add_score(500)
+	GlobalManager.player_speed_level = speed_level
 	speed = BASIC_SPEED + (speed_level - 1) * SPEED_INCREMENT
 	on_speed_change.emit(speed_level)
 

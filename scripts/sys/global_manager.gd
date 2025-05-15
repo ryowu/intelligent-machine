@@ -13,7 +13,7 @@ var score: int = 0
 var player_skill_amount = 3
 var player_life = 3
 var player_main_weapon_level = 1
-var player_side_weapon_level = 1
+var player_side_weapon_level = 0
 var player_speed_level = 1
 var skill_progress: int = 100
 var charactor_name = "Yunfeng"
@@ -31,7 +31,7 @@ func _ready() -> void:
 func new_game():
 	player_life = 3
 	player_main_weapon_level = 1
-	player_side_weapon_level = 1
+	player_side_weapon_level = 0
 	player_speed_level = 1
 	pass
 
